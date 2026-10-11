@@ -69,6 +69,18 @@ def index():
     return FileResponse(WEB / "index.html")
 
 
+@app.get("/architecture")
+def architecture():
+    """The architecture card, used in the demo video."""
+    return FileResponse(WEB / "architecture.html")
+
+
+@app.get("/learnings")
+def learnings():
+    """The what-fought-back card, used in the demo video."""
+    return FileResponse(WEB / "learnings.html")
+
+
 @app.get("/data/{name}")
 def data_file(name: str):
     """Serve the committed geographic data the page draws with."""

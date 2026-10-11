@@ -69,6 +69,17 @@ CAPTIONS: dict[str, tuple[str, str]] = {
         "The air it was decided from — hour by hour, against CPCB's national bands.",
         "The strip below is the mixing layer: how far the air can rise before it stops.",
     ),
+    "architecture": (
+        "Python throughout. Cedar is the gate, Strands writes prose, four AWS services "
+        "hold the record.",
+        "Nothing in the chain needs an API key, a card, or a paid account — that is a "
+        "design constraint, not an accident.",
+    ),
+    "learnings": (
+        "Four things I got wrong, and what each one changed.",
+        "A degenerate budget clause. 150 schools that were never in Delhi. Cedar's "
+        "missing float type. A selector that silently hid five panels.",
+    ),
     "Cedar clauses + pull quote": (
         "No language model decides anything that affects a child's lungs.",
         "The protocol is Cedar — AWS's open-source policy language. Not a prompt. "
@@ -154,18 +165,24 @@ def card(headline: str, sub: str, loud: bool, path: pathlib.Path) -> None:
 def main() -> None:
     if not RAW.exists():
         raise SystemExit(f"{RAW} missing — run scripts/record_demo.py first")
-    timeline = json.loads((BUILD / "timeline.json").read_text())
+    doc = json.loads((BUILD / "timeline.json").read_text())
+    timeline, preroll = doc["beats"], doc["preroll"]
     CARDS.mkdir(exist_ok=True)
 
     dur = float(subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
          "-of", "csv=p=0", str(RAW)], capture_output=True, text=True).stdout.strip())
     last_end = max(b["end"] for b in timeline)
-    # Playwright starts recording at page creation; the beats start later.
-    offset = max(0.0, dur - last_end)
-    print(f"raw {dur:.1f}s, beats end {last_end:.1f}s, trimming {offset:.2f}s of pre-roll")
+    # Measured at record time, not inferred from durations: inferring it
+    # over-trimmed by 13s and slid every caption off its shot.
+    offset = preroll
+    print(f"raw {dur:.1f}s -> keeping {offset:.2f}s..{offset+last_end:.2f}s "
+          f"({last_end:.1f}s of beats)")
 
-    inputs, filters, idx = ["-ss", f"{offset:.3f}", "-i", str(RAW)], [], 1
+    # Trim both ends: the measured pre-roll off the front, and the
+    # recorder's flush off the tail, so the cut is exactly the beats.
+    inputs, filters, idx = (
+        ["-ss", f"{offset:.3f}", "-t", f"{last_end:.3f}", "-i", str(RAW)], [], 1)
     chain = "[0:v]"
     loud_beats = {"dose bars, 135% and 208%", "Delhi map, 772 schools",
                   "Cedar clauses + pull quote"}

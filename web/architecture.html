@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saans — architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#e7e9e4;--sheet:#f7f8f5;--ink:#000;--ink-2:#4e564d;--ink-3:#7c8479;
+    --rule:#c3c9bf;--aws:#e8821e;--verypoor:#e93f33;--good:#55a84f}
+  *{box-sizing:border-box}
+  /* Sized to fill a 1600x900 video frame rather than a browser window. */
+  html{zoom:1.3}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:Archivo,Mukta,system-ui,sans-serif;font-size:15px;line-height:1.4}
+  .bar{display:flex;align-items:baseline;gap:12px;padding:13px 26px;
+    border-bottom:3px solid var(--ink);background:var(--sheet)}
+  .bar b{font-size:25px;font-weight:800;font-variation-settings:"wdth" 80;
+    letter-spacing:-.03em}
+  .bar span{font-family:Mukta;font-size:16px;color:var(--ink-2)}
+  .bar em{font-style:normal;font-size:13px;color:var(--ink-2);margin-left:auto}
+  h1{font-size:25px;margin:22px 26px 2px;font-weight:700;letter-spacing:-.02em}
+  .sub{margin:0 26px 16px;font-size:14px;color:var(--ink-2);max-width:96ch}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 26px;
+    border:2px solid var(--ink);background:var(--sheet)}
+  .col{border-right:1px solid var(--rule);padding:0 0 12px}
+  .col:last-child{border-right:0}
+  .ch{padding:8px 14px;border-bottom:1.5px solid var(--ink);background:var(--paper);
+    font-size:12px;font-weight:700;font-variation-settings:"wdth" 88;
+    display:flex;justify-content:space-between;align-items:baseline}
+  .ch i{font-style:normal;font-weight:400;color:var(--ink-3);font-size:10.5px}
+  .box{margin:10px 14px 0;border:1px solid var(--rule);background:var(--paper);
+    padding:8px 10px}
+  .box.aws{border-left:4px solid var(--aws);background:#fdf6ee}
+  .box .t{font-weight:700;font-size:13.5px}
+  .box .t u{text-decoration:none;color:var(--aws);font-size:10px;font-weight:800;
+    margin-left:6px;letter-spacing:.04em;vertical-align:1px}
+  .box .d{font-size:11.5px;color:var(--ink-2);margin-top:2px;line-height:1.35}
+  .gate{margin:10px 14px 0;border:2px solid var(--ink);background:#fff;padding:9px 10px}
+  .gate .t{font-weight:800;font-size:14px}
+  .gate .d{font-size:11.5px;color:var(--ink-2);margin-top:3px;line-height:1.35}
+  .rule-note{margin:14px 26px 0;border-left:4px solid var(--ink);padding:8px 14px;
+    font-size:15px;font-weight:600;max-width:70ch}
+  .legend{display:flex;gap:22px;margin:14px 26px 0;font-size:12px;color:var(--ink-2);
+    flex-wrap:wrap}
+  .legend i{display:inline-block;width:12px;height:12px;vertical-align:-2px;
+    margin-right:6px;border:1px solid var(--rule)}
+  .foot{margin:16px 26px 0;font-size:11.5px;color:var(--ink-3);line-height:1.6;
+    max-width:110ch}
+</style>
+</head>
+<body>
+<div class="bar"><b>Saans</b><span>साँस</span>
+  <em>architecture — evidence in, a decision out, and a record of why</em></div>
+
+<h1>Tech stack and architecture</h1>
+<p class="sub">Python throughout. Nothing in the chain needs an API key, a card, or a
+paid account — every dependency is free tier or open source, which is a design
+constraint, not an accident.</p>
+
+<div class="flow">
+  <div class="col">
+    <div class="ch">1 · Evidence<i>free, no key</i></div>
+    <div class="box"><div class="t">Open-Meteo CAMS</div>
+      <div class="d">Hourly PM2.5 forecast and the mixing-layer height, for any
+        coordinate. ERA5 for measured history.</div></div>
+    <div class="box"><div class="t">OpenStreetMap</div>
+      <div class="d">772 Delhi school locations and the NCT boundary, ODbL. Clipped
+        point-in-polygon so Gurugram is not counted as Delhi.</div></div>
+  </div>
+
+  <div class="col">
+    <div class="ch">2 · Decision<i>deterministic</i></div>
+    <div class="box"><div class="t">exposure.py</div>
+      <div class="d">Dose = µg/m³ × hours outdoors × breathing rate, against the WHO
+        guideline week of 150 µg·h.</div></div>
+    <div class="box"><div class="t">decide.py</div>
+      <div class="d">Prices every option for every period: hold it, move it to the
+        cleanest hour, or take it indoors.</div></div>
+    <div class="gate"><div class="t">Cedar <u>AWS OPEN SOURCE</u></div>
+      <div class="d">9 policy clauses. A period stays outdoors only on an
+        <b>allow</b>. Every denial cites its clause. Fails closed.</div></div>
+  </div>
+
+  <div class="col">
+    <div class="ch">3 · Prose only<i>never decisions</i></div>
+    <div class="box aws"><div class="t">Strands Agents SDK <u>AWS OPEN SOURCE</u></div>
+      <div class="d">Four tools over the forecast, the protocol, the ledger and the
+        clause text. Runs on a local model — no key, no spend.</div></div>
+    <div class="gate"><div class="t">guard()</div>
+      <div class="d">Rejects a draft that states an unsupported figure, claims indoors
+        is safe, says "cancelled", or flattens a mixed decision. Falls back to the
+        deterministic summary and says so.</div></div>
+  </div>
+
+  <div class="col">
+    <div class="ch">4 · Record and deliver<i>AWS services</i></div>
+    <div class="box aws"><div class="t">DynamoDB <u>AWS</u></div>
+      <div class="d">The decision ledger — every call, its evidence hash, its
+        clauses.</div></div>
+    <div class="box aws"><div class="t">S3 <u>AWS</u></div>
+      <div class="d">The bilingual notice, stored exactly as it went home.</div></div>
+    <div class="box aws"><div class="t">EventBridge <u>AWS</u></div>
+      <div class="d">cron(15 0 * * ? *) — 05:45 IST, before the gates open.</div></div>
+    <div class="box aws"><div class="t">SES <u>AWS</u></div>
+      <div class="d">Delivery to the principal and the register's parents.</div></div>
+  </div>
+</div>
+
+<div class="rule-note">No language model decides anything that affects a child's lungs.
+  Cedar decides; the model writes one sentence, behind a guard.</div>
+
+<div class="legend">
+  <span><i style="background:#fdf6ee;border-left:4px solid var(--aws)"></i>AWS</span>
+  <span><i style="background:#fff;border:2px solid var(--ink)"></i>Gate — must pass to proceed</span>
+  <span><i style="background:var(--paper)"></i>Free, keyless data or plain Python</span>
+</div>
+
+<p class="foot"><b>Build It path:</b> LocalStack stands in for the four managed
+services, so this runs with no AWS account and no card. The same boto3 calls run
+unchanged against real AWS, and <code>deploy/aws_deploy.py</code> puts it on Lambda
+behind a public Function URL inside the always-free tier. 67 tests.</p>
+</body>
+</html>

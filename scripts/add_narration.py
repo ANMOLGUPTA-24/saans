@@ -44,11 +44,9 @@ LINES: dict[str, str] = {
         "Same evidence, different needs. And every decision cites the clause that "
         "produced it.",
     "dose bars, 135% and 208%":
-        "An air quality index is a colour, for a city, for a day. What a child absorbs "
-        "is a dose. Concentration, times time outdoors, times how hard they are "
-        "breathing. A child at games moves about three times the air through their "
-        "lungs. So one games period costs a hundred and thirty five per cent of a "
-        "child's entire weekly limit.",
+        "An index is a colour for a city. What a child absorbs is a dose: "
+        "concentration, times time outdoors, times how hard they breathe. One games "
+        "period costs a hundred and thirty five per cent of a child's weekly limit.",
     "Delhi map, 772 schools":
         "Seven hundred and seventy two real Delhi schools, every one that Open Street "
         "Map names and locates, clipped to the city border. At all of them, today, one "
@@ -57,6 +55,14 @@ LINES: dict[str, str] = {
         "This is the air it was decided from, hour by hour, against India's national "
         "bands. The strip below is the mixing layer: how far the air can rise before "
         "it stops.",
+    "architecture":
+        "The stack is Python throughout. Free, keyless evidence in. A deterministic "
+        "dose calculation. Cedar as the gate. Strands for prose only. And four AWS "
+        "services holding the record and delivering it.",
+    "learnings":
+        "Four things I got wrong. The budget clause was degenerate. A hundred and "
+        "fifty schools were never in Delhi. Cedar has no float type. And a selector "
+        "silently hid five panels.",
     "Cedar clauses + pull quote":
         "No language model decides anything that affects a child's lungs. The protocol "
         "is Cedar, AWS's open source policy language. It is not a prompt. A period "
@@ -78,8 +84,8 @@ LINES: dict[str, str] = {
         "The local model drafts the notice.",
     "receipts + AWS services":
         "And there are the receipts. A Dynamo D B ledger, the notice in S three, "
-        "Event Bridge on the schedule, S E S delivering it. Cedar and the Strands "
-        "Agents S D K, on the build it path. No AWS account, no key, no spend.",
+        "Event Bridge on the schedule, S E S delivering it. No account, no key, "
+        "no spend.",
     "hold":
         "Saans. The bad air day protocol for Indian schools.",
 }
@@ -104,12 +110,14 @@ def main() -> None:
         raise SystemExit(f"voice model missing: {VOICE}")
     if not SILENT.exists():
         raise SystemExit("run scripts/burn_captions.py first")
-    timeline = json.loads((BUILD / "timeline.json").read_text())
+    doc = json.loads((BUILD / "timeline.json").read_text())
+    timeline = doc["beats"]
     VO.mkdir(exist_ok=True)
 
     total = dur(SILENT)
-    raw_total = max(b["end"] for b in timeline)
-    shift = raw_total - total  # the captioned cut was trimmed of its pre-roll
+    # The captioned cut had the measured pre-roll removed from its front,
+    # so beat times map onto it directly.
+    shift = 0.0
 
     print(f"video {total:.1f}s, {len(timeline)} beats\n")
     clips, problems = [], []

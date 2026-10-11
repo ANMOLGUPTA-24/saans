@@ -32,6 +32,7 @@ W, H = 1600, 900
 
 TIMELINE: list[dict] = []
 T0 = [0.0]
+PREROLL = [0.0]
 
 
 def mark(label: str) -> float:
@@ -75,18 +76,30 @@ def main() -> None:
             reduced_motion="no-preference",
         )
         page = ctx.new_page()
+        # Video recording begins at page creation; everything before the
+        # first beat is pre-roll that must come off the front.
+        t_page = time.monotonic()
         page.goto(URL, wait_until="domcontentloaded")
 
         # Everything must be painted before frame one.
         page.wait_for_selector("table.tt", timeout=90_000)
         page.wait_for_selector("#protocol .cl", timeout=90_000)
         page.wait_for_selector(".leaflet-container canvas", timeout=90_000)
+        # Load the model weights before filming. Cold it costs ~21s and
+        # pushes the cut over three minutes; warm it is ~4s. The run on
+        # camera is still a real run against the real services.
+        print("pre-warming the local model…", flush=True)
+        warm = ctx.request.post(URL + "api/run", data={}, timeout=240_000)
+        print("  warm-up:", warm.status, flush=True)
+
         page.wait_for_timeout(2500)
         T0[0] = time.monotonic()
+        PREROLL[0] = T0[0] - t_page
+        print(f"pre-roll to trim: {PREROLL[0]:.2f}s", flush=True)
         print("page ready, recording beats:", flush=True)
 
         # 1 — the board, cold. Let the yellow register.
-        beat(page, 12, "top bar + timetable")
+        beat(page, 10, "top bar + timetable")
 
         # 2 — Class 11-C keeps a period. The policy engine discriminating.
         page.hover("table.tt tbody tr:nth-child(4) td.cell.out")
@@ -99,32 +112,42 @@ def main() -> None:
 
         # 4 — dose against the WHO week: the one loud moment
         smooth_scroll(page, 430)
-        beat(page, 16, "dose bars, 135% and 208%")
+        beat(page, 14, "dose bars, 135% and 208%")
 
         # 5 — the city
         smooth_scroll(page, 120)
         page.hover(".leaflet-container")
-        beat(page, 13, "Delhi map, 772 schools")
+        beat(page, 11, "Delhi map, 772 schools")
 
         # 6 — the air it was decided from
         smooth_scroll(page, 760)
-        beat(page, 12, "hourly chart")
+        beat(page, 8, "hourly chart")
+
+        # 6b — tech stack and architecture (the submission form asks for it)
+        page.goto(URL + "architecture", wait_until="domcontentloaded")
+        page.wait_for_timeout(900)
+        beat(page, 15, "architecture")
+        page.goto(URL, wait_until="domcontentloaded")
+        page.wait_for_selector("table.tt", timeout=60_000)
+        page.wait_for_selector("#protocol .cl", timeout=60_000)
+        page.wait_for_timeout(1500)
+        smooth_scroll(page, 760)
 
         # 7 — the protocol, in Cedar
         page.click('button[data-tab="protocol"]')
-        beat(page, 15, "Cedar clauses + pull quote")
+        beat(page, 13, "Cedar clauses + pull quote")
 
         # 8 — forecast error
         page.click('button[data-tab="stability"]')
-        beat(page, 13, "decision stability")
+        beat(page, 11, "decision stability")
 
         # 9 — what it is worth, and the quiet day
         page.click('button[data-tab="replay"]')
-        beat(page, 9, "replay")
+        beat(page, 7, "replay")
         page.click("#btn-nov")
-        beat(page, 8, "November smog")
+        beat(page, 6, "November smog")
         page.click("#btn-recent")
-        beat(page, 8, "back to the fortnight, quiet day highlighted")
+        beat(page, 7, "back to the fortnight, quiet day highlighted")
 
         # 10 — AWS, with receipts. This is the bit the rules require.
         page.click('button[data-tab="run"]')
@@ -139,8 +162,13 @@ def main() -> None:
         TIMELINE.append({"label": "MODEL_WAIT", "start": round(wait_start, 2),
                          "end": round(wait_end, 2)})
         print(f"  {wait_start:6.1f}s  model drafting ({wait_end-wait_start:.1f}s)", flush=True)
-        beat(page, 15, "receipts + AWS services")
-        beat(page, 4, "hold")
+        beat(page, 12, "receipts + AWS services")
+
+        # 11 — learning and growth
+        page.goto(URL + "learnings", wait_until="domcontentloaded")
+        page.wait_for_timeout(900)
+        beat(page, 12, "learnings")
+        beat(page, 3, "hold")
         ctx.close()
         browser.close()
 
@@ -150,9 +178,10 @@ def main() -> None:
     raw = OUT / "demo-raw.webm"
     if vids[-1] != raw:
         vids[-1].replace(raw)
-    (OUT / "timeline.json").write_text(json.dumps(TIMELINE, indent=1))
+    (OUT / "timeline.json").write_text(json.dumps(
+        {"preroll": round(PREROLL[0], 3), "beats": TIMELINE}, indent=1))
     print(f"\nwrote {raw} ({raw.stat().st_size/1e6:.1f} MB)")
-    print(f"wrote {OUT/'timeline.json'} — {len(TIMELINE)} beats")
+    print(f"wrote {OUT/'timeline.json'} — {len(TIMELINE)} beats, pre-roll {PREROLL[0]:.2f}s")
 
 
 if __name__ == "__main__":
