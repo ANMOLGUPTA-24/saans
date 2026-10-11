@@ -92,15 +92,15 @@ switched off in a fortnight.
 One school proves the protocol works. It does not show the size of the thing.
 
 Saans runs the same protocol across **every school in Delhi that OpenStreetMap has a
-name and a location for — 922 real places** (ODbL, in [`data/delhi_schools.json`](data/delhi_schools.json)).
+name and a location for — 772 real places** (ODbL, in [`data/delhi_schools.json`](data/delhi_schools.json)).
 The air genuinely varies: 26 µg/m³ between the cleanest and dirtiest mapped school
-this morning, and 55 µg/m³ between the corners of the city. So these are 922 different
-decisions, not one decision printed 922 times.
+this morning, and 55 µg/m³ between the corners of the city. So these are 772 different
+decisions, not one decision printed 772 times.
 
 Today's finding, from live data:
 
-> **At all 922 mapped Delhi schools, a single games period costs more than a child's
-> entire WHO weekly budget.** 407 of them sit in CPCB *Poor*.
+> **At all 772 mapped Delhi schools, a single games period costs more than a child's
+> entire WHO weekly budget.** the worst of them sit in CPCB *Poor*.
 
 Dose is per child by construction, so this needs no enrolment figure and none is
 invented.

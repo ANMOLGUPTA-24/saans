@@ -17,13 +17,13 @@ Do not film a boot sequence. Do not open an IDE.
 
 > **Tab A**, hero. Let the headline sit on screen.
 
-"Nine hundred and twenty-two schools in Delhi. Real schools — every one OpenStreetMap
+"Seven hundred and seventy-two schools in Delhi. Real schools — every one OpenStreetMap
 has a name and a location for.
 
 At **all** of them, today, a single games period costs a child more than their entire
 WHO weekly limit for air pollution. Not the smog season. An ordinary Sunday in October.
 
-Four hundred and seven of them are in air CPCB calls *Poor*. And no school in that city
+Nearly three hundred of them are in air CPCB calls *Poor* or worse. And no school in that city
 is currently computing this, because the number nobody computes is the one that
 matters."
 
@@ -73,7 +73,7 @@ engine discriminating, not a blanket ban."
 > **Tab A**, the Delhi map. Hover one or two points.
 
 "Every school, coloured by what a child takes in there today. You can see the gradient
-across the city — this is not one number copied nine hundred times.
+across the city — this is not one number copied seven hundred times.
 
 And before Saans takes a period away, it tries to keep it: it prices every option and
 looks for the cleanest hour in the school day to move it into. Same activity, same
@@ -145,6 +145,6 @@ off in a fortnight, and then it isn't there on the day it matters."
 ## Don't
 
 - Don't show code files. The pages carry it; reading code eats the clock.
-- Don't apologise on camera for the synthetic roster — the air, the 922 school
+- Don't apologise on camera for the synthetic roster — the air, the 772 school
   locations and the standards are all real, and the site says which is which.
 - Don't read clause text aloud word for word. Point and move.

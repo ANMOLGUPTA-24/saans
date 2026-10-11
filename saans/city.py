@@ -2,13 +2,19 @@
 
 One school proves the protocol works. It does not show the size of the
 thing. This runs the same protocol across every school in Delhi that
-OpenStreetMap has a name and a location for - 922 of them, real places
-with real coordinates - and reports what a child's day costs at each.
+OpenStreetMap has a name and a location for, clipped to the NCT border -
+772 real places with real coordinates - and reports what a child's day
+costs at each.
+
+The clip matters. A bounding box around Delhi also contains Gurugram,
+Noida and Faridabad; 150 of the schools collected were in those, and
+calling them Delhi schools would have been false. The map is what caught
+it: the points sat visibly outside the border.
 
 The air genuinely varies across the city: on a single morning the spread
 between the cleanest and dirtiest corner of Delhi is larger than the
-city's mean. So these are 922 different decisions, not one decision
-printed 922 times.
+city's mean. So these are 772 different decisions, not one decision
+printed 772 times.
 
 Dose is per child by construction - µg·h for one child - so none of this
 needs an enrolment figure, and none of it is invented. Where a number
@@ -31,6 +37,7 @@ from .school import ACTIVITIES, Cohort
 from .sources import AQ_URL, CACHE_DIR, TZ, WX_URL, Hour, Series
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "delhi_schools.json"
+BOUNDARY = Path(__file__).resolve().parent.parent / "data" / "delhi_boundary.json"
 # Open-Meteo counts every location against its per-minute quota, so 922
 # schools across two endpoints is ~1,844 units. Batch, pause, and back off:
 # this is a free public service and the whole project depends on it.
@@ -125,9 +132,37 @@ class CityPicture:
         }
 
 
-def load_schools() -> tuple[list[dict], str]:
+def _inside(lon: float, lat: float, rings: list[list[list[float]]]) -> bool:
+    """Ray casting against the NCT outline.
+
+    The schools were collected from a bounding box, and a box around Delhi
+    also contains Gurugram, Noida and Faridabad. Those are real schools
+    with real air, but they are not in Delhi, and saying "922 schools in
+    Delhi" while counting them would be false.
+    """
+    inside = False
+    for ring in rings:
+        n = len(ring)
+        for i in range(n):
+            x1, y1 = ring[i]
+            x2, y2 = ring[(i + 1) % n]
+            if (y1 > lat) != (y2 > lat):
+                xint = x1 + (lat - y1) * (x2 - x1) / (y2 - y1)
+                if lon < xint:
+                    inside = not inside
+    return inside
+
+
+def load_schools(clip: bool = True) -> tuple[list[dict], str]:
+    """Named schools inside Delhi NCT, with their attribution."""
     doc = json.loads(DATA.read_text())
-    return doc["schools"], doc["attribution"]
+    schools = doc["schools"]
+    attribution = doc["attribution"]
+    if clip and BOUNDARY.exists():
+        geo = json.loads(BOUNDARY.read_text())
+        rings = geo["coordinates"]
+        schools = [s for s in schools if _inside(s["lon"], s["lat"], rings)]
+    return schools, attribution
 
 
 def _series_for(

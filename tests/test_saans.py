@@ -498,7 +498,7 @@ def test_the_school_dataset_is_real_and_attributed():
     from saans.city import load_schools
 
     schools, attribution = load_schools()
-    assert len(schools) > 800
+    assert len(schools) > 600
     assert "OpenStreetMap" in attribution and "ODbL" in attribution
     for s in schools[:50]:
         assert s["name"].strip()
@@ -546,7 +546,7 @@ def test_lambda_serves_the_city_from_the_snapshot(monkeypatch):
     r = TestClient(api.app).get("/api/city")
     assert r.status_code == 200
     body = r.json()
-    assert body["summary"]["schools"] > 800
+    assert body["summary"]["schools"] > 600
     assert body["from_snapshot"]
 
 
@@ -590,3 +590,30 @@ def test_lambda_requirements_exclude_the_local_model_stack():
     assert "mangum" in joined
     for excluded in ("strands-agents", "ollama", "uvicorn"):
         assert excluded not in joined, f"{excluded} must not ship to Lambda"
+
+
+def test_schools_are_clipped_to_the_delhi_boundary():
+    """A bounding box around Delhi also contains Gurugram, Noida and
+    Faridabad. Counting those as Delhi schools would be false, and the
+    map made it visible: points sat outside the border."""
+    from saans.city import BOUNDARY, load_schools, _inside
+    import json
+
+    if not BOUNDARY.exists():
+        pytest.skip("boundary not built")
+    rings = json.loads(BOUNDARY.read_text())["coordinates"]
+    clipped, _ = load_schools(clip=True)
+    raw, _ = load_schools(clip=False)
+    assert len(clipped) < len(raw), "the clip must actually drop something"
+    assert all(_inside(s["lon"], s["lat"], rings) for s in clipped)
+    dropped = [s for s in raw if not _inside(s["lon"], s["lat"], rings)]
+    assert dropped, "a bbox around Delhi always catches NCR neighbours"
+
+
+def test_point_in_polygon_agrees_with_a_known_square():
+    from saans.city import _inside
+
+    sq = [[[0.0, 0.0], [0.0, 10.0], [10.0, 10.0], [10.0, 0.0]]]
+    assert _inside(5, 5, sq)
+    assert not _inside(15, 5, sq)
+    assert not _inside(5, -5, sq)

@@ -69,6 +69,17 @@ def index():
     return FileResponse(WEB / "index.html")
 
 
+@app.get("/data/{name}")
+def data_file(name: str):
+    """Serve the committed geographic data the page draws with."""
+    if name not in ("delhi_boundary.json", "delhi_schools.json"):
+        raise HTTPException(404, "no such file")
+    path = Path(__file__).resolve().parent.parent / "data" / name
+    if not path.exists():
+        raise HTTPException(404, "not built")
+    return FileResponse(path, media_type="application/json")
+
+
 @app.get("/api/school")
 def school():
     return {
@@ -199,7 +210,7 @@ ON_LAMBDA = bool(os.environ.get("AWS_LAMBDA_FUNCTION_NAME"))
 def city(limit: int | None = None):
     """The same protocol, run across every mapped school in Delhi.
 
-    Deriving this live means 922 locations across two endpoints, throttled
+    Deriving this live means ~770 locations across two endpoints, throttled
     to respect a free public API - minutes of work. On Lambda that is
     served from the committed snapshot, which this same engine produced.
     """
@@ -417,7 +428,7 @@ def api_ask(req: AskRequest):
 #   - There is no local model, so the notice's opening line comes from the
 #     deterministic summary. The guard's fallback path is the normal path
 #     here rather than an error case.
-#   - /api/city serves the committed snapshot instead of re-fetching 922
+#   - /api/city serves the committed snapshot instead of re-fetching ~770
 #     schools, which would take minutes and hammer a free public API on
 #     every cold start.
 try:  # pragma: no cover - only meaningful in the deployed runtime

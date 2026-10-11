@@ -3,724 +3,655 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Saans — the bad air day protocol</title>
+<title>Saans — the school air protocol, Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
 <style>
+  /* Saans — an operations console for one decision.
+     The centre panel is a school timetable, because that is the artefact
+     this decision lives in. Colour is CPCB's national AQI palette, the
+     same bands on every pollution board in the country, so the air reads
+     correctly without a legend. One typeface, Archivo, worked across its
+     width axis. Outdoors is the absence of ink: the board darkens as the
+     air gets worse. */
   :root{
-    --ink:#131a16; --ink-2:#4a5a51; --ink-3:#73847a;
-    --paper:#f4f5f2; --card:#ffffff; --line:#dde3dd;
-    --ok:#2c6b4c; --moved:#8a6514; --inside:#9a362a;
-    --accent:#1f5c43; --rule:#c9d3cb;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --paper:#e7e9e4; --sheet:#f7f8f5; --ink:#000; --ink-2:#4e564d; --ink-3:#7c8479;
+    --rule:#c3c9bf; --rule-2:#d9ded5;
+    --good:#55a84f; --satisfactory:#a3c853; --moderate:#f2cd1b;
+    --poor:#f29c33; --verypoor:#e93f33; --severe:#af2d24;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);
-    font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;
+    font-family:Archivo,Mukta,system-ui,sans-serif;font-size:15px;line-height:1.45;
     -webkit-font-smoothing:antialiased}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px 80px}
-  a{color:var(--accent)}
+  .n{font-variant-numeric:tabular-nums lining-nums}
+  button{font:inherit;border-radius:0;cursor:pointer}
+  :focus-visible{outline:3px solid var(--poor);outline-offset:1px}
 
-  /* masthead */
-  header{border-bottom:2px solid var(--ink);padding:26px 0 14px;margin-bottom:26px}
-  .brandrow{display:flex;justify-content:space-between;align-items:flex-end;
-    gap:24px;flex-wrap:wrap}
-  .brand{display:flex;align-items:baseline;gap:12px}
-  h1{font-size:30px;margin:0;letter-spacing:-.022em;font-weight:660}
-  .devanagari{font-size:20px;color:var(--ink-3);font-weight:400}
-  .tagline{margin:8px 0 0;color:var(--ink-2);font-size:14.5px;max-width:62ch}
-  .where{text-align:right;font-size:12.5px;color:var(--ink-2);line-height:1.65}
-  .where b{color:var(--ink);font-weight:600}
+  /* ---- top bar ---- */
+  .bar{display:flex;align-items:stretch;gap:0;border-bottom:3px solid var(--ink);
+    background:var(--sheet);flex-wrap:wrap}
+  .bar .id{display:flex;align-items:baseline;gap:10px;padding:11px 18px;
+    border-right:1px solid var(--rule)}
+  .bar .id b{font-size:27px;font-weight:800;font-variation-settings:"wdth" 80;
+    letter-spacing:-.03em;line-height:1}
+  .bar .id span{font-family:Mukta;font-size:17px;color:var(--ink-2)}
+  .bar .id em{font-style:normal;font-size:11.5px;color:var(--ink-2);
+    max-width:19ch;line-height:1.25}
+  .stat{padding:9px 18px;border-right:1px solid var(--rule);min-width:112px}
+  .stat b{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em;
+    line-height:1.1}
+  .stat i{font-style:normal;font-size:11px;color:var(--ink-2);display:block;
+    margin-top:2px;line-height:1.3}
+  .stat.loud b{color:var(--verypoor)}
+  .bar .spacer{flex:1;border-right:1px solid var(--rule)}
+  .bar .when{padding:9px 18px;text-align:right;font-size:11.5px;color:var(--ink-2);
+    line-height:1.5}
+  .bar .when b{display:block;font-size:14px;color:var(--ink)}
 
-  /* live band */
-  .live{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;
-    background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:18px 22px;margin-bottom:26px}
-  .pm{font-size:48px;font-weight:650;letter-spacing:-.035em;line-height:1;
-    font-variant-numeric:tabular-nums}
-  .pm u{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-3);
-    letter-spacing:0;margin-left:6px}
-  .bandname{font-size:13px;color:var(--ink-2);margin-top:6px}
-  .bandname i{font-style:normal;font-weight:650;color:var(--ink)}
-  .prov{font-size:11.5px;color:var(--ink-3);line-height:1.6}
-  .prov code{font-family:var(--mono);font-size:10.5px;background:var(--paper);
-    padding:1px 5px;border-radius:4px}
-
-  /* sections */
-  section{margin:40px 0 0}
-  .shead{display:flex;align-items:baseline;gap:14px;margin:0 0 4px;
-    border-bottom:1px solid var(--rule);padding-bottom:9px;flex-wrap:wrap}
-  .snum{font-family:var(--mono);font-size:11px;color:var(--ink-3);
-    letter-spacing:.1em;padding-top:4px}
-  h2{font-size:19px;margin:0;letter-spacing:-.015em;font-weight:650}
-  .sdesc{color:var(--ink-2);font-size:14px;margin:12px 0 18px;max-width:76ch}
-
-  /* decision table */
-  table{width:100%;border-collapse:collapse;background:var(--card);
-    border:1px solid var(--line);border-radius:11px;overflow:hidden}
-  th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.075em;
-    color:var(--ink-2);padding:11px 13px;background:#eaefea;font-weight:650;
-    white-space:nowrap}
-  td{padding:12px 13px;border-top:1px solid #eef1ee;vertical-align:top;font-size:14px}
-  tbody tr:hover{background:#fbfcfb}
-  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .sub{color:var(--ink-3);font-size:12px;display:block;margin-top:2px}
-  .verdict{font-weight:650;white-space:nowrap}
-  .verdict.ok{color:var(--ok)} .verdict.moved{color:var(--moved)}
-  .verdict.inside{color:var(--inside)}
-  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;
-    vertical-align:1px}
-  .dot.ok{background:var(--ok)} .dot.moved{background:var(--moved)}
-  .dot.inside{background:var(--inside)}
-  .cite{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
-  .chip{display:inline-block;font-family:var(--mono);font-size:10.5px;
-    border:1px solid var(--rule);border-radius:5px;padding:1px 5px;margin:0 3px 3px 0;
-    background:var(--paper);cursor:help}
-  .arrow{color:var(--ink-3)}
-  .unit{text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink-3)}
-
-  /* class cards */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));
-    gap:13px;margin-top:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;
-    padding:15px 16px}
-  .card h3{margin:0 0 3px;font-size:15px;font-weight:650}
-  .card .roll{font-size:11.5px;color:var(--ink-3);margin-bottom:11px}
-  .kv{display:flex;justify-content:space-between;gap:12px;padding:7px 0;
-    border-top:1px solid #f0f3f0;font-size:13px}
-  .kv span{color:var(--ink-2)} .kv b{text-align:right;font-weight:600}
-  .bar{height:6px;background:#eaefea;border-radius:3px;overflow:hidden;margin-top:10px}
-  .bar i{display:block;height:100%;background:var(--inside);border-radius:3px}
-
-  /* big stats */
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
-    gap:13px;margin-top:4px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:11px;
-    padding:16px 17px}
-  .stat b{display:block;font-size:29px;font-weight:650;letter-spacing:-.03em;
-    font-variant-numeric:tabular-nums;line-height:1.1}
-  .stat span{display:block;font-size:12px;color:var(--ink-2);margin-top:7px;
-    line-height:1.45}
-  .stat.hero b{color:var(--inside)}
-
-  /* chart */
-  .chartwrap{background:var(--card);border:1px solid var(--line);border-radius:11px;
-    padding:18px;margin-top:4px;overflow-x:auto}
-  svg{display:block;max-width:100%;height:auto}
-  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);
-    margin-top:12px}
-  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;
-    margin-right:6px;vertical-align:-1px}
-
-  /* protocol */
-  .clause{background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:13px 15px;margin-bottom:9px;display:grid;
-    grid-template-columns:56px 1fr auto;gap:15px;align-items:start}
-  .clause .cid{font-family:var(--mono);font-size:13px;font-weight:650;
-    color:var(--accent);padding-top:1px}
-  .clause.permit .cid{color:var(--ink-3)}
-  .clause p{margin:0;font-size:13.5px;line-height:1.55}
-  .fired{font-family:var(--mono);font-size:11px;color:var(--ink-2);white-space:nowrap;
-    text-align:right;padding-top:2px}
-  .fired b{color:var(--inside);font-size:13px}
-
-  /* aws */
-  .svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:12px}
-  .svc{background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:14px 15px;font-size:13px}
-  .svc .nm{font-weight:650;display:flex;align-items:center;gap:8px}
-  .svc .st{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.5;
-    font-family:var(--mono);word-break:break-word}
-  .pill{width:8px;height:8px;border-radius:50%;background:var(--inside);flex:none}
-  .pill.up{background:var(--ok)}
-
-  /* controls */
-  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
-  button{font:inherit;font-size:13.5px;font-weight:600;padding:9px 16px;
-    border-radius:8px;border:1px solid var(--ink);background:var(--ink);
-    color:#fff;cursor:pointer}
-  button.ghost{background:transparent;color:var(--ink)}
-  button:disabled{opacity:.5;cursor:default}
-  button.sel{background:var(--accent);border-color:var(--accent);color:#fff}
-  input[type=text]{font:inherit;font-size:14px;padding:9px 12px;border-radius:8px;
-    border:1px solid var(--line);background:var(--card);flex:1;min-width:240px}
-  .receipts{font-family:var(--mono);font-size:11.5px;background:var(--card);
-    border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:12px;
-    white-space:pre-wrap;line-height:1.7;color:var(--ink-2)}
-  .receipts b{color:var(--ink)}
-  .warn{color:var(--inside)}
-  .answer{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:0 10px 10px 0;padding:14px 16px;margin-top:12px;font-size:14px;
-    white-space:pre-wrap}
-  .muted{color:var(--ink-3);font-size:12.5px}
-  footer{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
-    font-size:12px;color:var(--ink-3);line-height:1.7}
-  .skel{color:var(--ink-3);font-size:13px;padding:14px 0}
-  @media (max-width:720px){
-    .live{grid-template-columns:1fr;gap:14px}
-    .where{text-align:left}
-    .clause{grid-template-columns:44px 1fr}
-    .fired{grid-column:2;text-align:left}
+  /* ---- grid ---- */
+  .grid{display:grid;gap:0;
+    grid-template-columns:minmax(0,1.42fr) minmax(0,1fr);
+    grid-template-areas:"tt map" "dose map" "air deep";}
+  @media (max-width:1080px){
+    .grid{grid-template-columns:1fr;
+      grid-template-areas:"tt" "dose" "map" "air" "deep"}
   }
+  .panel{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    display:flex;flex-direction:column;min-width:0}
+  .panel:nth-child(2n){border-right:0}
+  .ph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    padding:8px 14px;border-bottom:1px solid var(--rule);background:var(--paper);
+    flex-wrap:wrap}
+  .ph h2{margin:0;font-size:14px;font-weight:700;letter-spacing:-.005em}
+  .ph .note{font-size:11px;color:var(--ink-2)}
+  .pb{padding:12px 14px;background:var(--sheet);flex:1;min-width:0}
+  .pb.flush{padding:0}
+  .a-tt{grid-area:tt} .a-dose{grid-area:dose} .a-map{grid-area:map}
+  .a-tt .pb{flex:0 0 auto}
+  .a-tt .key{margin-top:auto}
+  .a-map figcaption{margin-top:6px}
+  .a-air{grid-area:air} .a-deep{grid-area:deep}
+
+  /* ---- timetable ---- */
+  .scroll{overflow-x:auto}
+  table.tt{border-collapse:collapse;width:100%;min-width:620px}
+  table.tt th,table.tt td{border-right:1px solid var(--rule);
+    border-bottom:1px solid var(--rule)}
+  table.tt thead th{background:var(--paper);text-align:left;padding:7px 11px;
+    font-size:11.5px;font-weight:700;font-variation-settings:"wdth" 86;
+    border-bottom:1.5px solid var(--ink);vertical-align:bottom;white-space:nowrap}
+  table.tt thead th .per{display:block;font-size:13.5px;
+    font-variation-settings:"wdth" 100}
+  table.tt thead th .exn{display:block;color:var(--ink-2);font-weight:400}
+  .rowhead{padding:8px 11px;background:var(--paper);white-space:nowrap;
+    vertical-align:middle}
+  .rowhead .cls{font-weight:700;font-size:14px;display:block}
+  .rowhead .roll{font-size:10.5px;color:var(--ink-2)}
+  .cell{position:relative;padding:8px 11px;vertical-align:middle;min-width:124px}
+  .cell .v{font-weight:700;font-size:13.5px;display:block;line-height:1.15}
+  .cell .m{font-size:10.5px;display:block;margin-top:2px;opacity:.86}
+  .cell .c{margin-top:4px;display:flex;gap:3px;flex-wrap:wrap}
+  .cell.out{background:var(--sheet)}
+  .cell.out .v{color:#1f5520}
+  .cell.in,.cell.moved{color:#fff}
+  .cell.in.dark,.cell.moved.dark{color:#101010}
+  .cell.moved::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(255,255,255,.34) 6px 8px)}
+  .tot{padding:8px 11px;background:var(--paper);text-align:right;white-space:nowrap;
+    border-right:0}
+  .tot b{display:block;font-size:15px}
+  .tot i{font-style:normal;font-size:10.5px;color:var(--ink-2)}
+  .clause{display:inline-block;font-size:10px;font-weight:700;line-height:1.5;
+    padding:0 4px;border:1px solid currentColor;cursor:help;
+    font-variation-settings:"wdth" 86}
+  .key{display:flex;gap:11px;flex-wrap:wrap;font-size:10.5px;color:var(--ink-2);
+    padding:7px 14px;background:var(--sheet);border-top:1px solid var(--rule-2)}
+  .key i{display:inline-block;width:11px;height:11px;vertical-align:-2px;
+    margin-right:4px;border:1px solid rgba(0,0,0,.25)}
+
+  /* ---- dose bars ---- */
+  .brow{display:grid;grid-template-columns:128px 1fr 58px;gap:11px;align-items:center;
+    padding:5px 0}
+  .brow .lab{font-size:12.5px;line-height:1.25}
+  .brow .lab em{font-style:normal;display:block;font-size:10.5px;color:var(--ink-2)}
+  .track{position:relative;height:21px;background:var(--paper);
+    border:1px solid var(--rule)}
+  .track .fill{position:absolute;top:0;bottom:0;left:0;background:var(--ink)}
+  .track.over .fill{background:var(--verypoor)}
+  .weekline{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--ink)}
+  .brow .pct{font-weight:700;font-size:13.5px;text-align:right}
+  .brow.hero .pct{font-size:20px;color:var(--verypoor)}
+  .bnote{font-size:11.5px;color:var(--ink-2);margin:9px 0 0;line-height:1.45}
+
+  /* ---- figures ---- */
+  svg{display:block;width:100%;height:auto}
+  figcaption{font-size:11px;color:var(--ink-2);margin-top:8px;line-height:1.45}
+
+  /* ---- tabs ---- */
+  .tabs{display:flex;gap:0;border-bottom:1.5px solid var(--ink);background:var(--paper);
+    overflow-x:auto}
+  .tabs button{background:transparent;border:0;border-right:1px solid var(--rule);
+    padding:8px 13px;font-size:12.5px;font-weight:700;color:var(--ink-2);
+    white-space:nowrap;font-variation-settings:"wdth" 90}
+  .tabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}
+  .tabpane{display:none;padding:12px 14px;background:var(--sheet)}
+  .tabpane[data-on=1]{display:block}
+  .tabpane p{margin:0 0 .75em;font-size:13px;color:var(--ink-2);max-width:72ch;
+    line-height:1.5}
+  .tabpane p.say{color:var(--ink);font-size:13.5px}
+
+  /* ---- tables ---- */
+  .tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--sheet)}
+  .tbl th{text-align:left;padding:6px 9px;font-size:10.5px;font-weight:700;
+    font-variation-settings:"wdth" 88;border-bottom:1.5px solid var(--ink);
+    white-space:nowrap;background:var(--paper)}
+  .tbl td{padding:6px 9px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  .tbl .num{text-align:right;white-space:nowrap}
+  .sub{display:block;font-size:10px;color:var(--ink-3)}
+  .quietrow{background:#e9f0e6}
+  .quietrow td:first-child{box-shadow:inset 3px 0 0 var(--good)}
+
+  /* ---- protocol ---- */
+  .cl{display:grid;grid-template-columns:38px 1fr 96px;gap:12px;padding:8px 0;
+    border-bottom:1px solid var(--rule-2)}
+  .cl .cid{font-weight:800;font-size:13px;font-variation-settings:"wdth" 86}
+  .cl p{margin:0;font-size:12.5px;color:var(--ink);line-height:1.4}
+  .cl .hits{text-align:right;font-size:10.5px;color:var(--ink-2)}
+  .cl .hits b{font-size:14px;color:var(--ink)}
+  blockquote{margin:0 0 12px;padding:0 0 0 13px;border-left:3px solid var(--ink);
+    font-size:16px;font-weight:600;max-width:34ch;line-height:1.25;letter-spacing:-.01em}
+
+  /* ---- ranks, services, misc ---- */
+  .r{display:flex;justify-content:space-between;gap:10px;padding:3px 0;
+    border-bottom:1px solid var(--rule-2);font-size:12px}
+  .r span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rh{font-size:10.5px;font-weight:700;color:var(--ink-2);margin:10px 0 3px;
+    font-variation-settings:"wdth" 88}
+  .svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));
+    border-top:1px solid var(--rule)}
+  .svc{padding:9px 11px;border-right:1px solid var(--rule-2);
+    border-bottom:1px solid var(--rule-2);font-size:11.5px}
+  .svc .nm{font-weight:700;display:flex;align-items:center;gap:6px;font-size:12.5px}
+  .dot{width:8px;height:8px;flex:none;background:var(--severe);border-radius:50%}
+  .dot.up{background:var(--good)}
+  .svc .st{color:var(--ink-3);margin-top:3px;word-break:break-word;font-size:10.5px}
+  .ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+  .ctl button{border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);
+    padding:6px 12px;font-size:12.5px;font-weight:700}
+  .ctl button.ghost{background:transparent;color:var(--ink)}
+  .ctl button.ghost[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+  .ctl button:disabled{opacity:.45;cursor:default}
+  .ctl input{font:inherit;font-size:13px;padding:6px 10px;border:1.5px solid var(--ink);
+    background:var(--sheet);flex:1;min-width:210px}
+  .rcpt{background:var(--paper);border:1px solid var(--rule);padding:10px;
+    font-size:11.5px;line-height:1.7;margin-top:9px}
+  .rcpt .k{display:inline-block;min-width:82px;font-weight:700}
+  .bad{color:var(--severe)}
+  .answer{background:var(--paper);border-left:3px solid var(--ink);padding:10px 12px;
+    margin-top:9px;font-size:13px;white-space:pre-wrap}
+  .skel{color:var(--ink-3);font-size:12.5px;padding:10px 0}
+  footer{padding:12px 18px;font-size:11px;color:var(--ink-2);line-height:1.6;
+    border-top:1px solid var(--rule);background:var(--paper)}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <div class="brandrow">
-    <div>
-      <div class="brand">
-        <h1>Saans</h1>
-        <span class="devanagari">साँस</span>
-      </div>
-      <p class="tagline">The bad air day protocol for Indian schools. It decides what
-        happens to the games period before 07:00, from the forecast, against a policy
-        the principal signed — and records why.</p>
-    </div>
-    <div class="where" id="where"><span class="skel">loading school…</span></div>
+<div class="bar">
+  <div class="id">
+    <b>Saans</b><span>साँस</span>
+    <em>the school air protocol</em>
   </div>
-</header>
-
-<div class="live" id="live"><span class="skel">fetching live air…</span></div>
-
-<section>
-  <div class="shead"><span class="snum">01</span><h2>This morning's decision</h2></div>
-  <p class="sdesc">Four questions have to be answered before the gates open: does
-    assembly happen outside, does the games period happen, do the windows stay open,
-    who gets a mask. Saans answers them per class, because a class carrying children
-    on the respiratory register is not in the same position as one that is not.
-    Every row cites the clause that produced it.</p>
-  <div id="decision"><span class="skel">deciding…</span></div>
-  <div class="cards" id="cohorts"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">02</span><h2>The air the decision was made from</h2></div>
-  <p class="sdesc">PM2.5 through the school day, with the three outdoor periods marked.
-    The dotted line is India's 24-hour standard of 60 µg/m³. The shaded band is the
-    mixing layer — when it collapses, the city's emissions stay at head height instead
-    of dispersing, which is why a flat-looking morning can still be a bad one.</p>
-  <div class="chartwrap" id="chart"><span class="skel">loading hours…</span></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">03</span><h2>Dose, not index</h2></div>
-  <p class="sdesc">An AQI number is a colour for a city for a day. What a child takes in
-    is a dose: concentration × time outdoors × how hard they are breathing. A child at
-    games moves roughly three times the air through their lungs, so the same reading
-    delivers three times the dose. That product is the only quantity a school can
-    actually spend or save, so it is what Saans budgets — against the WHO guideline
-    week of 150&nbsp;µg·h.</p>
-  <div class="stats" id="dose"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">04</span><h2>What the protocol is worth</h2>
-    <span style="margin-left:auto;display:flex;gap:7px">
-      <button class="ghost sel" id="btn-recent">last fortnight</button>
-      <button class="ghost" id="btn-nov">Nov 2025 smog</button>
-    </span>
-  </div>
-  <p class="sdesc">Replayed over real days that actually happened, with measured air —
-    no modelling of our own. The point is not that the protocol fires. It is that on
-    clean days it stays out of the way, and on bad days it recovers about half the
-    dose a child would otherwise have taken in.</p>
-  <div class="stats" id="impact"></div>
-  <div id="replay" style="margin-top:16px"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">05</span><h2>The protocol, as code</h2></div>
-  <p class="sdesc">This is the school's circular written in <b>Cedar</b>, AWS's
-    open-source policy language. It is not a prompt. No language model reads it, writes
-    it, or can talk its way around it: Saans may only hold an activity outdoors if
-    Cedar returns ALLOW for that class, that period and that hour's evidence. A
-    principal can argue with a clause and change a number without touching a line of
-    application code.</p>
-  <div id="protocol"><span class="skel">loading clauses…</span></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">06</span><h2>Run the 05:45 job</h2></div>
-  <p class="sdesc">The whole morning, on demand: decide, draft the notice, write the
-    ledger, store the notice, send it. The agent drafts the opening line a parent reads
-    first — and a guard checks it against the record, because a small model writing a
-    fluent sentence with a wrong number in it is the likeliest way this hurts somebody.
-    Rejected drafts fall back to the deterministic summary, and the page says so.</p>
-  <div class="row">
-    <button id="btn-run">Run the morning job</button>
-    <button class="ghost" id="btn-notice">Open the notice that goes home</button>
-    <span class="muted" id="runhint"></span>
-  </div>
-  <div id="receipts"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">07</span><h2>Delhi, school by school</h2></div>
-  <p class="sdesc">One school proves the protocol works; it does not show the size of
-    the thing. Here is the same protocol run against every school in Delhi that
-    OpenStreetMap has a name and a location for — real places, real coordinates. The
-    air genuinely varies across the city, so these are different decisions, not one
-    decision printed hundreds of times.</p>
-  <div class="stats" id="citystats"></div>
-  <div class="chartwrap" id="citymap" style="margin-top:13px"><span class="skel">plotting schools…</span></div>
-  <div id="citylists" style="margin-top:14px"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">08</span><h2>How wrong can the forecast be?</h2></div>
-  <p class="sdesc">The obvious challenge to all of this: you are acting on a global
-    model's forecast, so how do you know it is right. There is no keyless ground-truth
-    feed for Delhi to check against, and quoting a skill score without one would be
-    dishonest. So Saans answers the question that actually matters for a safety tool —
-    does the <i>decision</i> survive the forecast being wrong? Every call is re-decided
-    across ±40% forecast error, which is wider than anyone claims for this model. Calls
-    that flip inside that band are reported as marginal rather than given a confidence
-    they have not earned.</p>
-  <div class="stats" id="stabstats"></div>
-  <div id="stability" style="margin-top:14px"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">09</span><h2>Built on AWS</h2></div>
-  <p class="sdesc">The Build It path: AWS open-source tooling on a laptop, no AWS
-    account and no card. <b>Cedar</b> decides, <b>Strands Agents SDK</b> runs the agent
-    against a local model, and <b>LocalStack</b> stands in for four managed services.
-    The same boto3 calls run unchanged against real AWS — <code>SAANS_AWS=real</code>
-    drops the endpoint override.</p>
-  <div class="svcs" id="cloud"><span class="skel">checking services…</span></div>
-  <div id="ledger" style="margin-top:16px"></div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">10</span><h2>Ask the record</h2></div>
-  <p class="sdesc">A parent asking why their daughter was kept inside on the 6th should
-    get the same answer the principal got that morning, a month later. The agent answers
-    from the ledger and the protocol only, through Strands tools — and cites the clause.</p>
-  <div class="row">
-    <input type="text" id="q" value="Why did Class 6-B miss games today? Quote the clause."
-      aria-label="question">
-    <button id="btn-ask">Ask</button>
-  </div>
-  <div id="answer"></div>
-</section>
-
-<footer id="foot"></footer>
+  <div class="stat"><b class="n" id="s-pm">—</b><i id="s-band">forecast peak PM2.5</i></div>
+  <div class="stat loud"><b class="n" id="s-week">—</b><i>of a child's WHO week,
+    in one games period</i></div>
+  <div class="stat"><b class="n" id="s-city">—</b><i id="s-citysub">Delhi schools over
+    that line today</i></div>
+  <div class="stat"><b class="n" id="s-saved">—</b><i>inhaled dose prevented, today</i></div>
+  <div class="spacer"></div>
+  <div class="when" id="when"><span class="skel">loading…</span></div>
 </div>
 
+<div class="grid">
+
+  <section class="panel a-tt">
+    <div class="ph"><h2>Today's timetable</h2>
+      <span class="note" id="tt-note"></span></div>
+    <div class="pb flush scroll" id="timetable"><div class="skel"
+      style="padding:12px">deciding…</div></div>
+    <div class="key" id="key"></div>
+  </section>
+
+  <section class="panel a-map">
+    <div class="ph"><h2>Every school in Delhi</h2>
+      <span class="note" id="map-note"></span></div>
+    <div class="pb" id="citymap"><div class="skel">plotting…</div></div>
+    <div class="pb" style="padding-top:0" id="citylists"></div>
+  </section>
+
+  <section class="panel a-dose">
+    <div class="ph"><h2>Dose against the WHO week</h2>
+      <span class="note">concentration × time outdoors × how hard they breathe</span></div>
+    <div class="pb" id="budget"><div class="skel">…</div></div>
+  </section>
+
+  <section class="panel a-air">
+    <div class="ph"><h2>The air it was decided from</h2>
+      <span class="note" id="air-note"></span></div>
+    <div class="pb" id="chart"><div class="skel">…</div></div>
+  </section>
+
+  <section class="panel a-deep">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="protocol">The protocol</button>
+      <button role="tab" aria-selected="false" data-tab="stability">Forecast error</button>
+      <button role="tab" aria-selected="false" data-tab="replay">What it's worth</button>
+      <button role="tab" aria-selected="false" data-tab="run">The 05:45 job</button>
+      <button role="tab" aria-selected="false" data-tab="ask">Ask the record</button>
+    </div>
+
+    <div class="tabpane" data-pane="protocol" data-on="1">
+      <blockquote>No language model decides anything that affects a child's lungs.</blockquote>
+      <p>The school's circular, written in <b>Cedar</b> — AWS's open-source policy
+        language, not a prompt. A period stays outdoors only if Cedar returns
+        <b>allow</b> for that class, that period and that hour's evidence. A principal
+        can argue with a number here and change it without touching the application.</p>
+      <div id="protocol"><div class="skel">…</div></div>
+    </div>
+
+    <div class="tabpane" data-pane="stability">
+      <p class="say">Saans runs on a global model's forecast, so the fair question is
+        whether that forecast is right. There is no keyless ground sensor feed for
+        Delhi to check against, and quoting an accuracy figure without one would be
+        dishonest. So it answers the question that matters for a safety tool instead:
+        <b>does the decision survive the forecast being wrong?</b> Every call is
+        re-decided across ±40% forecast error, wider than anyone claims for this model.</p>
+      <div id="stability"><div class="skel">…</div></div>
+    </div>
+
+    <div class="tabpane" data-pane="replay">
+      <div class="ctl">
+        <button class="ghost" id="btn-recent" aria-pressed="true">Last fortnight</button>
+        <button class="ghost" id="btn-nov" aria-pressed="false">November smog</button>
+        <span class="note" id="replay-note" style="font-size:11.5px;color:var(--ink-2)"></span>
+      </div>
+      <p>Replayed over real days that happened, with measured air. The point is not
+        that the protocol fires. It is that on a clean day it does nothing at all — a
+        protocol that fires on a good day gets switched off within a fortnight, and
+        then it is not there on the day that matters.</p>
+      <div id="replay"><div class="skel">…</div></div>
+    </div>
+
+    <div class="tabpane" data-pane="run">
+      <p>Decide, draft the notice, write the ledger, store the notice, send it. The
+        agent drafts the opening line a parent reads first, and a guard checks that
+        line against the record — a small model writing a fluent sentence with a wrong
+        number in it is the likeliest way this hurts somebody. Rejected drafts fall
+        back to the deterministic summary, and the page says so.</p>
+      <div class="ctl">
+        <button id="btn-run">Run the morning job</button>
+        <button class="ghost" id="btn-notice">Open the notice that goes home</button>
+        <span id="runhint" style="font-size:11.5px;color:var(--ink-2)"></span>
+      </div>
+      <div id="receipts"></div>
+      <div class="svcs" id="cloud"><div class="skel" style="padding:10px">…</div></div>
+      <div id="ledger" style="margin-top:10px"></div>
+    </div>
+
+    <div class="tabpane" data-pane="ask">
+      <p>A parent asking why their daughter was kept inside on the sixth should get the
+        same answer the principal got that morning. The agent answers from the ledger
+        and the protocol only, and cites the clause.</p>
+      <div class="ctl">
+        <input type="text" id="q" aria-label="Question"
+          value="Why did Class 6-B miss games today? Quote the clause.">
+        <button id="btn-ask">Ask</button>
+      </div>
+      <div id="answer"></div>
+    </div>
+  </section>
+</div>
+
+<footer id="foot"></footer>
+
 <script>
-const $ = (id) => document.getElementById(id);
-const fmt = (n, d=0) => n==null ? "—" : Number(n).toLocaleString("en-IN",
-  {minimumFractionDigits:d, maximumFractionDigits:d});
-const VCLASS = {"held outdoors":"ok","moved to a cleaner hour":"moved","moved indoors":"inside"};
-let CLAUSES = {}, STATE = {};
+const $=id=>document.getElementById(id);
+const fmt=(n,d=0)=>n==null?"—":Number(n).toLocaleString("en-IN",
+  {minimumFractionDigits:d,maximumFractionDigits:d});
+const esc=s=>String(s).replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+let CL={},S={};
+const BANDS=[[30,"Good","--good"],[60,"Satisfactory","--satisfactory"],
+  [90,"Moderate","--moderate"],[120,"Poor","--poor"],
+  [250,"Very Poor","--verypoor"],[1e9,"Severe","--severe"]];
+const HI={"Good":"अच्छी","Satisfactory":"संतोषजनक","Moderate":"मध्यम","Poor":"ख़राब",
+  "Very Poor":"बहुत ख़राब","Severe":"गंभीर"};
+const band=pm=>BANDS.find(b=>pm<=b[0]);
+const cv=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const darkText=pm=>pm<=90;
+const VK={"held outdoors":"out","moved to a cleaner hour":"moved","moved indoors":"in"};
+const VL={"held outdoors":"Outdoors","moved to a cleaner hour":"Moved","moved indoors":"Indoors"};
 
-async function get(u){ const r = await fetch(u); if(!r.ok) throw new Error(u); return r.json(); }
-async function post(u,b){ const r = await fetch(u,{method:"POST",
+async function get(u){const r=await fetch(u);if(!r.ok)throw new Error(u+" "+r.status);return r.json()}
+async function post(u,b){const r=await fetch(u,{method:"POST",
   headers:{"content-type":"application/json"},body:JSON.stringify(b||{})});
-  if(!r.ok) throw new Error(await r.text()); return r.json(); }
+  if(!r.ok)throw new Error(await r.text());return r.json()}
 
-function band(pm){
-  if(pm<=30) return ["Good","अच्छी"]; if(pm<=60) return ["Satisfactory","संतोषजनक"];
-  if(pm<=90) return ["Moderate","मध्यम"]; if(pm<=120) return ["Poor","ख़राब"];
-  if(pm<=250) return ["Very Poor","बहुत ख़राब"]; return ["Severe","गंभीर"];
-}
-
-/* ---------- school + live ---------- */
-async function loadSchool(){
-  const s = await get("/api/school"); STATE.school = s;
-  $("where").innerHTML = `<b>${s.name}</b><br>${s.note}<br>
-    ${s.children} children · ${s.on_register} on the respiratory register<br>
-    ${s.shift}<br>${s.latitude.toFixed(4)}, ${s.longitude.toFixed(4)} · Delhi`;
-  $("foot").innerHTML = `<b>Saans</b> — built for Environmental Hacks, Bharat Builds
-    Tour (WeMakeDevs × AWS), Air track. Air data: Open-Meteo CAMS, free tier, no key.
-    Policy: Cedar. Agent: Strands Agents SDK on a local model. Services: LocalStack.
-    Dose is inhaled PM2.5 in µg·h/m³ weighted for exertion, measured against the WHO
-    2021 guideline week of ${s.who_weekly_budget} µg·h across
-    ${s.outdoor_hours_per_week} outdoor hours. Roster synthetic, location and air real.`;
-}
+/* tabs */
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>
+    x.setAttribute("aria-selected",String(x===b)));
+  document.querySelectorAll('.tabpane').forEach(p=>
+    p.dataset.on=p.dataset.pane===b.dataset.tab?"1":"");
+});
 
 async function loadToday(){
-  const d = await get("/api/today"); STATE.today = d;
-  const peak = Math.max(...d.cohorts.flatMap(c => c.calls.map(k => k.peak_pm25)));
-  const [bn, bh] = band(peak);
-  $("live").innerHTML = `
-    <div>
-      <div class="pm">${fmt(peak)}<u>µg/m³ PM2.5 peak</u></div>
-      <div class="bandname">CPCB <i>${bn}</i> / ${bh} · school hours, ${d.day}</div>
-    </div>
-    <div class="prov">Cleanest hour today <b>${d.safest_hour}:00</b> at
-      ${fmt(d.safest_hour_pm25,1)} µg/m³.<br>
-      ${d.data_source}<br>
-      protocol <code>${d.protocol_sha256}</code> ·
-      evidence <code>${d.evidence_sha256}</code></div>
-    <div class="prov" style="text-align:right">
-      <b style="font-size:22px;color:var(--inside)">${fmt(d.dose_saved_per_child)}</b>
-      <span style="font-size:11px"> µg·h</span><br>
-      dose prevented for<br>the average child<br>
-      <b>${fmt(100*d.dose_saved_per_child/150)}%</b> of a WHO week</div>`;
+  const [school,d]=await Promise.all([get("/api/school"),get("/api/today")]);
+  S.school=school;S.today=d;
+  const peak=Math.max(...d.cohorts.flatMap(c=>c.calls.map(k=>k.peak_pm25)));
+  const b=band(peak), day=new Date(d.day+"T00:00:00");
+  const first=d.cohorts[0],WEEK=school.who_weekly_budget;
+  const games=first.calls.reduce((a,k)=>k.exertion>a.exertion?k:a,first.calls[0]);
 
-  let rows = "";
+  $("s-pm").textContent=fmt(peak);
+  $("s-band").textContent=`µg/m³ peak — CPCB ${b[1]} / ${HI[b[1]]}`;
+  $("s-week").textContent=fmt(100*games.dose_if_outdoors/WEEK)+"%";
+  $("s-saved").textContent=fmt(d.dose_saved_per_child)+" µg·h";
+  $("when").innerHTML=`<b>${day.toLocaleDateString("en-IN",
+    {weekday:"long",day:"numeric",month:"long"})}</b>
+    ${esc(school.name)} — ${school.children} children, ${school.on_register} on the
+    respiratory register`;
+  $("tt-note").textContent=`decided ${d.decided_at.slice(11,16)}, before the gates open`;
+  $("air-note").textContent=d.data_source;
+
+  const acts=school.outdoor_day;
+  let head="<tr><th>Class</th>";
+  for(const a of acts)head+=`<th><span class="per">${esc(a.label)}</span>${a.window}
+    <span class="exn">breathing ×${a.exertion}</span></th>`;
+  head+=`<th style="text-align:right">Dose<span class="exn">µg·h per child</span></th></tr>`;
+  let body="";
   for(const c of d.cohorts){
-    for(const k of c.calls){
-      const cls = VCLASS[k.verdict] || "inside";
-      const cites = k.cited.filter(x=>x!=="P0");
-      rows += `<tr>
-        <td><b>${c.label}</b><span class="sub">${c.strength} children${
-          c.on_register ? `, ${c.on_register} on register` : ""}</span></td>
-        <td>${k.label}<span class="sub">${k.window}${
-          k.moved_to ? ` → ${k.moved_to}` : ""} · ×${k.exertion} breathing</span></td>
-        <td class="verdict ${cls}"><span class="dot ${cls}"></span>${k.verdict}${
-          k.alternative ? `<span class="sub">${k.alternative}</span>` : ""}</td>
-        <td class="num">${fmt(k.peak_pm25)}<span class="sub">${
-          fmt(k.mixing_height_m)} m mixing</span></td>
-        <td class="num">${fmt(k.dose_if_outdoors)} <span class="arrow">→</span>
-          <b>${fmt(k.dose_as_decided)}</b><span class="sub">${
-          k.dose_saved>0 ? `−${fmt(k.dose_saved)} µg·h` : "no change"}</span></td>
-        <td>${cites.length ? cites.map(x=>
-          `<span class="chip" title="${(CLAUSES[x]||"").replace(/"/g,"&quot;")}">${x}</span>`
-          ).join("") : '<span class="cite">P0 normal day</span>'}</td></tr>`;
+    body+=`<tr><td class="rowhead"><span class="cls">${esc(c.label)}</span>
+      <span class="roll">${c.strength} children${c.on_register?
+        `, ${c.on_register} on register`:", none on register"}</span></td>`;
+    for(const a of acts){
+      const k=c.calls.find(x=>x.activity===a.key)||c.calls.find(x=>x.label===a.label);
+      if(!k){body+='<td class="cell"></td>';continue}
+      const kind=VK[k.verdict]||"in",bb=band(k.peak_pm25);
+      const dk=kind!=="out"&&darkText(k.peak_pm25)?" dark":"";
+      const cites=(k.cited||[]).filter(x=>x!=="P0");
+      body+=`<td class="cell ${kind}${dk}" style="${kind==="out"?"":`background:${cv(bb[2])};`}">
+        <span class="v">${VL[k.verdict]||k.verdict}</span>
+        <span class="m n">${fmt(k.peak_pm25)} µg/m³${k.moved_to?` → ${k.moved_to}`:""}
+          · ${fmt(k.dose_as_decided)} µg·h</span>
+        <span class="c">${cites.map(x=>`<span class="clause" tabindex="0"
+          title="${esc(CL[x]||x)}">${x}</span>`).join("")}</span></td>`;
     }
+    body+=`<td class="tot"><b class="n">${fmt(c.dose_under_protocol)}</b>
+      <i class="n">was ${fmt(c.dose_business_as_usual)}, −${fmt(c.saved_pct)}%</i></td></tr>`;
   }
-  $("decision").innerHTML = `<table><thead><tr><th>Class</th><th>Period</th>
-    <th>Decision</th><th class="num">PM2.5 <span class="unit">µg/m³</span></th><th class="num">Dose <span class="unit">µg·h</span></th>
-    <th>Clause</th></tr></thead><tbody>${rows}</tbody></table>`;
+  $("timetable").innerHTML=`<table class="tt"><thead>${head}</thead><tbody>${body}</tbody></table>`;
+  $("key").innerHTML=BANDS.slice(0,5).map(b=>
+    `<span><i style="background:${cv(b[2])}"></i>${b[1]}</span>`).join("")+
+    `<span><i style="background:var(--sheet)"></i>Outdoors — no colour, nothing taken in</span>`;
 
-  $("cohorts").innerHTML = d.cohorts.map(c => `
-    <div class="card">
-      <h3>${c.label}</h3>
-      <div class="roll">${c.strength} children${
-        c.on_register ? ` · ${c.on_register} on the respiratory register` : " · none on register"}</div>
-      <div class="kv"><span>Windows</span><b>${c.windows_open ? "open" : "shut / बंद"}</b></div>
-      <div class="kv"><span>Masks</span><b>${c.masks}</b></div>
-      <div class="kv"><span>Periods changed</span><b>${
-        c.calls.filter(k=>k.verdict!=="held outdoors").length} of ${c.calls.length}</b></div>
-      <div class="kv"><span>Dose today</span><b>${fmt(c.dose_under_protocol)} µg·h
-        <span class="sub">instead of ${fmt(c.dose_business_as_usual)} · −${fmt(c.saved_pct)}%</span></b></div>
-      <div class="bar"><i style="width:${Math.min(100, 100*c.dose_under_protocol/c.dose_business_as_usual)}%"></i></div>
-    </div>`).join("");
-
-  const bau = d.cohorts.reduce((a,c)=>a+c.dose_business_as_usual,0)/d.cohorts.length;
-  const und = d.cohorts.reduce((a,c)=>a+c.dose_under_protocol,0)/d.cohorts.length;
-  $("dose").innerHTML = `
-    <div class="stat"><b>${fmt(bau)}</b><span>µg·h a child takes in on a normal
-      school day here, every period held outdoors</span></div>
-    <div class="stat"><b>${fmt(und)}</b><span>µg·h under the protocol</span></div>
-    <div class="stat hero"><b>${fmt(100*(bau-und)/bau)}%</b><span>of today's inhaled
-      dose prevented</span></div>
-    <div class="stat"><b>${fmt(bau/150,1)}×</b><span>WHO guideline <i>weeks</i> of
-      exposure in this <i>one day</i>, unmitigated</span></div>
-    <div class="stat"><b>${fmt(d.child_dose_hours_saved)}</b><span>child·µg·h prevented
-      across ${STATE.school ? STATE.school.children : "the"} children today</span></div>`;
+  const maxPct=Math.max(...first.calls.map(k=>100*k.dose_if_outdoors/WEEK),140);
+  let rows="",total=0;
+  for(const k of first.calls){
+    const pct=100*k.dose_if_outdoors/WEEK;total+=k.dose_if_outdoors;
+    rows+=`<div class="brow${pct>100?" hero":""}">
+      <div class="lab">${esc(k.label)}<em>${k.window}, ×${k.exertion}</em></div>
+      <div class="track${pct>100?" over":""}">
+        <div class="fill" style="width:${Math.min(100,100*pct/maxPct)}%"></div>
+        <div class="weekline" style="left:${100*100/maxPct}%"></div></div>
+      <div class="pct n">${fmt(pct)}%</div></div>`;
+  }
+  const tp=100*total/WEEK;
+  rows+=`<div class="brow hero" style="border-top:1.5px solid var(--ink);margin-top:4px;padding-top:8px">
+    <div class="lab"><b>One school day</b><em>all periods outdoors</em></div>
+    <div class="track over"><div class="fill" style="width:${Math.min(100,100*tp/maxPct)}%"></div>
+      <div class="weekline" style="left:${100*100/maxPct}%"></div></div>
+    <div class="pct n">${fmt(tp)}%</div></div>`;
+  $("budget").innerHTML=rows+`<p class="bnote">The upright line is a whole WHO
+    guideline week — ${WEEK} µg·h across ${school.outdoor_hours_per_week} outdoor
+    hours. The games period alone passes it, in
+    ${band(games.peak_pm25)[1].toLowerCase()} air, months before the smog season.
+    A child at games moves roughly three times the air through their lungs as one
+    standing in assembly, which is the term an AQI reading drops.</p>`;
 }
 
-/* ---------- chart ---------- */
 async function loadChart(){
-  const h = await get("/api/hours");
-  const hrs = h.hours.filter(x => x.hour>=6 && x.hour<=15);
-  if(!hrs.length){ $("chart").innerHTML = '<span class="skel">no hours</span>'; return; }
-  const W=980, H=250, L=52, R=62, T=24, B=34;
-  const pmMax = Math.max(80, ...hrs.map(x=>x.pm2_5))*1.18;
-  const mixMax = Math.max(1200, ...hrs.map(x=>x.mixing_height_m||0))*1.1;
-  const x = i => L + i*(W-L-R)/(hrs.length-1);
-  const y = v => T + (H-T-B)*(1 - v/pmMax);
-  const ym = v => T + (H-T-B)*(1 - v/mixMax);
-
-  const acts = (STATE.school ? STATE.school.outdoor_day : []).map(a => {
-    const si = hrs.findIndex(z => z.hour === parseInt(a.window.slice(0,2)));
-    return si<0 ? null : {a, si};
-  }).filter(Boolean);
-
-  const line = hrs.map((p,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${y(p.pm2_5).toFixed(1)}`).join(" ");
-  const mix = hrs.map((p,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${ym(p.mixing_height_m||0).toFixed(1)}`).join(" ");
-  const area = `${line} L${x(hrs.length-1).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z`;
-
-  const safest = h.safest ? h.safest[0] : null;
-  const si = hrs.findIndex(z=>z.hour===safest);
-
-  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img"
-    aria-label="PM2.5 through the school day">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#9a362a" stop-opacity=".16"/>
-      <stop offset="1" stop-color="#9a362a" stop-opacity="0"/></linearGradient></defs>
-    ${[0,30,60,90,120].filter(v=>v<pmMax).map(v=>
-      `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#e7ebe7"/>
-       <text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="10"
-         fill="#73847a">${v}</text>`).join("")}
-    <text x="${L-8}" y="${T-4}" text-anchor="end" font-size="9.5"
-      fill="#9a362a" font-weight="650">µg/m³</text>
-    ${[0,500,1000,1500,2000].filter(v=>v<mixMax).map(v=>
-      `<text x="${W-R+6}" y="${ym(v)+4}" font-size="9.5"
-         fill="#1f5c43" opacity=".8">${v}</text>`).join("")}
-    ${acts.map(({a,si}) => {
-      const x0 = x(si), x1 = x(Math.min(hrs.length-1, si+Math.max(1,a.hours)));
-      return `<rect x="${x0}" y="${T}" width="${Math.max(10,x1-x0)}" height="${H-T-B}"
-        fill="#131a16" opacity=".045"/>
-        <text x="${(x0+x1)/2}" y="${T+12}" text-anchor="middle" font-size="9.5"
-          fill="#4a5a51">${a.label} ×${a.exertion}</text>`;}).join("")}
-    <line x1="${L}" x2="${W-R}" y1="${y(60)}" y2="${y(60)}" stroke="#9a362a"
-      stroke-width="1.2" stroke-dasharray="5 4"/>
-    <text x="${W-R+6}" y="${y(60)+4}" font-size="9.5" fill="#9a362a">NAAQS 60</text>
-    <path d="${mix}" fill="none" stroke="#1f5c43" stroke-width="1.2"
-      stroke-dasharray="2 4" opacity=".4"/>
-    <path d="${area}" fill="url(#g)"/>
-    <path d="${line}" fill="none" stroke="#9a362a" stroke-width="2.2"
-      stroke-linejoin="round"/>
-    ${si>=0 ? `<circle cx="${x(si)}" cy="${y(hrs[si].pm2_5)}" r="4.5" fill="#2c6b4c"/>
-      <text x="${x(si)}" y="${y(hrs[si].pm2_5)-11}" text-anchor="middle" font-size="10"
-        font-weight="650" fill="#2c6b4c">cleanest</text>` : ""}
-    ${hrs.map((p,i)=> i%2===0 ?
-      `<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="10"
-        fill="#73847a">${String(p.hour).padStart(2,"0")}</text>` : "").join("")}
-    <text x="${W-R+6}" y="${T-4}" font-size="9.5" fill="#1f5c43" font-weight="650">m</text>
-  </svg>
-  <div class="legend">
-    <span><i style="background:#9a362a"></i>PM2.5 µg/m³</span>
-    <span><i style="background:#1f5c43;opacity:.4"></i>mixing layer height, right axis (m)</span>
-    <span><i style="background:#131a16;opacity:.1"></i>outdoor period, ×exertion</span>
-    <span><i style="background:#2c6b4c"></i>cleanest hour Saans can move a period into</span>
-  </div>`;
+  const h=await get("/api/hours");
+  const hrs=h.hours.filter(x=>x.hour>=6&&x.hour<=15&&x.pm2_5!=null);
+  if(!hrs.length){$("chart").innerHTML='<div class="skel">no hours</div>';return}
+  const W=820,PH=150,MH=44,GAP=20,L=40,R=40,T=22,B=22,H=T+PH+GAP+MH+B;
+  const pm=hrs.map(x=>x.pm2_5),lo=Math.min(...pm),hi=Math.max(...pm);
+  const pad=Math.max(6,(hi-lo)*.9),yLo=Math.max(0,lo-pad),yHi=hi+pad;
+  const X=i=>L+i*(W-L-R)/(hrs.length-1),Y=v=>T+PH*(1-(v-yLo)/(yHi-yLo));
+  const mHi=Math.max(1200,...hrs.map(x=>x.mixing_height_m||0))*1.08;
+  const MY=v=>T+PH+GAP+MH*(1-v/mHi);
+  const line=hrs.map((p,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(p.pm2_5).toFixed(1)}`).join(" ");
+  const area=line+` L${X(hrs.length-1).toFixed(1)},${T+PH} L${X(0).toFixed(1)},${T+PH} Z`;
+  const mix=hrs.map((p,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${MY(p.mixing_height_m||0).toFixed(1)}`)
+    .join(" ")+` L${X(hrs.length-1).toFixed(1)},${T+PH+GAP+MH} L${X(0).toFixed(1)},${T+PH+GAP+MH} Z`;
+  let bg="";
+  for(let i=0;i<BANDS.length;i++){
+    const top=BANDS[i][0],bot=i?BANDS[i-1][0]:0;
+    if(bot>yHi||top<yLo)continue;
+    const y0=Y(Math.min(top,yHi)),y1=Y(Math.max(bot,yLo));
+    bg+=`<rect x="${L}" y="${y0}" width="${W-L-R}" height="${Math.max(0,y1-y0)}"
+      fill="${cv(BANDS[i][2])}" opacity=".2"/>
+      <text x="${W-R-5}" y="${Math.min(y1-3,y0+11)}" text-anchor="end" font-size="9.5"
+        font-weight="700" fill="#4e564d">${BANDS[i][1]}</text>`;
+  }
+  const acts=(S.school?S.school.outdoor_day:[]).map(a=>{
+    const si=hrs.findIndex(z=>z.hour===parseInt(a.window.slice(0,2)));
+    return si<0?null:{a,si}}).filter(Boolean);
+  const si=hrs.findIndex(z=>z.hour===(h.safest?h.safest[0]:-1));
+  const spread=hi-lo;
+  $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img"
+    aria-label="PM2.5 and mixing height through the school day">${bg}
+    ${acts.map(({a,si})=>{const x0=X(si),x1=X(Math.min(hrs.length-1,si+Math.max(1,a.hours)));
+      return `<rect x="${x0}" y="${T}" width="${Math.max(10,x1-x0)}" height="${PH}"
+        fill="#000" opacity=".055"/><text x="${(x0+x1)/2}" y="${T-7}"
+        text-anchor="middle" font-size="9.5" font-weight="700">${esc(a.label)}</text>`}).join("")}
+    ${(yLo<60&&yHi>60)?`<line x1="${L}" x2="${W-R}" y1="${Y(60)}" y2="${Y(60)}"
+      stroke="#000" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="${L+3}" y="${Y(60)-4}" font-size="9.5" font-weight="700">NAAQS 60</text>`:""}
+    <path d="${area}" fill="#000" opacity=".1"/>
+    <path d="${line}" fill="none" stroke="#000" stroke-width="2.4"/>
+    ${si>=0?`<circle cx="${X(si)}" cy="${Y(hrs[si].pm2_5)}" r="4.5" fill="${cv("--sheet")}"
+      stroke="#000" stroke-width="2"/>`:""}
+    <text x="${L-6}" y="${Y(yHi)+8}" text-anchor="end" font-size="9.5" fill="#4e564d">${fmt(yHi)}</text>
+    <text x="${L-6}" y="${T+PH}" text-anchor="end" font-size="9.5" fill="#4e564d">${fmt(yLo)}</text>
+    <path d="${mix}" fill="#4e564d" opacity=".17"/>
+    <text x="${L-6}" y="${T+PH+GAP+11}" text-anchor="end" font-size="9" fill="#4e564d">mixing</text>
+    <text x="${L+3}" y="${T+PH+GAP+11}" font-size="9" fill="#4e564d">how far the air can
+      rise — lower traps it at head height</text>
+    ${hrs.map((p,i)=>i%2===0?`<text x="${X(i)}" y="${H-6}" text-anchor="middle"
+      font-size="9.5" fill="#4e564d">${String(p.hour).padStart(2,"0")}</text>`:"").join("")}
+  </svg><figcaption>${spread<12
+    ?`Nearly level: PM2.5 moves only ${fmt(spread)} µg/m³ across the whole school day,
+      so there is no good hour to move a period into. That is why classes go indoors
+      today rather than being rescheduled.`
+    :`Shaded columns are the outdoor periods; the ringed point is the cleanest hour a
+      period can move into.`} Bands are CPCB's national PM2.5 classes.</figcaption>`;
 }
 
-/* ---------- protocol ---------- */
-async function loadProtocol(){
-  const p = await get("/api/protocol");
-  p.clauses.forEach(c => CLAUSES[c.id] = c.text);
-  STATE.protocol = p;
-  render_protocol({});
-}
-function render_protocol(counts){
-  $("protocol").innerHTML = STATE.protocol.clauses.map(c => `
-    <div class="clause ${c.effect}">
-      <div class="cid">${c.id}</div>
-      <p>${c.text}</p>
-      <div class="fired">${counts[c.id] ? `<b>${counts[c.id]}</b> days` :
-        (c.effect==="permit" ? "default" : "—")}</div>
-    </div>`).join("") +
-    `<p class="muted" style="margin-top:10px">Cedar policy set
-      <code>${STATE.protocol.sha256}</code> · engine: ${STATE.protocol.engine} ·
-      "days" counts how often each clause changed a decision in the replay above.</p>`;
-}
-
-/* ---------- replay ---------- */
-async function loadReplay(window_){
-  $("replay").innerHTML = '<span class="skel">replaying real days…</span>';
-  const r = await get("/api/replay?window=" + window_);
-  $("btn-recent").classList.toggle("sel", window_==="recent");
-  $("btn-nov").classList.toggle("sel", window_==="november");
-  $("impact").innerHTML = `
-    <div class="stat hero"><b>${fmt(r.saved_pct)}%</b><span>of inhaled dose prevented
-      across ${r.school_days} real school days</span></div>
-    <div class="stat"><b>${fmt(r.who_weeks_business_as_usual,1)}</b><span>WHO guideline
-      weeks a child absorbs in those days, unmitigated</span></div>
-    <div class="stat"><b>${fmt(r.who_weeks_under_protocol,1)}</b><span>WHO weeks under
-      the protocol</span></div>
-    <div class="stat"><b>${r.quiet_days}</b><span>days the protocol changed nothing —
-      it stays out of the way when the air is fine</span></div>
-    <div class="stat"><b>${fmt(r.child_hours_saved)}</b><span>child·µg·h prevented
-      across ${r.children} children</span></div>`;
-  $("replay").innerHTML = `<p class="muted" style="margin:0 0 10px">${r.label}</p>
-    <table><thead><tr><th>Day</th><th class="num">Peak PM2.5</th><th>CPCB band</th>
-    <th class="num">Normal day</th><th class="num">Under protocol</th>
-    <th class="num">Prevented</th><th>Clauses that fired</th></tr></thead><tbody>` +
-    r.days.map(o => `<tr>
-      <td>${o.day}<span class="sub">${o.weekday}</span></td>
-      <td class="num">${fmt(o.peak_pm25)}</td>
-      <td>${o.cpcb_band}</td>
-      <td class="num">${fmt(o.bau)}</td>
-      <td class="num"><b>${fmt(o.protocol)}</b></td>
-      <td class="num">${o.saved>0 ? `−${fmt(o.saved)}<span class="sub">${
-        fmt(o.saved_pct)}%</span>` : '<span class="sub">nothing to do</span>'}</td>
-      <td>${o.clauses.length ? o.clauses.map(x=>
-        `<span class="chip" title="${(CLAUSES[x]||"").replace(/"/g,"&quot;")}">${x}</span>`
-        ).join("") : '<span class="cite">—</span>'}</td></tr>`).join("") +
-    `</tbody></table>`;
-  render_protocol(r.clause_counts);
-}
-
-
-/* ---------- Delhi, school by school ---------- */
 async function loadCity(){
   try{
-    const c = await get("/api/city"); const s = c.summary;
-    $("citystats").innerHTML = `
-      <div class="stat hero"><b>${fmt(s.over_weekly_budget_pct)}%</b><span>of
-        ${s.schools} mapped Delhi schools where <i>one games period today</i> costs more
-        than a child's entire WHO week</span></div>
-      <div class="stat"><b>${s.schools}</b><span>real schools, located from
-        OpenStreetMap</span></div>
-      <div class="stat"><b>${fmt(s.pm25_min)}–${fmt(s.pm25_max)}</b><span>µg/m³ across
-        the city today — a spread of ${fmt(s.pm25_spread)}</span></div>
-      <div class="stat"><b>${fmt(s.grounded_pct)}%</b><span>where even a class with
-        nobody on the respiratory register cannot hold games</span></div>
-      <div class="stat"><b>${Object.entries(s.bands).map(([k,v])=>`${v} ${k}`).join(" · ")}</b>
-        <span>CPCB bands across the city</span></div>`;
-
-    const W=940,H=520,M=34;
-    const la=c.schools.map(x=>x.la), lo=c.schools.map(x=>x.lo);
-    const laMin=Math.min(...la), laMax=Math.max(...la);
-    const loMin=Math.min(...lo), loMax=Math.max(...lo);
-    const dMin=Math.min(...c.schools.map(x=>x.d)), dMax=Math.max(...c.schools.map(x=>x.d));
-    // longitude -> x, latitude -> y inverted (north is up)
-    const X = v => M + (v-loMin)/(loMax-loMin||1)*(W-2*M);
-    const Y = v => H-M - (v-laMin)/(laMax-laMin||1)*(H-2*M);
-    const ramp = t => {
-      const stops=[[0,"#2c6b4c"],[.45,"#b99326"],[.75,"#c2662f"],[1,"#9a362a"]];
-      for(let i=1;i<stops.length;i++){
-        if(t<=stops[i][0]){
-          const [a,ca]=stops[i-1],[b,cb]=stops[i];
-          const k=(t-a)/((b-a)||1);
-          const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
-          const A=hex(ca),B=hex(cb);
-          return `rgb(${A.map((v,j)=>Math.round(v+(B[j]-v)*k)).join(",")})`;
-        }
-      } return stops[stops.length-1][1];
-    };
-    const pts = c.schools.map(x=>{
-      const t=(x.d-dMin)/((dMax-dMin)||1);
-      return `<circle cx="${X(x.lo).toFixed(1)}" cy="${Y(x.la).toFixed(1)}" r="3.4"
-        fill="${ramp(t)}" fill-opacity=".82" stroke="#fff" stroke-width=".5">
-        <title>${x.n.replace(/[<>&"]/g,"")}
-PM2.5 ${x.pm} µg/m³ · CPCB ${x.b}
-day dose ${x.d} µg·h${x.x?"\ngames blocked by the protocol":""}</title></circle>`;
-    }).join("");
-    const legend = [0,.25,.5,.75,1].map((t,i)=>
-      `<rect x="${M+i*26}" y="${H-18}" width="26" height="9" fill="${ramp(t)}"/>`).join("");
-    $("citymap").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img"
-      aria-label="Every mapped school in Delhi, coloured by a child's inhaled dose today">
-      <rect x="0" y="0" width="${W}" height="${H}" fill="#fbfcfb"/>
-      ${pts}${legend}
-      <text x="${M}" y="${H-22}" font-size="10" fill="#73847a">${fmt(dMin)} µg·h</text>
-      <text x="${M+130}" y="${H-22}" font-size="10" fill="#73847a">${fmt(dMax)} µg·h per child, today</text>
-    </svg>
-    <div class="legend"><span>Each point is one real school. Hover for its name and
-      dose. Values are interpolated from a ~40 km global model grid, so schools close
-      together can share a reading. ${s.attribution}</span></div>`;
-
-    const list = (rows,title) => `<div class="card"><h3>${title}</h3>` +
-      rows.map(r=>`<div class="kv"><span>${r.name.slice(0,34)}</span>
-        <b>${fmt(r.dose)} µg·h<span class="sub">${fmt(r.pm)} µg/m³ · ${r.band}</span></b></div>`).join("") +
-      `</div>`;
-    $("citylists").innerHTML = `<div class="cards">
-      ${list(c.worst.slice(0,5),"Worst air today")}
-      ${list(c.best,"Cleanest air today")}</div>`;
-  }catch(e){ $("citymap").innerHTML = `<p class="muted warn">city view unavailable: ${e.message}</p>`; }
+    const [c,geo]=await Promise.all([get("/api/city"),
+      fetch("/data/delhi_boundary.json").then(r=>r.ok?r.json():null).catch(()=>null)]);
+    const s=c.summary;
+    $("s-city").textContent=fmt(s.over_weekly_budget);
+    $("s-citysub").textContent=`of ${s.schools} Delhi schools over that line today`;
+    $("map-note").textContent=`${fmt(s.pm25_min)}–${fmt(s.pm25_max)} µg/m³ across the city`;
+    const W=470,H=430,M=10;
+    let aMin=1e9,aMax=-1e9,oMin=1e9,oMax=-1e9;
+    for(const x of c.schools){aMin=Math.min(aMin,x.la);aMax=Math.max(aMax,x.la);
+      oMin=Math.min(oMin,x.lo);oMax=Math.max(oMax,x.lo)}
+    if(geo)for(const r of geo.coordinates)for(const p of r){
+      oMin=Math.min(oMin,p[0]);oMax=Math.max(oMax,p[0]);
+      aMin=Math.min(aMin,p[1]);aMax=Math.max(aMax,p[1])}
+    const sc=Math.min((W-2*M)/(oMax-oMin),(H-2*M)/(aMax-aMin));
+    const X=v=>M+(v-oMin)*sc,Y=v=>H-M-(v-aMin)*sc;
+    const out=geo?geo.coordinates.map(r=>r.map((p,i)=>
+      `${i?"L":"M"}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ")+"Z").join(" "):"";
+    const pts=c.schools.map(x=>`<circle cx="${X(x.lo).toFixed(1)}" cy="${Y(x.la).toFixed(1)}"
+      r="2.9" fill="${cv(band(x.pm)[2])}" stroke="#fff" stroke-width=".45"
+      opacity=".93"><title>${esc(x.n)}
+${fmt(x.pm)} µg/m³, CPCB ${x.b}
+${fmt(x.d)} µg·h for a child today${x.x?"\ngames blocked by the protocol":""}</title></circle>`).join("");
+    $("citymap").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Every mapped school inside Delhi, coloured by CPCB band">
+      ${out?`<path d="${out}" fill="${cv("--paper")}" stroke="#000" stroke-width="1.2"/>`:""}
+      ${pts}</svg><figcaption>${s.schools} schools, clipped to the NCT border so Gurugram
+      and Noida are not counted as Delhi. Same CPCB bands as the timetable; hover for
+      the school. A roughly 40 km model grid, so near neighbours share a reading.</figcaption>`;
+    const rank=(rows,t)=>`<div class="rh">${t}</div>`+rows.map(r=>
+      `<div class="r"><span>${esc(r.name)}</span><b class="n">${fmt(r.dose)} µg·h</b></div>`).join("");
+    $("citylists").innerHTML=rank(c.worst.slice(0,3),"Worst air today")+
+      rank(c.best.slice(0,2),"Cleanest air today");
+  }catch(e){$("citymap").innerHTML='<div class="skel bad">city view unavailable</div>'}
 }
 
-/* ---------- forecast-error stability ---------- */
+async function loadProtocol(){
+  const p=await get("/api/protocol");p.clauses.forEach(c=>CL[c.id]=c.text);
+  S.protocol=p;drawProtocol({});
+}
+function drawProtocol(counts){
+  $("protocol").innerHTML=S.protocol.clauses.map(c=>`<div class="cl">
+    <div class="cid">${c.id}</div><p>${esc(c.text)}</p>
+    <div class="hits">${counts[c.id]?`<b class="n">${counts[c.id]}</b> days`:
+      (c.effect==="permit"?"the default":"not this fortnight")}</div></div>`).join("")+
+    `<p style="margin-top:9px">Cedar policy set ${S.protocol.sha256}. Day counts are
+      how often each clause changed a decision in the replay.</p>`;
+}
+
 async function loadStability(){
   try{
-    const st = await get("/api/stability");
-    $("stabstats").innerHTML = `
-      <div class="stat"><b>${st.stable}/${st.total}</b><span>decisions unchanged across
-        the whole ±40% error band</span></div>
-      <div class="stat"><b>${st.marginal.length}</b><span>flagged <i>marginal</i> —
-        close enough to a threshold that the call could go either way</span></div>
-      <div class="stat hero"><b>all</b><span>games-period calls hold across the band —
-        the decision carrying triple the dose is the most robust one</span></div>`;
-    const rows = st.calls.map(c=>`<tr>
-      <td><b>${c.cohort}</b></td><td>${c.activity}</td>
-      <td class="verdict ${VCLASS[c.verdict]||"inside"}">${c.verdict}</td>
-      <td>${c.stable
-        ? '<span style="color:var(--ok);font-weight:600">holds</span>'
-        : `<span style="color:var(--moved);font-weight:600">marginal</span>`}</td>
-      <td class="sub" style="display:table-cell">${c.margin}</td></tr>`).join("");
-    $("stability").innerHTML = `<table><thead><tr><th>Class</th><th>Period</th>
-      <th>Decision</th><th>Under ±40% error</th><th>Margin</th></tr></thead>
-      <tbody>${rows}</tbody></table>`;
-  }catch(e){ $("stability").innerHTML = `<p class="muted warn">stability unavailable</p>`; }
+    const st=await get("/api/stability");
+    const g=st.calls.filter(c=>c.activity==="games");
+    $("stability").innerHTML=`<p class="say"><b>${st.stable} of ${st.total}</b>
+      decisions are unchanged across the whole band. <b>${st.marginal.length}</b> are
+      flagged marginal. <b>All ${g.length} games-period calls hold throughout</b> — the
+      decision carrying triple the dose is the most robust one.</p>
+      <table class="tbl"><thead><tr><th>Class</th><th>Period</th><th>Decision</th>
+      <th>Under ±40% forecast error</th></tr></thead><tbody>`+
+      st.calls.map(c=>{
+        const lab=((S.today&&S.today.cohorts.find(x=>x.cohort===c.cohort))||{}).label||c.cohort;
+        const per=((S.school&&S.school.outdoor_day.find(x=>x.key===c.activity))||{}).label||c.activity;
+        return `<tr><td>${esc(lab)}</td><td>${esc(per)}</td><td>${VL[c.verdict]||c.verdict}</td>
+          <td><b style="color:${c.stable?"#1f5520":"var(--poor)"}">${c.stable?"Holds":"Marginal"}</b>
+          <span class="sub">${esc(c.margin)}</span></td></tr>`}).join("")+
+      `</tbody></table><p style="margin-top:9px">A call flagged marginal is one Saans
+        refuses to present with confidence it has not earned.</p>`;
+  }catch(e){$("stability").innerHTML='<div class="skel bad">unavailable</div>'}
 }
 
-/* ---------- cloud ---------- */
+async function loadReplay(w){
+  $("btn-recent").setAttribute("aria-pressed",String(w==="recent"));
+  $("btn-nov").setAttribute("aria-pressed",String(w==="november"));
+  $("replay").innerHTML='<div class="skel">replaying…</div>';
+  const r=await get("/api/replay?window="+w);
+  $("replay-note").textContent=r.label;
+  $("replay").innerHTML=`<p class="say"><b class="n">${fmt(r.saved_pct)}%</b> of
+    inhaled dose prevented across ${r.school_days} real school days —
+    ${fmt(r.who_weeks_business_as_usual,1)} WHO weeks down to
+    ${fmt(r.who_weeks_under_protocol,1)}. On <b>${r.quiet_days}</b> of them the
+    protocol changed nothing at all.</p>
+    <table class="tbl"><thead><tr><th>Day</th><th class="num">Peak</th><th>Band</th>
+    <th class="num">Normal day</th><th class="num">Protocol</th>
+    <th class="num">Prevented</th><th>Clauses</th></tr></thead><tbody>`+
+    r.days.map(o=>`<tr class="${o.saved===0?"quietrow":""}">
+      <td>${o.day}<span class="sub">${o.weekday}</span></td>
+      <td class="num n">${fmt(o.peak_pm25)}</td><td>${o.cpcb_band}</td>
+      <td class="num n">${fmt(o.bau)}</td><td class="num n"><b>${fmt(o.protocol)}</b></td>
+      <td class="num n">${o.saved>0?`−${fmt(o.saved)}<span class="sub">${fmt(o.saved_pct)}%</span>`:
+        '<span class="sub">nothing to do</span>'}</td>
+      <td>${o.clauses.map(x=>`<span class="clause" tabindex="0"
+        title="${esc(CL[x]||x)}">${x}</span> `).join("")||"—"}</td></tr>`).join("")+
+    `</tbody></table>`;
+  drawProtocol(r.clause_counts);
+}
+
 async function loadCloud(){
-  const c = await get("/api/cloud");
-  const map = {dynamodb:["Amazon DynamoDB","the decision ledger"],
+  const c=await get("/api/cloud");
+  const m={dynamodb:["Amazon DynamoDB","the decision ledger"],
     s3:["Amazon S3","the notice, stored as sent"],
-    eventbridge:["Amazon EventBridge","the 05:45 IST rule"],
+    eventbridge:["Amazon EventBridge","the 05:45 rule"],
     ses:["Amazon SES","delivery to principal and parents"]};
-  $("cloud").innerHTML = Object.entries(map).map(([k,[n,p]]) => `
-    <div class="svc"><div class="nm"><span class="pill ${c.services[k]?"up":""}"></span>${n}</div>
-      <div style="font-size:12px;color:var(--ink-2);margin-top:4px">${p}</div>
-      <div class="st">${(c.detail&&c.detail[k])||"unavailable"}</div></div>`).join("") +
-    `<div class="svc"><div class="nm"><span class="pill up"></span>Mode</div>
-      <div style="font-size:12px;color:var(--ink-2);margin-top:4px">${c.mode}</div>
-      <div class="st">${c.schedule}<br>${c.table}<br>${c.bucket}</div></div>`;
+  $("cloud").innerHTML=Object.entries(m).map(([k,[n,p]])=>`<div class="svc">
+    <div class="nm"><span class="dot ${c.services[k]?"up":""}"></span>${n}</div>
+    <div style="color:var(--ink-2)">${p}</div>
+    <div class="st">${esc((c.detail&&c.detail[k])||"unavailable")}</div></div>`).join("")+
+    `<div class="svc"><div class="nm"><span class="dot up"></span>Running on</div>
+      <div style="color:var(--ink-2)">${esc(c.mode)}</div>
+      <div class="st">${esc(c.schedule)}</div></div>`;
   loadLedger();
 }
 async function loadLedger(){
   try{
-    const l = await get("/api/ledger");
-    if(l.error){ $("ledger").innerHTML = `<p class="muted warn">${l.error}</p>`; return; }
-    if(!l.rows.length){ $("ledger").innerHTML =
-      '<p class="muted">Ledger is empty. Run the morning job to write a decision.</p>'; return; }
-    $("ledger").innerHTML = `<table><thead><tr><th>Day</th><th>Decided</th>
-      <th class="num">Dose prevented / child <span class="unit">µg·h</span></th><th class="num">Children affected</th>
-      <th>Protocol</th><th>Evidence</th></tr></thead><tbody>` +
-      l.rows.map(r=>`<tr><td><b>${r.day}</b></td>
-        <td class="sub" style="display:table-cell">${(r.decided_at||"").replace("T"," ").slice(0,16)}</td>
-        <td class="num">${fmt(r.dose_saved_per_child)}</td>
-        <td class="num">${r.children_affected} <span class="sub">${
-          r.register_affected} on register</span></td>
-        <td class="cite">${r.protocol_sha256}</td>
-        <td class="cite">${r.evidence_sha256}</td></tr>`).join("") + `</tbody></table>`;
-  }catch(e){ $("ledger").innerHTML = `<p class="muted warn">ledger unreachable</p>`; }
+    const l=await get("/api/ledger");
+    if(l.error||!l.rows.length){$("ledger").innerHTML=
+      `<p>${esc(l.error||"Ledger empty. Run the morning job to write a decision.")}</p>`;return}
+    $("ledger").innerHTML=`<table class="tbl"><thead><tr><th>Day</th><th>Decided</th>
+      <th class="num">Prevented per child</th><th class="num">Children</th>
+      <th>Protocol</th><th>Evidence</th></tr></thead><tbody>`+l.rows.map(r=>
+      `<tr><td><b>${r.day}</b></td><td>${(r.decided_at||"").replace("T"," ").slice(0,16)}</td>
+       <td class="num n">${fmt(r.dose_saved_per_child)} µg·h</td>
+       <td class="num n">${r.children_affected}<span class="sub">${r.register_affected} on register</span></td>
+       <td>${r.protocol_sha256}</td><td>${r.evidence_sha256}</td></tr>`).join("")+
+      `</tbody></table>`;
+  }catch(e){$("ledger").innerHTML='<p class="bad">ledger unreachable</p>'}
 }
 
-/* ---------- actions ---------- */
-$("btn-run").onclick = async () => {
-  const b = $("btn-run"); b.disabled = true;
-  $("runhint").textContent = "deciding, drafting, writing, sending… (the local model takes a moment)";
-  $("receipts").innerHTML = "";
+$("btn-run").onclick=async()=>{
+  const b=$("btn-run");b.disabled=true;
+  $("runhint").textContent="deciding, drafting, writing, sending…";$("receipts").innerHTML="";
   try{
-    const r = await post("/api/run", {});
-    const ok = Object.entries(r.receipts).map(([k,v])=>`<b>${k}</b>  ${v}`).join("\n");
-    const bad = Object.entries(r.errors||{}).map(([k,v])=>
-      `<span class="warn"><b>${k}</b>  ${v}</span>`).join("\n");
-    $("receipts").innerHTML = `<div class="receipts">${ok}${bad?"\n"+bad:""}
-
-<b>notice opening line</b>  ${r.summary ? r.summary : "(deterministic template)"}
-<b>written by</b>  ${r.notice_author}
-<b>guard</b>  ${r.guard_rejected
-  ? `<span class="warn">rejected the model's draft — ${r.guard_rejected} — fell back to the deterministic summary</span>`
-  : "accepted the model's draft"}</div>`;
-    $("runhint").textContent = "";
-    loadLedger();
-  }catch(e){
-    $("receipts").innerHTML = `<div class="receipts warn">failed: ${e.message}</div>`;
-    $("runhint").textContent = "";
-  }
-  b.disabled = false;
+    const r=await post("/api/run",{});
+    $("receipts").innerHTML=`<div class="rcpt">`+
+      Object.entries(r.receipts).map(([k,v])=>`<div><span class="k">${k}</span>${esc(v)}</div>`).join("")+
+      Object.entries(r.errors||{}).map(([k,v])=>`<div class="bad"><span class="k">${k}</span>${esc(v)}</div>`).join("")+
+      `<div style="margin-top:7px"><span class="k">notice</span>${esc(r.summary||"(template)")}</div>
+       <div><span class="k">written by</span>${esc(r.notice_author)}</div>
+       <div><span class="k">guard</span>${r.guard_rejected?
+         `<span class="bad">rejected the model's draft — ${esc(r.guard_rejected)} — used the deterministic summary</span>`:
+         "accepted the model's draft"}</div></div>`;
+    $("runhint").textContent="";loadLedger();
+  }catch(e){$("receipts").innerHTML=`<div class="rcpt bad">failed: ${esc(e.message)}</div>`;
+    $("runhint").textContent=""}
+  b.disabled=false;
 };
-$("btn-notice").onclick = () => {
-  const d = STATE.today ? STATE.today.day : "";
-  window.open("/api/notice/" + d, "_blank");
-};
-$("btn-recent").onclick = () => loadReplay("recent");
-$("btn-nov").onclick = () => loadReplay("november");
-$("btn-ask").onclick = async () => {
-  const b = $("btn-ask"); b.disabled = true;
-  $("answer").innerHTML = '<div class="answer"><span class="skel">the agent is looking it up…</span></div>';
-  try{
-    const r = await post("/api/ask", {question: $("q").value});
-    $("answer").innerHTML = `<div class="answer">${r.answer}</div>`;
-  }catch(e){ $("answer").innerHTML = `<div class="answer warn">agent unavailable</div>`; }
-  b.disabled = false;
+$("btn-notice").onclick=()=>window.open("/api/notice/"+(S.today?S.today.day:""),"_blank");
+$("btn-recent").onclick=()=>loadReplay("recent");
+$("btn-nov").onclick=()=>loadReplay("november");
+$("btn-ask").onclick=async()=>{
+  const b=$("btn-ask");b.disabled=true;
+  $("answer").innerHTML='<div class="answer"><span class="skel">looking it up…</span></div>';
+  try{const r=await post("/api/ask",{question:$("q").value});
+    $("answer").innerHTML=`<div class="answer">${esc(r.answer)}</div>`}
+  catch(e){$("answer").innerHTML='<div class="answer bad">agent unavailable</div>'}
+  b.disabled=false;
 };
 
-/* ---------- boot ---------- */
-(async () => {
+(async()=>{
   try{
-    await loadSchool();
     await loadProtocol();
     await loadToday();
-    await loadChart();
-    await loadReplay("recent");
-    await loadCloud();
-    loadCity();
-    loadStability();
+    $("foot").innerHTML=`Saans — Environmental Hacks, Bharat Builds Tour
+      (WeMakeDevs × AWS), Air track. Air and weather: Open-Meteo CAMS and ERA5, free
+      tier, no key. School locations and the Delhi boundary: OpenStreetMap, ODbL (openstreetmap.org/copyright).
+      Bands are CPCB's national PM2.5 breakpoints; 60 µg/m³ is India's NAAQS 24-hour
+      standard. Dose is inhaled PM2.5 in µg·h/m³ weighted for exertion, against the
+      WHO 2021 guideline week of ${S.school.who_weekly_budget} µg·h. Policy engine:
+      Cedar. Agent: Strands Agents SDK on a local model. The air and the school
+      locations are real; this one school's roster is synthetic and labelled as such.`;
+    loadChart();loadReplay("recent");loadCloud();loadCity();loadStability();
   }catch(e){
-    console.error(e);
-    document.querySelector(".wrap").insertAdjacentHTML("afterbegin",
-      `<div class="receipts warn">startup failed: ${e.message}</div>`);
+    document.body.insertAdjacentHTML("afterbegin",
+      `<div class="rcpt bad">startup failed: ${esc(e.message)}</div>`);
   }
 })();
 </script>
