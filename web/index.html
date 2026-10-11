@@ -6,6 +6,8 @@
 <title>Saans — the school air protocol, Delhi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
 <style>
   /* Saans — an operations console for one decision.
@@ -72,6 +74,15 @@
   .a-tt .pb{flex:0 0 auto}
   .a-tt .key{margin-top:auto}
   .a-map figcaption{margin-top:6px}
+  #citymap{height:430px;width:100%;background:var(--paper)}
+  @media (max-width:1080px){#citymap{height:340px}}
+  .leaflet-container{font:inherit;background:var(--paper)}
+  .leaflet-tile{filter:grayscale(.82) contrast(.92) brightness(1.08)}
+  .leaflet-popup-content-wrapper,.leaflet-tooltip{border-radius:0;font-size:12px}
+  .leaflet-tooltip{border:1px solid var(--ink);background:var(--sheet);
+    box-shadow:none;padding:5px 7px;line-height:1.35}
+  .leaflet-tooltip b{font-weight:700}
+  .leaflet-control-attribution{font-size:9.5px;background:rgba(247,248,245,.85)}
   .a-air{grid-area:air} .a-deep{grid-area:deep}
 
   /* ---- timetable ---- */
@@ -137,7 +148,7 @@
     white-space:nowrap;font-variation-settings:"wdth" 90}
   .tabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}
   .tabpane{display:none;padding:12px 14px;background:var(--sheet)}
-  .tabpane[data-on=1]{display:block}
+  .tabpane[data-on="1"]{display:block}
   .tabpane p{margin:0 0 .75em;font-size:13px;color:var(--ink-2);max-width:72ch;
     line-height:1.5}
   .tabpane p.say{color:var(--ink);font-size:13.5px}
@@ -226,8 +237,8 @@
   <section class="panel a-map">
     <div class="ph"><h2>Every school in Delhi</h2>
       <span class="note" id="map-note"></span></div>
-    <div class="pb" id="citymap"><div class="skel">plotting…</div></div>
-    <div class="pb" style="padding-top:0" id="citylists"></div>
+    <div id="citymap"></div>
+    <div class="pb" id="citylists"></div>
   </section>
 
   <section class="panel a-dose">
@@ -486,33 +497,57 @@ async function loadCity(){
     $("s-city").textContent=fmt(s.over_weekly_budget);
     $("s-citysub").textContent=`of ${s.schools} Delhi schools over that line today`;
     $("map-note").textContent=`${fmt(s.pm25_min)}–${fmt(s.pm25_max)} µg/m³ across the city`;
-    const W=470,H=430,M=10;
-    let aMin=1e9,aMax=-1e9,oMin=1e9,oMax=-1e9;
-    for(const x of c.schools){aMin=Math.min(aMin,x.la);aMax=Math.max(aMax,x.la);
-      oMin=Math.min(oMin,x.lo);oMax=Math.max(oMax,x.lo)}
-    if(geo)for(const r of geo.coordinates)for(const p of r){
-      oMin=Math.min(oMin,p[0]);oMax=Math.max(oMax,p[0]);
-      aMin=Math.min(aMin,p[1]);aMax=Math.max(aMax,p[1])}
-    const sc=Math.min((W-2*M)/(oMax-oMin),(H-2*M)/(aMax-aMin));
-    const X=v=>M+(v-oMin)*sc,Y=v=>H-M-(v-aMin)*sc;
-    const out=geo?geo.coordinates.map(r=>r.map((p,i)=>
-      `${i?"L":"M"}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ")+"Z").join(" "):"";
-    const pts=c.schools.map(x=>`<circle cx="${X(x.lo).toFixed(1)}" cy="${Y(x.la).toFixed(1)}"
-      r="2.9" fill="${cv(band(x.pm)[2])}" stroke="#fff" stroke-width=".45"
-      opacity=".93"><title>${esc(x.n)}
-${fmt(x.pm)} µg/m³, CPCB ${x.b}
-${fmt(x.d)} µg·h for a child today${x.x?"\ngames blocked by the protocol":""}</title></circle>`).join("");
-    $("citymap").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img"
-      aria-label="Every mapped school inside Delhi, coloured by CPCB band">
-      ${out?`<path d="${out}" fill="${cv("--paper")}" stroke="#000" stroke-width="1.2"/>`:""}
-      ${pts}</svg><figcaption>${s.schools} schools, clipped to the NCT border so Gurugram
-      and Noida are not counted as Delhi. Same CPCB bands as the timetable; hover for
-      the school. A roughly 40 km model grid, so near neighbours share a reading.</figcaption>`;
+
+    // Canvas, not SVG: 772 markers as DOM nodes is slow, and the SVG
+    // overlay mis-positions when the map is built before its container
+    // has settled on a size.
+    const map=L.map("citymap",{zoomControl:true,attributionControl:true,
+      scrollWheelZoom:false,preferCanvas:true,renderer:L.canvas({padding:.5})});
+    // A muted basemap, so the CPCB colours carry the information.
+    // OpenStreetMap's own tiles: genuinely free, no key, no account.
+    // Desaturated in CSS so the CPCB colours carry the information rather
+    // than competing with the basemap.
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom:18}).addTo(map);
+
+    if(geo){
+      L.geoJSON({type:"Feature",geometry:geo},{style:{color:"#000",weight:1.6,
+        fill:false,dashArray:"4 3"}}).addTo(map);
+    }
+    const layer=L.layerGroup().addTo(map);
+    for(const x of c.schools){
+      L.circleMarker([x.la,x.lo],{radius:4,color:"#1a1a1a",weight:.7,
+        fillColor:cv(band(x.pm)[2]),fillOpacity:.9})
+        .bindTooltip(`<b>${esc(x.n)}</b><br>${fmt(x.pm)} µg/m³ — CPCB ${x.b}<br>`+
+          `${fmt(x.d)} µg·h for a child today`+
+          (x.x?"<br>games blocked by the protocol":""),{direction:"top"})
+        .addTo(layer);
+    }
+    const bb=L.latLngBounds(c.schools.map(x=>[x.la,x.lo]));
+    // Size first, then fit: fitBounds against a container that has not
+    // been measured yet produces a wrong zoom and a stale overlay.
+    const settle=()=>{map.invalidateSize(false);map.fitBounds(bb,{padding:[10,10]})};
+    requestAnimationFrame(()=>requestAnimationFrame(settle));
+    if(window.ResizeObserver){
+      const ro=new ResizeObserver(()=>map.invalidateSize(false));
+      ro.observe($("citymap"));
+    }
+    window.addEventListener("resize",()=>map.invalidateSize(false));
+    setTimeout(settle,350);
+    S.map=map;
+
     const rank=(rows,t)=>`<div class="rh">${t}</div>`+rows.map(r=>
       `<div class="r"><span>${esc(r.name)}</span><b class="n">${fmt(r.dose)} µg·h</b></div>`).join("");
     $("citylists").innerHTML=rank(c.worst.slice(0,3),"Worst air today")+
-      rank(c.best.slice(0,2),"Cleanest air today");
-  }catch(e){$("citymap").innerHTML='<div class="skel bad">city view unavailable</div>'}
+      rank(c.best.slice(0,2),"Cleanest air today")+
+      `<figcaption>${s.schools} schools, clipped to the NCT border so Gurugram and
+       Noida are not counted as Delhi. Coloured by the same CPCB bands as the
+       timetable. A roughly 40 km model grid, so near neighbours share a
+       reading.</figcaption>`;
+  }catch(e){
+    $("citymap").innerHTML=`<div class="skel bad" style="padding:12px">map unavailable: ${esc(e.message)}</div>`;
+  }
 }
 
 async function loadProtocol(){
