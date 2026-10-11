@@ -343,7 +343,51 @@ const darkText=pm=>pm<=90;
 const VK={"held outdoors":"out","moved to a cleaner hour":"moved","moved indoors":"in"};
 const VL={"held outdoors":"Outdoors","moved to a cleaner hour":"Moved","moved indoors":"Indoors"};
 
-async function get(u){const r=await fetch(u);if(!r.ok)throw new Error(u+" "+r.status);return r.json()}
+let SNAP=null, STATIC=false;
+async function boot(){
+  try{
+    const r=await fetch("/api/school",{cache:"no-store"});
+    if(r.ok){S.school=await r.json();return}
+  }catch(e){}
+  // No API behind us: this is the published static build.
+  STATIC=true;
+  const r=await fetch("data/snapshot.json",{cache:"no-store"});
+  if(!r.ok) throw new Error("snapshot unavailable");
+  SNAP=await r.json();
+}
+async function get(u){
+  if(STATIC) return fromSnapshot(u);
+  const r=await fetch(u);
+  if(!r.ok)throw new Error(u+" "+r.status);
+  return r.json();
+}
+function fromSnapshot(u){
+  const d=SNAP;
+  if(u==="/api/school") return {...d.school,
+    children:d.school.children,on_register:d.school.on_register,
+    outdoor_day:d.outdoor_day,who_weekly_budget:d.who.weekly_budget,
+    outdoor_hours_per_week:d.who.outdoor_hours_per_week};
+  if(u==="/api/today") return d.today;
+  if(u==="/api/protocol") return d.protocol;
+  if(u==="/api/stability") return d.stability;
+  if(u==="/api/hours") return {day:d.generated_for,source:d.data_source,
+    hours:d.hours,safest:d.safest};
+  if(u==="/api/city") return {summary:d.city.summary,schools:d.city.schools,
+    worst:d.city.worst.map(x=>({name:x.name,pm:x.peak_pm25,dose:x.day_dose,band:x.cpcb_band})),
+    best:d.city.best.map(x=>({name:x.name,pm:x.peak_pm25,dose:x.day_dose,band:x.cpcb_band}))};
+  if(u.startsWith("/api/replay")) return d.replay[
+    u.includes("november")?"november":"recent"];
+  if(u==="/api/ledger") return {rows:[],error:
+    "The ledger is written by the running engine. This published page is a snapshot "+
+    "of one morning; clone the repo to see DynamoDB, S3, EventBridge and SES write for real."};
+  if(u==="/api/cloud") return {mode:"snapshot of a LocalStack run",all_up:false,
+    services:{dynamodb:false,s3:false,eventbridge:false,ses:false},
+    detail:{dynamodb:"runs in the repo, not on this static page",
+      s3:"runs in the repo",eventbridge:"cron(15 0 * * ? *) — 05:45 IST",
+      ses:"runs in the repo"},
+    table:"saans-decision-ledger",schedule:"cron(15 0 * * ? *)"};
+  throw new Error("no snapshot route for "+u);
+}
 async function post(u,b){const r=await fetch(u,{method:"POST",
   headers:{"content-type":"application/json"},body:JSON.stringify(b||{})});
   if(!r.ok)throw new Error(await r.text());return r.json()}
@@ -492,7 +536,7 @@ async function loadChart(){
 async function loadCity(){
   try{
     const [c,geo]=await Promise.all([get("/api/city"),
-      fetch("/data/delhi_boundary.json").then(r=>r.ok?r.json():null).catch(()=>null)]);
+      fetch(STATIC?"data/delhi_boundary.json":"/data/delhi_boundary.json").then(r=>r.ok?r.json():null).catch(()=>null)]);
     const s=c.summary;
     $("s-city").textContent=fmt(s.over_weekly_budget);
     $("s-citysub").textContent=`of ${s.schools} Delhi schools over that line today`;
@@ -642,6 +686,12 @@ async function loadLedger(){
 }
 
 $("btn-run").onclick=async()=>{
+  if(STATIC){
+    $("receipts").innerHTML=`<div class="rcpt">This published page is a snapshot of one
+      morning. The 05:45 job writes to real DynamoDB, S3, EventBridge and SES — run the
+      repo to watch it happen, or read <b>deploy/aws_deploy.py</b> for the AWS build.</div>`;
+    return;
+  }
   const b=$("btn-run");b.disabled=true;
   $("runhint").textContent="deciding, drafting, writing, sending…";$("receipts").innerHTML="";
   try{
@@ -663,6 +713,14 @@ $("btn-notice").onclick=()=>window.open("/api/notice/"+(S.today?S.today.day:""),
 $("btn-recent").onclick=()=>loadReplay("recent");
 $("btn-nov").onclick=()=>loadReplay("november");
 $("btn-ask").onclick=async()=>{
+  if(STATIC){
+    $("answer").innerHTML=`<div class="answer">The agent runs against a local model, so
+      it answers in the repo rather than on this static page. It is given the decision
+      record and the clauses that fired, and answers only from them — for this morning
+      it replies: "Class 6-B missed games because clause P5 fired — an activity does not
+      stay outdoors when moving it would avoid more than 50 µg·h of inhaled dose."</div>`;
+    return;
+  }
   const b=$("btn-ask");b.disabled=true;
   $("answer").innerHTML='<div class="answer"><span class="skel">looking it up…</span></div>';
   try{const r=await post("/api/ask",{question:$("q").value});
@@ -673,6 +731,7 @@ $("btn-ask").onclick=async()=>{
 
 (async()=>{
   try{
+    await boot();
     await loadProtocol();
     await loadToday();
     $("foot").innerHTML=`Saans — Environmental Hacks, Bharat Builds Tour
