@@ -277,19 +277,73 @@ def lookup_ledger(day: str) -> str:
 TOOLS = [todays_air, run_protocol, explain_clause, lookup_ledger]
 
 
-def ask(question: str) -> str:
+def _record_context(day: str | None = None) -> str:
+    """Pull the facts a question is likely to need, deterministically.
+
+    A small local model is unreliable at chaining tool calls, and an agent
+    that answers "I do not have it on record" when the record is right
+    there is worse than useless to a parent. So the record is retrieved
+    first and handed over, and the model does what it is good at: putting
+    it in a sentence. The tools stay available for anything else.
+    """
+    s = fetch(LATITUDE, LONGITUDE, forecast_days=2, past_days=14)
+    target = date.fromisoformat(day) if day else date.today()
+    if target not in s.days:
+        target = s.days[-1]
+    d = decide(s, target)
+
+    lines = [f"DECISION RECORD for {d.day} at {SCHOOL_NAME}:"]
+    fired: set[str] = set()
+    for c in d.cohorts:
+        for k in c.calls:
+            cites = [x for x in k.cited if x != "P0"]
+            fired.update(cites)
+            lines.append(
+                f"- {c.label} ({c.strength} children, {c.on_register} on the "
+                f"respiratory register) / {k.label} {k.window}: {k.verdict}"
+                f"{' to ' + k.moved_to if k.moved_to else ''}. "
+                f"PM2.5 {k.peak_pm25:.0f} ug/m3, mixing layer "
+                f"{k.mixing_height_m:.0f} m, breathing rate x{k.exertion}. "
+                f"Inhaled dose {k.dose_if_outdoors:.0f} -> "
+                f"{k.dose_as_decided:.0f} ug.h. "
+                f"Clauses: {', '.join(cites) if cites else 'none (normal day)'}."
+            )
+        lines.append(
+            f"- {c.label}: windows {'open' if c.windows_open else 'shut'}, "
+            f"masks {c.masks}."
+        )
+    lines.append(
+        f"Dose prevented for the average child: {d.dose_saved_per_child:.0f} ug.h "
+        f"({100 * d.dose_saved_per_child / 150:.0f}% of the WHO guideline week "
+        f"of 150 ug.h). Cleanest hour of the day: {d.safest_hour}:00."
+    )
+
+    if fired:
+        lines.append("")
+        lines.append("CLAUSES THAT FIRED, in full:")
+        for clause in P.clauses():
+            if clause.id in fired:
+                lines.append(f'- {clause.id}: "{clause.text}"')
+    return "\n".join(lines)
+
+
+def ask(question: str, day: str | None = None) -> str:
     """Answer a parent's or principal's question from the record only."""
+    context = _record_context(day)
     agent = Agent(
         model=_model(),
         tools=TOOLS,
         system_prompt=(
             "You answer questions from parents and staff at "
-            f"{SCHOOL_NAME} about the school's air protocol.\n"
-            "Use your tools to look things up. Answer only from what the "
-            "tools return. If the tools do not show it, say you do not "
-            "have it on record. Never guess a number. Be brief and plain.\n"
-            "When a decision is questioned, cite the clause that caused it "
-            "and quote the clause text from explain_clause."
+            f"{SCHOOL_NAME} about the school's air protocol.\n\n"
+            "The decision record below is the truth. Answer from it.\n"
+            "- Quote the clause text when a decision is questioned.\n"
+            "- Never invent a number. Every figure must appear in the record.\n"
+            "- Never say indoors is safe; it is less bad, not safe.\n"
+            "- Be brief and plain. Two or three sentences.\n"
+            "- If the record genuinely does not cover it, say so, and use "
+            "your tools to look further.\n\n"
+            + context
         ),
     )
     return str(agent(question)).strip()
