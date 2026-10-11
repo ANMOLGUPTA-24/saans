@@ -1,0 +1,8 @@
+# Deployed runtime only. Deliberately excludes strands-agents and ollama:
+# there is no local model on Lambda, so the notice uses the deterministic
+# summary, which the guard architecture already falls back to by design.
+cedarpy>=4.12
+fastapi>=0.115
+mangum>=0.19
+httpx>=0.28
+pydantic>=2.0

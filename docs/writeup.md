@@ -108,6 +108,21 @@ no inference bill.
 | Amazon **EventBridge** | The 05:45 IST rule, `cron(15 0 * * ? *)`. The decision must exist before the principal needs it. |
 | Amazon **SES** | Delivery to the principal and the register's parents. |
 
+### Deployed on AWS, on the free tier
+
+`deploy/aws_deploy.py` puts the whole thing on a real AWS account in one command:
+a **Lambda Function URL** (1M requests/month, always free — no API Gateway, which is
+the part that would cost), the real DynamoDB ledger, the real notices bucket, a
+least-privilege IAM role, and the 05:45 EventBridge rule. `deploy/aws_destroy.py`
+removes all of it, because a deploy script without a teardown script is how a student
+ends up with a bill.
+
+The package is 10.6 MB zipped / 32.6 MB unzipped, and ships cedarpy's manylinux wheel —
+which is the only reason a Rust policy engine runs in a Python Lambda without a
+container build. `strands-agents` and `ollama` are deliberately excluded from the
+deployed requirements (there is no local model on Lambda), and a test asserts their
+absence so the package cannot silently grow.
+
 ## The guard, and why it earns its place
 
 The likeliest way a project like this hurts somebody is not a wrong threshold — it's a

@@ -513,3 +513,80 @@ def test_school_coordinates_are_unique_enough_to_be_real_places():
     schools, _ = load_schools()
     coords = {(s["lat"], s["lon"]) for s in schools}
     assert len(coords) > 0.9 * len(schools), "near-duplicate rows suggest bad dedup"
+
+
+# --- the deployed runtime -------------------------------------------------
+
+
+def test_the_lambda_handler_is_wired():
+    """The deployed entrypoint has to exist, or the deploy ships nothing."""
+    from saans import api
+
+    assert api.handler is not None, "mangum handler missing"
+    assert callable(api.handler)
+
+
+def test_lambda_serves_the_city_from_the_snapshot(monkeypatch):
+    """Deriving the city live is ~1,800 throttled requests to a free public
+    API. On Lambda it must come from the committed snapshot instead."""
+    import json
+
+    from fastapi.testclient import TestClient
+
+    from saans import api
+
+    if not api.SNAPSHOT.exists():
+        pytest.skip("snapshot not built")
+    monkeypatch.setattr(api, "ON_LAMBDA", True)
+
+    def explode(*a, **k):
+        raise AssertionError("Lambda must not re-fetch 922 schools")
+
+    monkeypatch.setattr(api, "picture", explode)
+    r = TestClient(api.app).get("/api/city")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["summary"]["schools"] > 800
+    assert body["from_snapshot"]
+
+
+def test_the_snapshot_carries_every_section_the_public_site_needs():
+    """The site renders this file and holds no numbers of its own, so a
+    missing key is a broken page, not a missing paragraph."""
+    import json
+
+    from saans import api
+
+    if not api.SNAPSHOT.exists():
+        pytest.skip("snapshot not built")
+    doc = json.loads(api.SNAPSHOT.read_text())
+    for key in (
+        "generated_for", "school", "who", "outdoor_day", "protocol",
+        "today", "hours", "safest", "stability", "replay", "city",
+    ):
+        assert key in doc, f"snapshot missing {key}"
+    assert len(doc["protocol"]["clauses"]) == len(P.clauses())
+    assert doc["city"]["summary"]["schools"] == len(doc["city"]["schools"])
+    assert doc["stability"]["total"] == len(doc["stability"]["calls"])
+
+
+def test_lambda_requirements_exclude_the_local_model_stack():
+    """strands-agents and ollama cannot run on Lambda and would blow the
+    package size. Their absence is deliberate, so it is asserted."""
+    from pathlib import Path
+
+    path = (
+        Path(__file__).resolve().parent.parent / "deploy" / "requirements-lambda.txt"
+    )
+    # Only the actual requirement lines; the comments name the excluded
+    # packages in order to explain why they are excluded.
+    pinned = [
+        line.split("#")[0].strip().lower()
+        for line in path.read_text().splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    ]
+    joined = " ".join(pinned)
+    assert "cedarpy" in joined, "Cedar is the protocol engine; it must ship"
+    assert "mangum" in joined
+    for excluded in ("strands-agents", "ollama", "uvicorn"):
+        assert excluded not in joined, f"{excluded} must not ship to Lambda"

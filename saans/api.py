@@ -191,9 +191,47 @@ def api_replay(window: str = "recent"):
     }
 
 
+SNAPSHOT = Path(__file__).resolve().parent.parent / "data" / "snapshot.json"
+ON_LAMBDA = bool(os.environ.get("AWS_LAMBDA_FUNCTION_NAME"))
+
+
 @app.get("/api/city")
 def city(limit: int | None = None):
-    """The same protocol, run across every mapped school in Delhi."""
+    """The same protocol, run across every mapped school in Delhi.
+
+    Deriving this live means 922 locations across two endpoints, throttled
+    to respect a free public API - minutes of work. On Lambda that is
+    served from the committed snapshot, which this same engine produced.
+    """
+    if ON_LAMBDA and SNAPSHOT.exists():
+        import json as _json
+
+        doc = _json.loads(SNAPSHOT.read_text())
+        c = doc.get("city")
+        if c:
+            return {
+                "summary": c["summary"],
+                "schools": c["schools"],
+                "worst": [
+                    {
+                        "name": s["name"],
+                        "pm": s["peak_pm25"],
+                        "dose": s["day_dose"],
+                        "band": s["cpcb_band"],
+                    }
+                    for s in c["worst"]
+                ],
+                "best": [
+                    {
+                        "name": s["name"],
+                        "pm": s["peak_pm25"],
+                        "dose": s["day_dose"],
+                        "band": s["cpcb_band"],
+                    }
+                    for s in c["best"][:5]
+                ],
+                "from_snapshot": doc.get("generated_at"),
+            }
     try:
         p = picture(limit=limit)
     except Exception as e:
@@ -367,3 +405,24 @@ def api_ask(req: AskRequest):
         return {"question": req.question, "answer": agent_ask(req.question)}
     except Exception as e:
         raise HTTPException(503, f"agent unavailable: {type(e).__name__}: {e}")
+
+
+# ----- AWS Lambda entrypoint ---------------------------------------------
+#
+# The same FastAPI app, served by Lambda behind a Function URL. Nothing
+# about the protocol changes: Cedar still decides, the ledger is the real
+# DynamoDB table, the notice lands in the real bucket.
+#
+# Two deliberate differences in this runtime:
+#   - There is no local model, so the notice's opening line comes from the
+#     deterministic summary. The guard's fallback path is the normal path
+#     here rather than an error case.
+#   - /api/city serves the committed snapshot instead of re-fetching 922
+#     schools, which would take minutes and hammer a free public API on
+#     every cold start.
+try:  # pragma: no cover - only meaningful in the deployed runtime
+    from mangum import Mangum
+
+    handler = Mangum(app, lifespan="off")
+except ImportError:  # local dev without mangum installed
+    handler = None

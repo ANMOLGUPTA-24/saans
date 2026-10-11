@@ -172,7 +172,46 @@ flowchart TB
   DDB --> ASK["Ask the record<br/>Strands tools"]
 ```
 
-## Run it in two minutes
+## Deploy it to real AWS
+
+The repo also deploys to a live AWS account in one command. Every resource it
+creates sits inside AWS's always-free or 12-month-free allowances, which matters
+because this is a student project with no budget.
+
+```bash
+export AWS_ACCESS_KEY_ID=...  AWS_SECRET_ACCESS_KEY=...
+python deploy/aws_deploy.py --region ap-south-1 --sender you@example.com
+```
+
+It builds the Lambda package (10.6 MB zipped), creates a least-privilege IAM role,
+the DynamoDB ledger, the notices bucket, the 05:45 EventBridge rule and a public
+**Lambda Function URL**, then prints the live URL. Re-running updates the function
+in place.
+
+| Resource | Free-tier allowance used |
+|---|---|
+| **Lambda** + Function URL | 1M requests + 400,000 GB-s/month, **always free** (no API Gateway, which is what would cost) |
+| **DynamoDB** on-demand | 25 GB, always free |
+| **S3** | 5 GB for 12 months |
+| **EventBridge** rule | free |
+| **CloudWatch Logs** | 5 GB/month ingest, always free |
+| **SES** | sandbox — verified identities only |
+
+Two deliberate differences in the deployed runtime, both already designed for:
+
+- **No local model**, so the notice's opening line comes from the deterministic
+  summary. The guard's fallback path is simply the normal path here.
+- **`/api/city` serves the committed snapshot** rather than re-deriving it from
+  ~1,800 throttled requests to a free public API on every cold start.
+
+Tear it all down — a deploy script without a teardown script is how a student ends
+up with a bill:
+
+```bash
+python deploy/aws_destroy.py --region ap-south-1
+```
+
+## Run it locally in two minutes
 
 No AWS account needed.
 
