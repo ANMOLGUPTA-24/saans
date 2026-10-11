@@ -1,136 +1,150 @@
 # Saans — 3-minute demo video script
 
-**Hard limit: 2:55.** The rules say judges score what the video shows; a feature that
-exists only in the writeup does not count. So every claim below is shown on screen.
+**Hard limit: 2:55.** The rules say judges score what the video shows, and there is no
+live demo — the video *is* the submission. Every claim below is visible on screen.
 
-Record at 1280×800 or larger. Browser zoom ~110% so numbers are legible after YouTube
-compression. Close other tabs. Have the server and LocalStack already running — do not
-film a boot sequence.
+Record at 1280×800+, browser zoom ~110%. Two tabs, both already loaded:
 
-**Before recording:** restart the server so caches are warm, and press *Run the morning
-job* once so the ledger has a row (then reload to a clean page for the take).
+- **Tab A** — the live site: <https://saans-air-protocol.lovable.app>
+- **Tab B** — the working app: `http://localhost:8000` (server + LocalStack already up,
+  and press *Run the morning job* once beforehand so the ledger has a row, then reload)
 
----
-
-## 0:00–0:22 · The problem, with a number
-
-> **On screen:** the top of the page — the 68 µg/m³ band, the school, the date.
-
-"It's a Sunday morning in Delhi. PM2.5 is 68 micrograms. CPCB calls that *Moderate* —
-an unremarkable day, a month before the smog season even starts.
-
-At a school four kilometres from here, someone has to decide before seven o'clock
-whether the games period happens."
+Do not film a boot sequence. Do not open an IDE.
 
 ---
 
-## 0:22–0:52 · Why AQI can't answer that
+## 0:00–0:25 · The finding, stated cold
 
-> **On screen:** scroll to §03 *Dose, not index*. Let the five stat tiles land.
-> Then scroll back up to the decision table and point at the Games period row.
+> **Tab A**, hero. Let the headline sit on screen.
 
-"An index can't answer it, because an index is a colour for a city for a day. What a
-child takes in is a *dose* — concentration, times time outdoors, times how hard they're
-breathing. A child at games moves about three times the air through their lungs.
+"Nine hundred and twenty-two schools in Delhi. Real schools — every one OpenStreetMap
+has a name and a location for.
 
-So: that one games period, on this unremarkable day, costs a child **a hundred and
-thirty-six percent of their entire WHO weekly budget**. One period. One week's budget.
-A full school day here spends two of them.
+At **all** of them, today, a single games period costs a child more than their entire
+WHO weekly limit for air pollution. Not the smog season. An ordinary Sunday in October.
 
-That's the number nobody sees, because nobody is computing it."
-
----
-
-## 0:52–1:35 · The decision, and the thing that makes it trustworthy
-
-> **On screen:** the decision table. Hover a `P3` chip so the clause tooltip shows.
-> Then scroll to §05 and show the Cedar clauses. Scroll back.
-
-"Saans decides it. Per class — because Class 6-B has three children on the respiratory
-register and Class 11-C has none, and they are not in the same position.
-
-Every row cites the clause that produced it. And here's the clause — *this* is the
-school's circular, written in **Cedar**, AWS's open-source policy language.
-
-This is not a prompt. The rule the whole project is built on is: **no language model
-decides anything that affects a child's lungs.** An activity stays outdoors only if
-Cedar returns ALLOW. The model's job is one sentence of prose, and I'll show you what
-happens when it gets that wrong.
-
-And look at Class 11-C — recess, *held outdoors*. The protocol isn't a blanket ban.
-It's a policy engine, and you can watch it discriminate."
+Four hundred and seven of them are in air CPCB calls *Poor*. And no school in that city
+is currently computing this, because the number nobody computes is the one that
+matters."
 
 ---
 
-## 1:35–2:05 · It tries not to take the period away
+## 0:25–0:55 · Why the AQI can't tell them
 
-> **On screen:** §02 chart — point at the "cleanest" marker. Then a `moved to a cleaner
-> hour` row if one is present; otherwise say the line over the chart.
+> **Tab A**, scroll to *Dose, not index*. Pause on the three exertion cards, then on
+> the 136% bar.
 
-"Before it takes anything away, Saans tries to keep it. It prices every option, finds
-the cleanest hour in the school day, and asks whether moving the period there is enough.
-Same activity, same exertion, different air — the recommendation a dashboard never
-makes.
+"An AQI reading is a colour, for a city, for a day. What a child absorbs is a **dose** —
+concentration, times time outdoors, times how hard they are breathing.
 
-Only if that fails does the class go inside. And the notice says plainly that indoors
-is a *reduction*, not an escape: a shut unfiltered classroom still lets in about half."
+And that last term is the one everybody drops. A child at games moves about three times
+the air through their lungs as a child in assembly. Same air, triple the dose.
 
----
-
-## 2:05–2:35 · AWS, and the receipts
-
-> **On screen:** press **Run the morning job**. Let the receipts block render. Then
-> scroll to §07 and show the four green service pills and the ledger table.
-
-"One button runs the whole morning. Decide, draft, write, store, send.
-
-**Strands Agents SDK** — AWS's open-source agent framework — runs the agent against a
-local model, so there's no API key and no spend. **DynamoDB** holds the decision ledger.
-**S3** stores the notice exactly as it went home. **EventBridge** carries the 05:45
-rule. **SES** delivers it.
-
-All of it on the Build It path — LocalStack, no AWS account, no card. The same boto3
-calls run against real AWS with one environment variable.
-
-And there's the guard: it checks the model's sentence against the record, and rejects
-it if it states a figure that isn't there, or claims indoors is safe. During the build
-it caught the model twice, for real errors."
+Run it: assembly twenty-one percent of a child's weekly budget. Recess forty-five. The
+games period — **a hundred and thirty-six percent**. One period. One week's limit.
+That's why 'Moderate' air is not moderate for a child at play."
 
 ---
 
-## 2:35–2:55 · What it's worth, and the quiet day
+## 0:55–1:35 · The decision, and why you can trust it
 
-> **On screen:** §04 — the impact tiles. Click **Nov 2025 smog**. Then scroll the
-> replay table to the 2026-09-28 row with "nothing to do".
+> **Tab A**, *Today's decision* table. Hover a `P3` chip so the clause tooltip shows.
+> Scroll to *The protocol, as code* and rest on the pull-quote. Scroll back to the
+> Class 11-C row.
 
-"Replayed over real measured air: **forty-two percent** of a child's inhaled dose
-prevented over the last fortnight. Forty-seven percent across last November's smog
-season.
+"Saans decides it — per class, before seven in the morning. Every row cites the clause
+that produced it.
 
-But this is the row I'd point at. September the twenty-eighth. Twenty-nine micrograms.
-Clean air. The protocol did **nothing at all**.
+And here is that clause. This is the school's circular written in **Cedar**, AWS's
+open-source policy language. It is not a prompt.
 
-Because a protocol that fires on a good day gets switched off in a fortnight — and then
-it isn't there on the day it matters."
+That's the rule the whole project is built on: **no language model decides anything
+that affects a child's lungs.** Cedar decides. The model writes one sentence of prose,
+and I'll show you what happens when it gets that wrong.
+
+Now look at Class 11-C — recess, *held outdoors*. It's the one class with nobody on the
+respiratory register. Same evidence, different needs, different answer. That's a policy
+engine discriminating, not a blanket ban."
 
 ---
 
-## Shot list / checklist
+## 1:35–1:55 · The map, and not taking the period away
 
-- [ ] Page loaded, no console errors, ledger has at least one row
-- [ ] Hover a clause chip so the tooltip is visibly captured
-- [ ] Press *Run the morning job* **live** on camera — the receipts are the proof
-- [ ] Show all four AWS service pills green
-- [ ] Click the *Nov 2025 smog* toggle live
-- [ ] End on the 2026-09-28 "nothing to do" row
-- [ ] Under 3:00. Check before uploading.
-- [ ] Upload to YouTube, set **Public or Unlisted**
-- [ ] **Open the link in a signed-out browser window and confirm it plays**
+> **Tab A**, the Delhi map. Hover one or two points.
 
-## Things not to do
+"Every school, coloured by what a child takes in there today. You can see the gradient
+across the city — this is not one number copied nine hundred times.
 
-- Don't open an IDE or show code files. The page carries the story; code reading eats
-  the clock.
-- Don't apologise for the synthetic roster on camera — the README states it, and the
-  air data is real, which is the part that matters.
-- Don't read the clause text aloud word for word. Point at it and move.
+And before Saans takes a period away, it tries to keep it: it prices every option and
+looks for the cleanest hour in the school day to move it into. Same activity, same
+exertion, cleaner air. Indoors is the last resort — and the notice says plainly that a
+shut unfiltered classroom still lets in about half."
+
+---
+
+## 1:55–2:20 · The question a judge is about to ask
+
+> **Tab A**, *How wrong can the forecast be?*
+
+"You should be asking: this is a forecast, so how do you know it's right?
+
+There's no free ground-sensor feed for Delhi to check against, and quoting an accuracy
+figure I can't back would be dishonest. So Saans answers the question that actually
+matters for a safety tool — does the *decision* survive the forecast being wrong?
+
+Every call is re-decided across plus or minus forty percent forecast error. **Every
+games-period call holds across the whole band** — the decision carrying triple the dose
+is the most robust one. The borderline calls are labelled *marginal*, because a tool
+like this should not project confidence it hasn't earned."
+
+---
+
+## 2:20–2:45 · AWS, with receipts
+
+> **Switch to Tab B.** Press **Run the morning job** live. Let the receipts render.
+> Scroll to the four green service pills.
+
+"One button runs the whole morning: decide, draft, write, store, send.
+
+**Cedar** is the policy engine. **Strands Agents SDK** runs the agent on a local model —
+no API key, no spend. **DynamoDB** holds the decision ledger, **S3** the notice exactly
+as it went home, **EventBridge** the 05:45 rule, **SES** the delivery.
+
+All on the Build It path — LocalStack, no AWS account, no card. Same boto3 calls run
+against real AWS with one environment variable.
+
+And there — the guard rejected the model's sentence, because it stated a number the
+record doesn't support. It fell back to the deterministic summary and **said so.**
+During the build it caught the model three times."
+
+---
+
+## 2:45–2:55 · The row I'd stake it on
+
+> **Tab A**, *What it's worth*. Point at the highlighted 28 September row.
+
+"Forty-two percent of a child's inhaled dose prevented over the last fortnight.
+
+But this is the row. September the twenty-eighth. Twenty-nine micrograms. Clean air.
+Saans did **nothing at all** — because a protocol that fires on a good day gets switched
+off in a fortnight, and then it isn't there on the day it matters."
+
+---
+
+## Checklist
+
+- [ ] Both tabs pre-loaded; ledger has a row; LocalStack up
+- [ ] Clause tooltip visibly captured on hover
+- [ ] *Run the morning job* pressed **live** — the receipts are the proof
+- [ ] Four AWS pills green on screen
+- [ ] End on the 28 September "nothing to do" row
+- [ ] **Under 3:00** — check before uploading
+- [ ] YouTube, Public or Unlisted
+- [ ] **Open the link in a signed-out window and confirm it plays**
+
+## Don't
+
+- Don't show code files. The pages carry it; reading code eats the clock.
+- Don't apologise on camera for the synthetic roster — the air, the 922 school
+  locations and the standards are all real, and the site says which is which.
+- Don't read clause text aloud word for word. Point and move.

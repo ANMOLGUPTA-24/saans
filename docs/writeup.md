@@ -1,7 +1,8 @@
 # Saans — submission writeup
 
 **Track:** Air · **Event:** Environmental Hacks, Bharat Builds Tour (WeMakeDevs × AWS)
-**Repository:** *(public URL)* · **Demo video:** *(YouTube, under 3:00)*
+**Live site:** <https://saans-air-protocol.lovable.app>
+**Repository:** <https://github.com/ANMOLGUPTA-24/saans> · **Demo video:** *(YouTube, under 3:00)*
 
 ---
 
@@ -57,6 +58,40 @@ outdoors → move it into the cleanest hour of the day (same activity, same exer
 different air) → only then indoors, and the notice states plainly that a shut
 unfiltered classroom still admits about half the outdoor particulate. A protocol that
 only ever says no gets switched off in a fortnight.
+
+## Delhi, school by school
+
+One school proves the protocol works; it does not show the size of the thing. Saans
+runs the same protocol across **every school in Delhi that OpenStreetMap has a name and
+a location for — 922 real places** (ODbL).
+
+The air genuinely varies: 26 µg/m³ between the cleanest and dirtiest mapped school this
+morning, 55 µg/m³ between the corners of the city. So these are 922 different
+decisions, not one decision printed 922 times.
+
+> **At all 922, a single games period today costs more than a child's entire WHO weekly
+> budget.** 407 sit in CPCB *Poor*.
+
+Dose is per child by construction, so this needs no enrolment figure and none is
+invented. Values are interpolated from a ~40 km model grid, which the site states
+plainly — nearby schools can share a reading.
+
+## How wrong can the forecast be?
+
+The obvious challenge: this acts on a global model's forecast. There is no keyless
+ground-truth sensor feed for Delhi, and quoting a skill score without one would be
+dishonest. So Saans answers the question that actually matters for a safety tool —
+**does the decision survive the forecast being wrong?**
+
+Every call is re-decided across **±40% forecast error**, wider than anyone claims for
+CAMS:
+
+- **All four games-period calls hold across the entire band.** The decision carrying
+  triple the dose is the most robust one, which is the right way round.
+- Seven borderline calls flip between −10% and −20%, and are labelled **marginal**.
+
+A call flagged marginal is one Saans refuses to present with confidence it hasn't
+earned. That is an honesty feature, not a weakness.
 
 ## Where AWS fits
 
