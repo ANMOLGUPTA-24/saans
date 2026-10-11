@@ -4,6 +4,8 @@
 period before 07:00 — from the live forecast, against a policy the principal signed —
 and records why, so a parent can still get the answer a month later.
 
+**Live:** <https://saans-air-protocol.lovable.app> · **Code:** this repository
+
 Built for **Environmental Hacks**, Event 02 of the Bharat Builds Tour
 (WeMakeDevs × AWS). **Track: Air.**
 
@@ -84,6 +86,40 @@ Replayed over real measured air for this location — no modelling of our own:
 The number that matters as much as those: on 2026-09-28, with PM2.5 at 29 µg/m³,
 **the protocol changed nothing at all.** A protocol that fires on a good day gets
 switched off in a fortnight.
+
+## Delhi, school by school
+
+One school proves the protocol works. It does not show the size of the thing.
+
+Saans runs the same protocol across **every school in Delhi that OpenStreetMap has a
+name and a location for — 922 real places** (ODbL, in [`data/delhi_schools.json`](data/delhi_schools.json)).
+The air genuinely varies: 26 µg/m³ between the cleanest and dirtiest mapped school
+this morning, and 55 µg/m³ between the corners of the city. So these are 922 different
+decisions, not one decision printed 922 times.
+
+Today's finding, from live data:
+
+> **At all 922 mapped Delhi schools, a single games period costs more than a child's
+> entire WHO weekly budget.** 407 of them sit in CPCB *Poor*.
+
+Dose is per child by construction, so this needs no enrolment figure and none is
+invented.
+
+## How wrong can the forecast be?
+
+The obvious challenge: Saans acts on a global model's forecast. There is no keyless
+ground-truth sensor feed for Delhi to validate against, and quoting a skill score
+without one would be dishonest.
+
+So it answers the question that actually matters for a safety tool — does the
+*decision* survive the forecast being wrong? [`saans/stability.py`](saans/stability.py)
+re-decides every call across **±40% forecast error**, wider than anyone claims for
+CAMS:
+
+- **Every games-period call holds across the whole band.** The decision carrying triple
+  the dose is the most robust one, which is the right way round.
+- Borderline assembly calls flip at −10%, and are reported as **marginal** rather than
+  given a confidence they have not earned.
 
 ## Built on AWS
 
