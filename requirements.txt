@@ -1,0 +1,9 @@
+cedarpy>=4.12          # Cedar policy engine (AWS open source)
+strands-agents>=1.59   # Strands Agents SDK (AWS open source)
+strands-agents-tools>=0.8
+ollama>=0.4            # local model provider for Strands, no API key
+boto3>=1.40            # AWS SDK, points at LocalStack or real AWS
+fastapi>=0.115
+uvicorn[standard]>=0.34
+httpx>=0.28
+pytest>=8.0
