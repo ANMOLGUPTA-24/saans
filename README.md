@@ -4,7 +4,12 @@
 period before 07:00 — from the live forecast, against a policy the principal signed —
 and records why, so a parent can still get the answer a month later.
 
-**Live:** <https://saans-air-protocol.lovable.app> · **Code:** this repository
+**Live dashboard:** <https://anmolgupta-24.github.io/saans/> · **Code:** this repository
+
+The published page is the same `web/index.html` the engine serves. With the API behind
+it, it calls the API; published standalone, it reads the snapshot this engine exports.
+So the public site and the running protocol cannot disagree — they are one page reading
+one set of figures.
 
 Built for **Environmental Hacks**, Event 02 of the Bharat Builds Tour
 (WeMakeDevs × AWS). **Track: Air.**

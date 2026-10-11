@@ -5,7 +5,7 @@ live demo — the video *is* the submission. Every claim below is visible on scr
 
 Record at 1280×800+, browser zoom ~110%. Two tabs, both already loaded:
 
-- **Tab A** — the live site: <https://saans-air-protocol.lovable.app>
+- **Tab A** — the live dashboard: <https://anmolgupta-24.github.io/saans/>
 - **Tab B** — the working app: `http://localhost:8000` (server + LocalStack already up,
   and press *Run the morning job* once beforehand so the ledger has a row, then reload)
 

@@ -1,7 +1,7 @@
 # Saans — submission writeup
 
 **Track:** Air · **Event:** Environmental Hacks, Bharat Builds Tour (WeMakeDevs × AWS)
-**Live site:** <https://saans-air-protocol.lovable.app>
+**Live dashboard:** <https://anmolgupta-24.github.io/saans/>
 **Repository:** <https://github.com/ANMOLGUPTA-24/saans> · **Demo video:** *(YouTube, under 3:00)*
 
 ---
