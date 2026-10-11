@@ -1,0 +1,7384 @@
+{
+ "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+ "query": "amenity=school within bbox 28.40,76.84,28.89,77.35 (Delhi NCT)",
+ "retrieved": "2026-10-11",
+ "count": 922,
+ "schools": [
+  {
+   "osm_id": "way/352266630",
+   "name": "ASN International School",
+   "lat": 28.60414,
+   "lon": 77.29384,
+   "operator_type": "private",
+   "isced": "1;0"
+  },
+  {
+   "osm_id": "way/293337650",
+   "name": "ASN Senior Secondary School",
+   "lat": 28.59842,
+   "lon": 77.2959,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1287282319",
+   "name": "AVB Public School",
+   "lat": 28.62696,
+   "lon": 77.30527,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13334052245",
+   "name": "AVN International School",
+   "lat": 28.69946,
+   "lon": 77.33523,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/143735235",
+   "name": "AVN Secondary School",
+   "lat": 28.42354,
+   "lon": 77.31419,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/851802582",
+   "name": "Aadhar Shila Public School",
+   "lat": 28.70344,
+   "lon": 77.13722,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10750336512",
+   "name": "Aadyant",
+   "lat": 28.53246,
+   "lon": 77.14984,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11218263069",
+   "name": "Adarsh Bal Vidyalaya",
+   "lat": 28.63047,
+   "lon": 77.2742,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260309941",
+   "name": "Adarsh Model School",
+   "lat": 28.61593,
+   "lon": 77.0515,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4453301889",
+   "name": "Adarsh World School",
+   "lat": 28.59438,
+   "lon": 77.04357,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1297687815",
+   "name": "Adriel High",
+   "lat": 28.72521,
+   "lon": 77.08893,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5223511422",
+   "name": "Ahlcon International School",
+   "lat": 28.61206,
+   "lon": 77.28814,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1015229029",
+   "name": "Ahlcon Public School",
+   "lat": 28.60812,
+   "lon": 77.29134,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/287659126",
+   "name": "Air Force Bal Bharati School",
+   "lat": 28.58962,
+   "lon": 77.2269,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14055347123",
+   "name": "Air Force School Panchwati",
+   "lat": 28.57627,
+   "lon": 77.08727,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1383556738",
+   "name": "Air Force Senior Secondary School",
+   "lat": 28.57717,
+   "lon": 77.12115,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "node/5343112121",
+   "name": "Alok Bharti Public School",
+   "lat": 28.7365,
+   "lon": 77.12878,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1270574322",
+   "name": "Alpine Convent School, Sector 10",
+   "lat": 28.45574,
+   "lon": 76.99387,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/350587517",
+   "name": "Amar Bharti School",
+   "lat": 28.613,
+   "lon": 77.05122,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1195003750",
+   "name": "Ambience Public School",
+   "lat": 28.45293,
+   "lon": 77.09433,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1409692387",
+   "name": "Ambience Public School",
+   "lat": 28.56622,
+   "lon": 77.19782,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262441520",
+   "name": "American Embassy School",
+   "lat": 28.59884,
+   "lon": 77.18206,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1384029750",
+   "name": "American Montessori",
+   "lat": 28.48505,
+   "lon": 77.08098,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/45769377",
+   "name": "Amity Global School",
+   "lat": 28.43405,
+   "lon": 77.06306,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/239637984",
+   "name": "Amity International School",
+   "lat": 28.52346,
+   "lon": 77.21467,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1524881652",
+   "name": "Amity International School",
+   "lat": 28.52832,
+   "lon": 77.22764,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/293325118",
+   "name": "Amity International School, Mayur Vihar",
+   "lat": 28.59772,
+   "lon": 77.29851,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/68789829",
+   "name": "Amity School",
+   "lat": 28.55581,
+   "lon": 77.32957,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266639961",
+   "name": "Amity School",
+   "lat": 28.45479,
+   "lon": 77.07681,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446006877",
+   "name": "Andh Kanya Vidyalaya",
+   "lat": 28.63683,
+   "lon": 77.18031,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283888132",
+   "name": "Angels Public School",
+   "lat": 28.59739,
+   "lon": 77.31678,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265813745",
+   "name": "Anglo Arabic Public School",
+   "lat": 28.6461,
+   "lon": 77.22221,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266768722",
+   "name": "Anglo Sanskrit Victoria Jubilee Senior Secondary School",
+   "lat": 28.64771,
+   "lon": 77.24106,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172656826",
+   "name": "Apeejay School",
+   "lat": 28.41839,
+   "lon": 77.28911,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/348818897",
+   "name": "Apeejay School",
+   "lat": 28.57123,
+   "lon": 77.31312,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1165065392",
+   "name": "Apeejay School",
+   "lat": 28.53623,
+   "lon": 77.21912,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/239637987",
+   "name": "Apeejay School, Saket",
+   "lat": 28.52057,
+   "lon": 77.21335,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172659424",
+   "name": "Aravali International School",
+   "lat": 28.44618,
+   "lon": 77.2828,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12032854870",
+   "name": "Arena Animation",
+   "lat": 28.64196,
+   "lon": 77.2963,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/259944153",
+   "name": "Army Public School",
+   "lat": 28.60039,
+   "lon": 77.16919,
+   "operator_type": null,
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/350555007",
+   "name": "Army Public School",
+   "lat": 28.56208,
+   "lon": 77.14249,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/531947612",
+   "name": "Army Public School",
+   "lat": 28.60184,
+   "lon": 77.12437,
+   "operator_type": "military",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/1317876455",
+   "name": "Army Public School, Noida",
+   "lat": 28.56685,
+   "lon": 77.33895,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1545686207",
+   "name": "Arunodaya Public School",
+   "lat": 28.64542,
+   "lon": 77.29939,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1239819924",
+   "name": "Arwachin International School",
+   "lat": 28.67902,
+   "lon": 77.31578,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/10758831609",
+   "name": "Arya Hansraj Model School",
+   "lat": 28.73353,
+   "lon": 77.16703,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1177222902",
+   "name": "Arya Model School",
+   "lat": 28.72002,
+   "lon": 77.17793,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11025053735",
+   "name": "Aryan Model Public School",
+   "lat": 28.74661,
+   "lon": 77.16111,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1413004773",
+   "name": "Aryan Public School",
+   "lat": 28.64531,
+   "lon": 77.34171,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1389233572",
+   "name": "Asha School",
+   "lat": 28.61039,
+   "lon": 77.13824,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/12918591734",
+   "name": "Asha School Delhi Cantt.",
+   "lat": 28.61039,
+   "lon": 77.13799,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1316349829",
+   "name": "Assembly Ground",
+   "lat": 28.60146,
+   "lon": 77.12398,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5244000722",
+   "name": "Aster Public School",
+   "lat": 28.60961,
+   "lon": 77.28961,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1387043119",
+   "name": "Atal Adarsh Bal Vidyalaya",
+   "lat": 28.63631,
+   "lon": 77.20036,
+   "operator_type": "public",
+   "isced": "2;3"
+  },
+  {
+   "osm_id": "way/1386136251",
+   "name": "Atal Adarsh Prathmik Vidyalaya",
+   "lat": 28.63858,
+   "lon": 77.20553,
+   "operator_type": "public",
+   "isced": "1;0"
+  },
+  {
+   "osm_id": "way/1387125259",
+   "name": "Atal Adarsh Vidyalaya",
+   "lat": 28.64214,
+   "lon": 77.20278,
+   "operator_type": "public",
+   "isced": "1;2"
+  },
+  {
+   "osm_id": "way/1390005706",
+   "name": "Auxilium Higher Secondary School",
+   "lat": 28.57615,
+   "lon": 77.17409,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982171911",
+   "name": "Avinash Chandra Chadha Central Savoday Bal School",
+   "lat": 28.66961,
+   "lon": 77.30738,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/78595605",
+   "name": "B Block Govt School",
+   "lat": 28.71296,
+   "lon": 77.13355,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782404747",
+   "name": "B.G.S. International Public School",
+   "lat": 28.59898,
+   "lon": 77.05711,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5338786924",
+   "name": "BCC Model School",
+   "lat": 28.73967,
+   "lon": 77.11939,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9536890784",
+   "name": "Baba Banda Singh Bahadur Memorial Secondary School",
+   "lat": 28.52179,
+   "lon": 77.18164,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/677801449",
+   "name": "Baba Nebraj Senior Secondary School",
+   "lat": 28.57528,
+   "lon": 77.24398,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/287500319",
+   "name": "Babu Ram Sr Sec School",
+   "lat": 28.6671,
+   "lon": 77.29029,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/176162456",
+   "name": "Bachchan Prasad Sarvodaya Kanya Vidyalaya",
+   "lat": 28.49956,
+   "lon": 77.23816,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/167335641",
+   "name": "Bal Bharati Public School",
+   "lat": 28.69097,
+   "lon": 77.10694,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189430835",
+   "name": "Bal Bharati School",
+   "lat": 28.59517,
+   "lon": 77.03979,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/70521288",
+   "name": "Bal Bharti Public School",
+   "lat": 28.58535,
+   "lon": 77.3373,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886180",
+   "name": "Bal Bharti Public School",
+   "lat": 28.66936,
+   "lon": 77.3347,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/851803154",
+   "name": "Bal Bharti Public School",
+   "lat": 28.70741,
+   "lon": 77.13059,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1418574187",
+   "name": "Bal Bharti Public School",
+   "lat": 28.63998,
+   "lon": 77.1904,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "way/1258165107",
+   "name": "Bal Bharti Public School Grounds",
+   "lat": 28.58528,
+   "lon": 77.33725,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12704710070",
+   "name": "Bal Bhavan Public School",
+   "lat": 28.6188,
+   "lon": 77.30259,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13633430911",
+   "name": "Bal Bhavan Public School",
+   "lat": 28.63535,
+   "lon": 77.27976,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/983528878",
+   "name": "Bal Mandir Sr. Sec. School",
+   "lat": 28.64168,
+   "lon": 77.29248,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4976515363",
+   "name": "Bal vikash School",
+   "lat": 28.73303,
+   "lon": 76.90098,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/732907417",
+   "name": "Bala Pritam Guru Harkishan International Public School",
+   "lat": 28.56606,
+   "lon": 77.16403,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1427912943",
+   "name": "Balvantray Mehta Vidya Bhawan",
+   "lat": 28.53509,
+   "lon": 77.2358,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262569726",
+   "name": "Banasthali Public School",
+   "lat": 28.6422,
+   "lon": 77.07784,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446009093",
+   "name": "Bapu Adarsh Vidyalaya",
+   "lat": 28.63064,
+   "lon": 77.18047,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9554253936",
+   "name": "Bapu Public School",
+   "lat": 28.61333,
+   "lon": 77.28929,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2408447131",
+   "name": "Basava International School",
+   "lat": 28.56487,
+   "lon": 77.05542,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/297550330",
+   "name": "Bharat National Vidya Mandir",
+   "lat": 28.65721,
+   "lon": 77.30814,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1298724609",
+   "name": "Bharat Sevak Samaj Public School",
+   "lat": 28.5767,
+   "lon": 77.19486,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/2019345544",
+   "name": "Bharat Vasisht Vidya Mandir",
+   "lat": 28.47172,
+   "lon": 77.12857,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283749167",
+   "name": "Bharti Public School",
+   "lat": 28.60609,
+   "lon": 77.33247,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1360711040",
+   "name": "Bharti Public School",
+   "lat": 28.63952,
+   "lon": 77.28795,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1432526157",
+   "name": "Bharti Vidya Bhawan",
+   "lat": 28.62092,
+   "lon": 77.22843,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6961335189",
+   "name": "Bhatnagar International School",
+   "lat": 28.52954,
+   "lon": 77.15404,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1426171259",
+   "name": "Birla Senior Secondary School",
+   "lat": 28.67925,
+   "lon": 77.20212,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/819425226",
+   "name": "Birla Vidya Niketan",
+   "lat": 28.52662,
+   "lon": 77.23017,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/287870801",
+   "name": "Blind School",
+   "lat": 28.50305,
+   "lon": 77.28246,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9085977835",
+   "name": "Bloomfield Public School",
+   "lat": 28.68163,
+   "lon": 77.31484,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/217820372",
+   "name": "Blooming Blossoms",
+   "lat": 28.41651,
+   "lon": 77.29034,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189075005",
+   "name": "Blue Bells Model Sr. Sec. School",
+   "lat": 28.4781,
+   "lon": 77.01167,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262628289",
+   "name": "Bosco Public School",
+   "lat": 28.66777,
+   "lon": 77.08668,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/13142482001",
+   "name": "Bright Future Point",
+   "lat": 28.54899,
+   "lon": 77.21631,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1472153415",
+   "name": "CM Shri School (Dariyapur Gaon, Delhi)",
+   "lat": 28.80794,
+   "lon": 77.01663,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/312101690",
+   "name": "CR Model Public School",
+   "lat": 28.44631,
+   "lon": 77.04587,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78595575",
+   "name": "CRPF Public School",
+   "lat": 28.71027,
+   "lon": 77.13237,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/209295014",
+   "name": "CRPF Public School",
+   "lat": 28.6014,
+   "lon": 77.01731,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13823614701",
+   "name": "CRS public school",
+   "lat": 28.67249,
+   "lon": 77.06987,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265166887",
+   "name": "Cambridge Foundation School",
+   "lat": 28.63984,
+   "lon": 77.11406,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/69979616",
+   "name": "Cambridge International School",
+   "lat": 28.5739,
+   "lon": 77.33008,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2384623590",
+   "name": "Cambridge Primary School",
+   "lat": 28.56623,
+   "lon": 77.27465,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265740534",
+   "name": "Cambridge School",
+   "lat": 28.56502,
+   "lon": 77.25173,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/956222947",
+   "name": "Cambridge School Ground",
+   "lat": 28.63928,
+   "lon": 77.11305,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/69979618",
+   "name": "Cambrige School",
+   "lat": 28.57241,
+   "lon": 77.32813,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11998757236",
+   "name": "Carmel Convent School",
+   "lat": 28.60133,
+   "lon": 77.18812,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13481473075",
+   "name": "Central Baptist Church Primary school",
+   "lat": 28.65641,
+   "lon": 77.23368,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12944092756",
+   "name": "Central Insitute of Education Experimental Basic School",
+   "lat": 28.69426,
+   "lon": 77.20978,
+   "operator_type": "public",
+   "isced": "1;2"
+  },
+  {
+   "osm_id": "way/302531610",
+   "name": "Central Public School",
+   "lat": 28.62593,
+   "lon": 77.27892,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1165663843",
+   "name": "Chalk Tree Global School",
+   "lat": 28.42524,
+   "lon": 77.07213,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4212577542",
+   "name": "Chiranjiv Bharati School",
+   "lat": 28.51946,
+   "lon": 77.03766,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293523176",
+   "name": "Chowgule Public School",
+   "lat": 28.64747,
+   "lon": 77.19987,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263591769",
+   "name": "Colonel Child Bloom School",
+   "lat": 28.62813,
+   "lon": 76.96529,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189075001",
+   "name": "Colonel's Central Academy",
+   "lat": 28.47688,
+   "lon": 77.00509,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/284185489",
+   "name": "Convent of Jesus and Mary",
+   "lat": 28.62904,
+   "lon": 77.20732,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13180535715",
+   "name": "Cosmos Public School",
+   "lat": 28.60176,
+   "lon": 77.31453,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1257176959",
+   "name": "Cricket Ground",
+   "lat": 28.50745,
+   "lon": 77.33035,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78595581",
+   "name": "D Block Govt School",
+   "lat": 28.7159,
+   "lon": 77.13744,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/979783602",
+   "name": "D.A.V PUBLIC SCHOOL",
+   "lat": 28.6443,
+   "lon": 77.29014,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13814205596",
+   "name": "D.M.G. play school",
+   "lat": 28.56283,
+   "lon": 77.19315,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/167591466",
+   "name": "DAV Centenary Public School",
+   "lat": 28.67595,
+   "lon": 77.08589,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886184",
+   "name": "DAV Centenary School",
+   "lat": 28.66284,
+   "lon": 77.32643,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5358882588",
+   "name": "DAV Public School",
+   "lat": 28.57435,
+   "lon": 77.17276,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/171510619",
+   "name": "DAV Public School",
+   "lat": 28.70563,
+   "lon": 77.11872,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265997177",
+   "name": "DAV Public School",
+   "lat": 28.68491,
+   "lon": 77.35083,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886186",
+   "name": "DAV Public School",
+   "lat": 28.67049,
+   "lon": 77.33793,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1251555213",
+   "name": "DAV Public School",
+   "lat": 28.4087,
+   "lon": 77.04856,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78154548",
+   "name": "DAV Public School Ashok Vihar",
+   "lat": 28.6855,
+   "lon": 77.17381,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4269361827",
+   "name": "DAV Public School Pushpanjali",
+   "lat": 28.69399,
+   "lon": 77.10813,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445992231",
+   "name": "DAV School",
+   "lat": 28.64712,
+   "lon": 77.16801,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293526549",
+   "name": "DAV School",
+   "lat": 28.64373,
+   "lon": 77.20832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/8929322160",
+   "name": "DBSE",
+   "lat": 28.63079,
+   "lon": 77.31214,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446009092",
+   "name": "DI Khan Bharati Sabha Higher Secondary School",
+   "lat": 28.63076,
+   "lon": 77.17955,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266003977",
+   "name": "DLF Public School",
+   "lat": 28.688,
+   "lon": 77.34982,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/133485167",
+   "name": "DPS Infant Wing (Sec-40)",
+   "lat": 28.45003,
+   "lon": 77.05253,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1172655042",
+   "name": "DPS International",
+   "lat": 28.4091,
+   "lon": 77.06274,
+   "operator_type": "private_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "node/1116433509",
+   "name": "DPS International School",
+   "lat": 28.56979,
+   "lon": 77.17832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982197672",
+   "name": "DR. B.R. AMBEDKAR SCHOOL OF DPECIALISED EXCELLENCE",
+   "lat": 28.66585,
+   "lon": 77.30943,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394088638",
+   "name": "DTEA Senior Secondary School",
+   "lat": 28.59508,
+   "lon": 77.22572,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1382699654",
+   "name": "Daisy Dales School",
+   "lat": 28.55764,
+   "lon": 77.24459,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "way/78480652",
+   "name": "Darbari Lal DAV Model School",
+   "lat": 28.69924,
+   "lon": 77.14357,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10805073789",
+   "name": "Darshan Academy",
+   "lat": 28.69435,
+   "lon": 77.1943,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/7149092377",
+   "name": "Darul Qur'an Madrasa Abdurrahman Tahfizul Qur'an",
+   "lat": 28.52958,
+   "lon": 77.21434,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/190041783",
+   "name": "Dav School",
+   "lat": 28.44331,
+   "lon": 77.00827,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/351311860",
+   "name": "Dawn Bonito Nursery",
+   "lat": 28.63325,
+   "lon": 77.30348,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1383012733",
+   "name": "Dayanand Anglo-Vedic Secondary School",
+   "lat": 28.59689,
+   "lon": 77.12196,
+   "operator_type": "private",
+   "isced": "1;2"
+  },
+  {
+   "osm_id": "node/14177904474",
+   "name": "Dayanand Public School",
+   "lat": 28.71145,
+   "lon": 77.18635,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1297701239",
+   "name": "De Indian Public School",
+   "lat": 28.72939,
+   "lon": 77.08795,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6729018440",
+   "name": "Decent Public School",
+   "lat": 28.70693,
+   "lon": 77.10724,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886188",
+   "name": "Deep Memorial Public School",
+   "lat": 28.65696,
+   "lon": 77.32163,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886191",
+   "name": "Deep Memorial Public School Junior",
+   "lat": 28.66106,
+   "lon": 77.32115,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/533150331",
+   "name": "Deep Parmarth Vidyalaya",
+   "lat": 28.5859,
+   "lon": 77.08259,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/266378545",
+   "name": "Deep Public School",
+   "lat": 28.51172,
+   "lon": 77.16348,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262248698",
+   "name": "Deepalaya",
+   "lat": 28.53013,
+   "lon": 77.26767,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1289149664",
+   "name": "Delhi Area Primary School 2",
+   "lat": 28.59014,
+   "lon": 77.11712,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/14070593894",
+   "name": "Delhi Combat Academy",
+   "lat": 28.7084,
+   "lon": 77.18515,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189450635",
+   "name": "Delhi English Academy Public School",
+   "lat": 28.55358,
+   "lon": 77.0378,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1233494009",
+   "name": "Delhi International Junior School",
+   "lat": 28.73539,
+   "lon": 77.11097,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5400420021",
+   "name": "Delhi International Public School",
+   "lat": 28.7368,
+   "lon": 77.12919,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1239058520",
+   "name": "Delhi International Public School",
+   "lat": 28.7113,
+   "lon": 77.12354,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/2408446930",
+   "name": "Delhi International School",
+   "lat": 28.56422,
+   "lon": 77.05782,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/831988816",
+   "name": "Delhi International School",
+   "lat": 28.69968,
+   "lon": 77.10932,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/785020114",
+   "name": "Delhi Municipal Corporation Model Boys/Girls School",
+   "lat": 28.62324,
+   "lon": 77.29277,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/283923752",
+   "name": "Delhi Nagar Nigam Pre-Boys/Girls School",
+   "lat": 28.60187,
+   "lon": 77.3154,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4047437964",
+   "name": "Delhi Public School",
+   "lat": 28.53863,
+   "lon": 77.14799,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/34940768",
+   "name": "Delhi Public School",
+   "lat": 28.44175,
+   "lon": 77.0646,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/69995821",
+   "name": "Delhi Public School",
+   "lat": 28.57463,
+   "lon": 77.3366,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881751",
+   "name": "Delhi Public School",
+   "lat": 28.72631,
+   "lon": 77.08708,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/143735238",
+   "name": "Delhi Public School",
+   "lat": 28.41976,
+   "lon": 77.31198,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/294524899",
+   "name": "Delhi Public School",
+   "lat": 28.572,
+   "lon": 77.17623,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/783070191",
+   "name": "Delhi Public School International",
+   "lat": 28.52827,
+   "lon": 77.2245,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/349820534",
+   "name": "Delhi Public School Vasant Vihar",
+   "lat": 28.56404,
+   "lon": 77.16064,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1643999814",
+   "name": "Delhi Public School, Dwarka",
+   "lat": 28.60597,
+   "lon": 77.04795,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/294301235",
+   "name": "Delhi Public School, Mathura Road",
+   "lat": 28.59714,
+   "lon": 77.24246,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/312101676",
+   "name": "Delhi Public School, Primary Section",
+   "lat": 28.42954,
+   "lon": 77.05253,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1396776283",
+   "name": "Delhi University Social Centre School",
+   "lat": 28.68726,
+   "lon": 77.20465,
+   "operator_type": "public",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/11688160111",
+   "name": "Deshraj public school",
+   "lat": 28.5117,
+   "lon": 77.1076,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4367444089",
+   "name": "Dev Public School.",
+   "lat": 28.63047,
+   "lon": 76.96858,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1182654815",
+   "name": "Devraji Narayan Public School",
+   "lat": 28.7474,
+   "lon": 77.15592,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1270565221",
+   "name": "Dharav High School",
+   "lat": 28.42816,
+   "lon": 77.06701,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13334052247",
+   "name": "Diamond Bloom Public School",
+   "lat": 28.6991,
+   "lon": 77.33721,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1855425194",
+   "name": "Disha Public School",
+   "lat": 28.54806,
+   "lon": 77.29295,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1163845331",
+   "name": "Diwan Chand Arya Senior Secondary School",
+   "lat": 28.58884,
+   "lon": 77.22444,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1326426659",
+   "name": "Doctor Avul Pakir Jainulabdeen Abdul Kalam Senior Secondary School",
+   "lat": 28.59483,
+   "lon": 77.13156,
+   "operator_type": "public",
+   "isced": "3;4;2"
+  },
+  {
+   "osm_id": "way/637912141",
+   "name": "Doctor Bhim Rao Ambedkar School of Specialised Excellence",
+   "lat": 28.6811,
+   "lon": 77.22166,
+   "operator_type": "public",
+   "isced": "3"
+  },
+  {
+   "osm_id": "node/2801370105",
+   "name": "Don Bosco School",
+   "lat": 28.52851,
+   "lon": 77.24733,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13072249774",
+   "name": "Dr B.R. Ambedkar School of Specialised Excellence (ASOSE), IP Extension",
+   "lat": 28.63155,
+   "lon": 77.31418,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266768720",
+   "name": "Dr Shroff Charity Eye Hospital Training",
+   "lat": 28.64703,
+   "lon": 77.24115,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293523179",
+   "name": "Dr. B.R. Ambedkar School of Specialised Excellence",
+   "lat": 28.64553,
+   "lon": 77.19846,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1537255637",
+   "name": "Dr. Bhimrao Ambedkar Parishadiya Purva Madhyamik Vidyalaya",
+   "lat": 28.72052,
+   "lon": 77.34157,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1418291174",
+   "name": "Dr. Radhakrishnan International School",
+   "lat": 28.57181,
+   "lon": 77.23238,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12759219200",
+   "name": "Durgabai Deshmukh Balwadi",
+   "lat": 28.69202,
+   "lon": 77.21156,
+   "operator_type": "public",
+   "isced": "0"
+  },
+  {
+   "osm_id": "way/209296170",
+   "name": "Dwarka International School",
+   "lat": 28.59885,
+   "lon": 77.0451,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/683660426",
+   "name": "EDMC Primary School Jyoti Colony",
+   "lat": 28.68974,
+   "lon": 77.29143,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/415208190",
+   "name": "EURO Global School",
+   "lat": 28.42446,
+   "lon": 77.06081,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9085982626",
+   "name": "East Delhi M.C Primary School",
+   "lat": 28.6788,
+   "lon": 77.30887,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/999345675",
+   "name": "East Delhi Municipal Corporation Primary School",
+   "lat": 28.61989,
+   "lon": 77.31395,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/349698644",
+   "name": "East Point School",
+   "lat": 28.60225,
+   "lon": 77.32342,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/418558610",
+   "name": "Educare School",
+   "lat": 28.42543,
+   "lon": 77.06551,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172320147",
+   "name": "Eicher School",
+   "lat": 28.43953,
+   "lon": 77.29821,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11236738290",
+   "name": "Einsteins play school",
+   "lat": 28.63001,
+   "lon": 77.27345,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1166772791",
+   "name": "Euro International School",
+   "lat": 28.4244,
+   "lon": 77.06705,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1409467383",
+   "name": "Everest Public School",
+   "lat": 28.68488,
+   "lon": 77.34194,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4338782489",
+   "name": "Evolution dance school",
+   "lat": 28.80327,
+   "lon": 77.0513,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4435563990",
+   "name": "FORE School of Management",
+   "lat": 28.537,
+   "lon": 77.18492,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1360318985",
+   "name": "Fatehpur Muslim Senior Secondary School",
+   "lat": 28.65668,
+   "lon": 77.22263,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262807180",
+   "name": "Father Agnel School",
+   "lat": 28.5608,
+   "lon": 77.21431,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/291271674",
+   "name": "Frank Anthony Public School",
+   "lat": 28.56104,
+   "lon": 77.23584,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5534195673",
+   "name": "Fulwari Play School",
+   "lat": 28.65949,
+   "lon": 77.32234,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/190323304",
+   "name": "G.D.Goenka World School",
+   "lat": 28.52861,
+   "lon": 77.1544,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982171909",
+   "name": "G.G.S.S.S. VIVEK VIHAR PHASE 2",
+   "lat": 28.66961,
+   "lon": 77.30738,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1270694617",
+   "name": "GAV International School",
+   "lat": 28.43348,
+   "lon": 77.0721,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302534790",
+   "name": "GBSSS, Geeta Colony, 13-Block",
+   "lat": 28.64746,
+   "lon": 77.27662,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302531813",
+   "name": "GBSSS, No. 1",
+   "lat": 28.6339,
+   "lon": 77.28442,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1298522497",
+   "name": "GD Goenka",
+   "lat": 28.71902,
+   "lon": 77.12361,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/190041780",
+   "name": "GD Goenka Public School",
+   "lat": 28.44366,
+   "lon": 77.00398,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1028285649",
+   "name": "GD Goenka Public School",
+   "lat": 28.72007,
+   "lon": 77.06025,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/351318328",
+   "name": "GD Goenka Public School Junior Wing",
+   "lat": 28.53038,
+   "lon": 77.15466,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1230503927",
+   "name": "GD Goenka School",
+   "lat": 28.6473,
+   "lon": 77.30635,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446010582",
+   "name": "GD Salwan Public School",
+   "lat": 28.64031,
+   "lon": 77.18587,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1094967419",
+   "name": "GGSSS School Playground",
+   "lat": 28.63641,
+   "lon": 77.27115,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/842726921",
+   "name": "GLT Saraswati Bal Mandir Senior Secondary School",
+   "lat": 28.56881,
+   "lon": 77.25288,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/8900495608",
+   "name": "GOVERNMENT SCHOOL",
+   "lat": 28.42442,
+   "lon": 77.14448,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263185322",
+   "name": "Gagan Bharati School",
+   "lat": 28.6328,
+   "lon": 77.03998,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260950188",
+   "name": "Gandhi Smarak Rashtra Shakti Vidhyalaya",
+   "lat": 28.63153,
+   "lon": 77.05901,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/720714619",
+   "name": "Ganga International School",
+   "lat": 28.70705,
+   "lon": 76.98227,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/998316508",
+   "name": "Gargi Sarvodaya Kanya Vidyalaya",
+   "lat": 28.56036,
+   "lon": 77.20149,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1236258245",
+   "name": "Garima Public School",
+   "lat": 28.42637,
+   "lon": 77.06775,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1286500704",
+   "name": "Geeta Bal Bharti Senior Secondary School",
+   "lat": 28.66406,
+   "lon": 77.27446,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1283617038",
+   "name": "Geeta Shiksha Kendra",
+   "lat": 28.59319,
+   "lon": 77.12036,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/174864085",
+   "name": "Gender Resource Center, Jasola",
+   "lat": 28.54803,
+   "lon": 77.29326,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/777910838",
+   "name": "Georgi Stoikov Rakovski Sarvodaya Kanya Vidyalaya",
+   "lat": 28.56959,
+   "lon": 77.22816,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13146450018",
+   "name": "German school",
+   "lat": 28.5941,
+   "lon": 77.18028,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1304219725",
+   "name": "Gittaratan Jindal School",
+   "lat": 28.71149,
+   "lon": 77.11879,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1384702826",
+   "name": "Global Pratibha International School",
+   "lat": 28.57313,
+   "lon": 77.0738,
+   "operator_type": "private",
+   "isced": "0;1;2"
+  },
+  {
+   "osm_id": "way/1383300911",
+   "name": "Glorious Public School",
+   "lat": 28.71479,
+   "lon": 77.11964,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172330763",
+   "name": "Gold Field Public School",
+   "lat": 28.42048,
+   "lon": 77.30577,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263385573",
+   "name": "Good Samaritan School",
+   "lat": 28.58204,
+   "lon": 76.87746,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266075028",
+   "name": "Good Samaritan School",
+   "lat": 28.54645,
+   "lon": 77.29552,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/78449388",
+   "name": "Goodley Public School",
+   "lat": 28.71094,
+   "lon": 77.15618,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/279569848",
+   "name": "Gov't. Co-Ed. Sr. Sec. School",
+   "lat": 28.59131,
+   "lon": 77.06284,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/533150333",
+   "name": "Goverment Boys Senior Secondary School",
+   "lat": 28.58444,
+   "lon": 77.08452,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1263441837",
+   "name": "Government Boy Senior Secondary School",
+   "lat": 28.58355,
+   "lon": 77.24211,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1424773290",
+   "name": "Government Boys Girls Senior Secondary School",
+   "lat": 28.54444,
+   "lon": 77.27685,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1321800535",
+   "name": "Government Boys Middle School",
+   "lat": 28.6579,
+   "lon": 77.20372,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13124497227",
+   "name": "Government Boys Model Sanskriti Primary School, Wazirabad",
+   "lat": 28.43433,
+   "lon": 77.0804,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13999723370",
+   "name": "Government Boys Secondary School",
+   "lat": 28.68215,
+   "lon": 77.20413,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5455135886",
+   "name": "Government Boys Senior Secondary School",
+   "lat": 28.57309,
+   "lon": 77.23353,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6071159159",
+   "name": "Government Boys Senior Secondary School",
+   "lat": 28.48999,
+   "lon": 77.13896,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/43316796",
+   "name": "Government Boys Senior Secondary School",
+   "lat": 28.53427,
+   "lon": 77.21251,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/510336782",
+   "name": "Government Boys Senior Secondary School",
+   "lat": 28.58957,
+   "lon": 77.30233,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1562261763",
+   "name": "Government Boys Senior Secondary School No. - 1",
+   "lat": 28.71139,
+   "lon": 77.18556,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1257188608",
+   "name": "Government Boys Senior Secondary School Rajokari",
+   "lat": 28.51823,
+   "lon": 77.10954,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265007637",
+   "name": "Government Boys Senior Secondary School, Site 2",
+   "lat": 28.62547,
+   "lon": 77.11024,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77967802",
+   "name": "Government Boys and Girls School",
+   "lat": 28.69217,
+   "lon": 77.16694,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/709795355",
+   "name": "Government Boys and Girls Senior Secondary School",
+   "lat": 28.61141,
+   "lon": 76.98771,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1472570675",
+   "name": "Government Boys' Senior Secondary School",
+   "lat": 28.70708,
+   "lon": 77.1775,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/408822673",
+   "name": "Government Co-Ed Secondary School",
+   "lat": 28.59457,
+   "lon": 77.06457,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782378315",
+   "name": "Government Co-Ed Secondary School",
+   "lat": 28.59284,
+   "lon": 77.08163,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782383623",
+   "name": "Government Co-Ed Senior Secondary School",
+   "lat": 28.59945,
+   "lon": 77.06908,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/549632096",
+   "name": "Government Co-Education Senior Secondary School",
+   "lat": 28.6942,
+   "lon": 77.32135,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/294301236",
+   "name": "Government Co-ed High School",
+   "lat": 28.44747,
+   "lon": 77.14522,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/259027104",
+   "name": "Government Co-education Senior Secondary School",
+   "lat": 28.68431,
+   "lon": 77.20179,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/7193086031",
+   "name": "Government Coeducational Senior Secondary School",
+   "lat": 28.5763,
+   "lon": 77.23914,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/773753780",
+   "name": "Government Coeducational Senior Secondary School",
+   "lat": 28.62269,
+   "lon": 77.29251,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1195536863",
+   "name": "Government Coeducational Senior Secondary School",
+   "lat": 28.63638,
+   "lon": 77.29456,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/12139303963",
+   "name": "Government Girl Middle School",
+   "lat": 28.42776,
+   "lon": 77.06645,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1428441364",
+   "name": "Government Girls Senior Secondary School",
+   "lat": 28.54996,
+   "lon": 77.21453,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283918834",
+   "name": "Government Girls/Boys Secondary School",
+   "lat": 28.60043,
+   "lon": 77.31969,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445913262",
+   "name": "Government Higher Secondary School",
+   "lat": 28.674,
+   "lon": 77.12713,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/447017217",
+   "name": "Government Model Girls School",
+   "lat": 28.62169,
+   "lon": 77.29708,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12139303964",
+   "name": "Government Model Sanskriti Primary School",
+   "lat": 28.42774,
+   "lon": 77.06649,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13124497226",
+   "name": "Government Model Senior Secondary School, Wazirabad",
+   "lat": 28.43457,
+   "lon": 77.0798,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10681154094",
+   "name": "Government Primary School",
+   "lat": 28.47927,
+   "lon": 77.0842,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13926670492",
+   "name": "Government Primary School",
+   "lat": 28.71398,
+   "lon": 77.21813,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5242148783",
+   "name": "Government Primary School for the Deaf",
+   "lat": 28.6118,
+   "lon": 77.28741,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4778391814",
+   "name": "Government SChool",
+   "lat": 28.56115,
+   "lon": 77.05912,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6077096070",
+   "name": "Government Sarvoday Bal Vidyalaya",
+   "lat": 28.6327,
+   "lon": 77.23039,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13082006017",
+   "name": "Government Sarvodaya Bal Vidyalaya",
+   "lat": 28.61751,
+   "lon": 77.3034,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265203369",
+   "name": "Government Sarvodaya Bal Vidyalaya",
+   "lat": 28.64123,
+   "lon": 77.08969,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13082006018",
+   "name": "Government Sarvodaya Kanya Vidyalaya",
+   "lat": 28.61736,
+   "lon": 77.30353,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1298506145",
+   "name": "Government Sarvodaya Kanya Vidyalaya Number 1",
+   "lat": 28.5748,
+   "lon": 77.19636,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6257783817",
+   "name": "Government Sarvodaya Vidyalaya",
+   "lat": 28.69595,
+   "lon": 77.21592,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6411571311",
+   "name": "Government Sarvodaya Vidyalaya",
+   "lat": 28.45887,
+   "lon": 77.18415,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/239636987",
+   "name": "Government School",
+   "lat": 28.52332,
+   "lon": 77.21317,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/239641067",
+   "name": "Government School",
+   "lat": 28.52269,
+   "lon": 77.20938,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283890525",
+   "name": "Government School",
+   "lat": 28.5994,
+   "lon": 77.31641,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445989850",
+   "name": "Government Senior Secondary School",
+   "lat": 28.65354,
+   "lon": 77.16587,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266521622",
+   "name": "Government Senior Secondary School",
+   "lat": 28.4724,
+   "lon": 77.09229,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/260925764",
+   "name": "Government Senior Secondary School.",
+   "lat": 28.60876,
+   "lon": 77.06729,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/76965009",
+   "name": "Government primary school",
+   "lat": 28.61795,
+   "lon": 77.30866,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4934333224",
+   "name": "Government school",
+   "lat": 28.73694,
+   "lon": 77.12604,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11211925180",
+   "name": "Government school",
+   "lat": 28.4982,
+   "lon": 77.30461,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/762031791",
+   "name": "Government(Bada school)",
+   "lat": 28.79469,
+   "lon": 77.03729,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9086006380",
+   "name": "Govt Boys Senior Secondary School",
+   "lat": 28.68077,
+   "lon": 77.31277,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77004707",
+   "name": "Govt Co - Ed Senior Secondary School",
+   "lat": 28.60005,
+   "lon": 77.29385,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260925766",
+   "name": "Govt Co-Ed Sr. Sec school",
+   "lat": 28.61005,
+   "lon": 77.06942,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/508942093",
+   "name": "Govt Girls Sr. Sec. School",
+   "lat": 28.73755,
+   "lon": 76.89212,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/272869651",
+   "name": "Govt Model Sanskiriti Primary School",
+   "lat": 28.43844,
+   "lon": 77.10758,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1811065365",
+   "name": "Govt Primary School DaryaPur",
+   "lat": 28.55276,
+   "lon": 76.90754,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1810984760",
+   "name": "Govt Primary School Malik Pur",
+   "lat": 28.5511,
+   "lon": 76.89995,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/169848648",
+   "name": "Govt School",
+   "lat": 28.54815,
+   "lon": 76.89891,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277905474",
+   "name": "Govt School",
+   "lat": 28.60898,
+   "lon": 77.32971,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283761048",
+   "name": "Govt School",
+   "lat": 28.60671,
+   "lon": 77.33214,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1813898671",
+   "name": "Govt Senior Secondary School",
+   "lat": 28.60247,
+   "lon": 76.93174,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11225077950",
+   "name": "Govt girls senior secondary school no . 3",
+   "lat": 28.49461,
+   "lon": 77.32561,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445991452",
+   "name": "Govt. Boys HB School",
+   "lat": 28.65418,
+   "lon": 77.16608,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800995",
+   "name": "Govt. Boys Khaira",
+   "lat": 28.60071,
+   "lon": 76.97556,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/508942094",
+   "name": "Govt. Boys School",
+   "lat": 28.73777,
+   "lon": 76.89155,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982182430",
+   "name": "Govt. Boys Secondary School",
+   "lat": 28.66987,
+   "lon": 77.3095,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394899907",
+   "name": "Govt. Co-Edu Sr. Sec. School (Harewali, Delhi)",
+   "lat": 28.83544,
+   "lon": 77.01683,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/1116432336",
+   "name": "Govt. Girls Senior Secondary School",
+   "lat": 28.57386,
+   "lon": 77.18425,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291787161",
+   "name": "Govt. Girls Senior Secondary School",
+   "lat": 28.66891,
+   "lon": 77.30541,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1498132158",
+   "name": "Govt. Lady Noyce Senior Secondary School",
+   "lat": 28.63843,
+   "lon": 77.24489,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13823611701",
+   "name": "Govt. Sarvodaya Bal vidyalaya",
+   "lat": 28.65435,
+   "lon": 77.07325,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/167591469",
+   "name": "Govt. Secondary School",
+   "lat": 28.67451,
+   "lon": 77.08738,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/174767576",
+   "name": "Govt. Senior Secondary School Malikpur",
+   "lat": 28.5507,
+   "lon": 76.90559,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/217603873",
+   "name": "Govt. Sr Sec School",
+   "lat": 28.5896,
+   "lon": 77.00705,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076539969",
+   "name": "Govt. Sr. Sec. School Luksar",
+   "lat": 28.6246,
+   "lon": 76.86719,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782404748",
+   "name": "Great Mission Public School",
+   "lat": 28.59957,
+   "lon": 77.0577,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/239638765",
+   "name": "Green Field School",
+   "lat": 28.5235,
+   "lon": 77.20967,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1358118834",
+   "name": "Green Fields School",
+   "lat": 28.56661,
+   "lon": 77.19422,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/8145754251",
+   "name": "Green View Public School",
+   "lat": 28.60434,
+   "lon": 77.0019,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277886266",
+   "name": "Greenfield Public School",
+   "lat": 28.66351,
+   "lon": 77.32919,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9086030845",
+   "name": "Greenway Modern School",
+   "lat": 28.68228,
+   "lon": 77.3157,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982187193",
+   "name": "Greenway Modern School",
+   "lat": 28.66992,
+   "lon": 77.30906,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/266577917",
+   "name": "Gurgaon Valley School",
+   "lat": 28.48493,
+   "lon": 77.08934,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77967833",
+   "name": "Guru Angad Public School",
+   "lat": 28.6895,
+   "lon": 77.17105,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262838968",
+   "name": "Guru Harkrishan Public School",
+   "lat": 28.54812,
+   "lon": 77.2466,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/293532873",
+   "name": "Guru Harkrishan Public School",
+   "lat": 28.69204,
+   "lon": 77.28569,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/562195661",
+   "name": "Guru Harkrishan Public School",
+   "lat": 28.61583,
+   "lon": 77.23611,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/825370789",
+   "name": "Guru Harkrishan Public School",
+   "lat": 28.64874,
+   "lon": 77.29949,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1511463019",
+   "name": "Guru Harkrishan Public School",
+   "lat": 28.5625,
+   "lon": 77.19731,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2440643098",
+   "name": "Guru Nanak Public School",
+   "lat": 28.6699,
+   "lon": 77.13262,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14098544312",
+   "name": "Gurukul Matindu School",
+   "lat": 28.86423,
+   "lon": 76.85139,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/239641078",
+   "name": "Gyan Bharati School",
+   "lat": 28.5254,
+   "lon": 77.20701,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1180109246",
+   "name": "Gyan Sarovar School",
+   "lat": 28.74356,
+   "lon": 77.1541,
+   "operator_type": "non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/946030918",
+   "name": "Gyanshree School",
+   "lat": 28.53567,
+   "lon": 77.34922,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13823611901",
+   "name": "HBM PUBLIC SCHOOL",
+   "lat": 28.6708,
+   "lon": 77.06892,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/3008663907",
+   "name": "HIRA YOGA TRAINING KENDER",
+   "lat": 28.75518,
+   "lon": 77.13449,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266768719",
+   "name": "HMDAV Senior Secondary School",
+   "lat": 28.6454,
+   "lon": 77.24121,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/297028433",
+   "name": "HPR Public School",
+   "lat": 28.75443,
+   "lon": 77.13286,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/300047927",
+   "name": "HPR School Ground",
+   "lat": 28.75519,
+   "lon": 77.13371,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1165055521",
+   "name": "Hamdarad Public School",
+   "lat": 28.50442,
+   "lon": 77.25059,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9180386814",
+   "name": "Hans Raj Smarak SR Sec School",
+   "lat": 28.68151,
+   "lon": 77.31794,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1292561972",
+   "name": "Happy English School",
+   "lat": 28.65984,
+   "lon": 77.28326,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/669585614",
+   "name": "Happy Model School",
+   "lat": 28.63094,
+   "lon": 77.09213,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1384289139",
+   "name": "Hari Vidya Bhawan",
+   "lat": 28.49613,
+   "lon": 77.2364,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/12208726093",
+   "name": "Hemani Public School",
+   "lat": 28.5684,
+   "lon": 77.24752,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/266378530",
+   "name": "Heritage International School",
+   "lat": 28.50845,
+   "lon": 77.16655,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/273911358",
+   "name": "Heritage Xperiential Learning School",
+   "lat": 28.40965,
+   "lon": 77.08769,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263232426",
+   "name": "High Rise School",
+   "lat": 28.63277,
+   "lon": 77.03883,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1256644347",
+   "name": "Hillwoods Academy",
+   "lat": 28.642,
+   "lon": 77.29983,
+   "operator_type": "private",
+   "isced": "0;1;2;3;4"
+  },
+  {
+   "osm_id": "node/13598309846",
+   "name": "Holy Angel Public School",
+   "lat": 28.49759,
+   "lon": 77.31833,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1409465696",
+   "name": "Holy Angels School",
+   "lat": 28.68686,
+   "lon": 77.34501,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172343224",
+   "name": "Holy Child Public School",
+   "lat": 28.43402,
+   "lon": 77.32376,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1764307594",
+   "name": "Holy Cross School",
+   "lat": 28.61477,
+   "lon": 76.98117,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/154327524",
+   "name": "Holy Innocent's School",
+   "lat": 28.63213,
+   "lon": 77.07574,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1193571517",
+   "name": "Holy Trinity School",
+   "lat": 28.63536,
+   "lon": 77.30583,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/144210631",
+   "name": "Hommerton Grammar High School",
+   "lat": 28.42427,
+   "lon": 77.3,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782308603",
+   "name": "Icon International School",
+   "lat": 28.59576,
+   "lon": 77.0681,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1359635009",
+   "name": "Ideal Public School",
+   "lat": 28.48165,
+   "lon": 77.29821,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/7395028895",
+   "name": "India international secondary school",
+   "lat": 28.71725,
+   "lon": 77.28696,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881831",
+   "name": "Indian Convent School",
+   "lat": 28.72607,
+   "lon": 77.08503,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189447670",
+   "name": "Indraprashtha International Schoool",
+   "lat": 28.58569,
+   "lon": 77.06226,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/47107935",
+   "name": "Indraprasta School",
+   "lat": 28.67359,
+   "lon": 77.10286,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/217866658",
+   "name": "Infant Jesus Public School",
+   "lat": 28.57802,
+   "lon": 77.00746,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/154527302",
+   "name": "J.D Tytler School",
+   "lat": 28.63347,
+   "lon": 77.18409,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262662785",
+   "name": "JL DAV School",
+   "lat": 28.66498,
+   "lon": 77.09667,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5099590622",
+   "name": "Jaganath intl mngt school",
+   "lat": 28.54702,
+   "lon": 77.25635,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/501786879",
+   "name": "Jagriti School",
+   "lat": 28.67128,
+   "lon": 77.16508,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1855407953",
+   "name": "Jai Bharti Public School",
+   "lat": 28.5465,
+   "lon": 77.29254,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13061156424",
+   "name": "Jaishankar Memorial Centre",
+   "lat": 28.53795,
+   "lon": 77.30023,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/11274654303",
+   "name": "Jamia Milia Islamia School ground",
+   "lat": 28.56381,
+   "lon": 77.28354,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/1855425196",
+   "name": "Jasola Public School",
+   "lat": 28.54835,
+   "lon": 77.29305,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78449332",
+   "name": "Jaspal Kaur Public School",
+   "lat": 28.71062,
+   "lon": 77.15346,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262662778",
+   "name": "Jesus Mary Joseph Senior Secondary School",
+   "lat": 28.66185,
+   "lon": 77.09816,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1292111941",
+   "name": "Jhori Mal International School",
+   "lat": 28.59544,
+   "lon": 77.06856,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5513273925",
+   "name": "Jindal Public School",
+   "lat": 28.672,
+   "lon": 77.33052,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394162114",
+   "name": "Jindal Public School",
+   "lat": 28.60622,
+   "lon": 77.08218,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/10975636818",
+   "name": "Jingle Bell School",
+   "lat": 28.72018,
+   "lon": 77.17787,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/11698566020",
+   "name": "Jinwani public school",
+   "lat": 28.60003,
+   "lon": 77.04983,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172330766",
+   "name": "Jiva Public School",
+   "lat": 28.41471,
+   "lon": 77.29681,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1116434111",
+   "name": "Jose Martin Sarvodya Vidyalya",
+   "lat": 28.5713,
+   "lon": 77.17815,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/341481083",
+   "name": "Junior School Ground",
+   "lat": 28.59803,
+   "lon": 77.22663,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1163528997",
+   "name": "Jyoti Model Senior Secondary School",
+   "lat": 28.72017,
+   "lon": 77.17305,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/166639862",
+   "name": "K.R. Mangalam World School",
+   "lat": 28.46008,
+   "lon": 77.06608,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12749811106",
+   "name": "K.S.K Academy",
+   "lat": 28.50163,
+   "lon": 77.2476,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13073584691",
+   "name": "KENDRIYA VIDYALAYA",
+   "lat": 28.55694,
+   "lon": 77.22563,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11696928200",
+   "name": "KENDRIYA VIDYALAYA SHAHDARA",
+   "lat": 28.68635,
+   "lon": 77.28736,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076561234",
+   "name": "KMS Nursery",
+   "lat": 28.60649,
+   "lon": 76.9852,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076561233",
+   "name": "KMS Primary",
+   "lat": 28.60615,
+   "lon": 76.98549,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076561235",
+   "name": "KMS Secondary",
+   "lat": 28.60612,
+   "lon": 76.98517,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11696942375",
+   "name": "KV ground",
+   "lat": 28.58955,
+   "lon": 77.34875,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262077439",
+   "name": "Kalka Public School",
+   "lat": 28.52896,
+   "lon": 77.25112,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1296209246",
+   "name": "Kalka Public School",
+   "lat": 28.46077,
+   "lon": 77.28583,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263173625",
+   "name": "Kamal Public School",
+   "lat": 28.62923,
+   "lon": 77.0427,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1263294317",
+   "name": "Kamala Nehru Sarvodaya Kanya Vidyalaya",
+   "lat": 28.58285,
+   "lon": 77.24202,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/1390067640",
+   "name": "Kamla International",
+   "lat": 28.41809,
+   "lon": 77.0612,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262838967",
+   "name": "Kautilya Government Sarvodaya Coeducational Vidyalaya",
+   "lat": 28.54814,
+   "lon": 77.24543,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5584870727",
+   "name": "Kaviraj Khazan Chand Quetta Dayachand Arya Vedic Senior Secondary School",
+   "lat": 28.58664,
+   "lon": 77.25239,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/479830727",
+   "name": "Kendriya Vidhyalaya JNU",
+   "lat": 28.54674,
+   "lon": 77.17678,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/479830732",
+   "name": "Kendriya Vidhyalaya Jr. School",
+   "lat": 28.54451,
+   "lon": 77.16381,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1827531816",
+   "name": "Kendriya Vidhyalya",
+   "lat": 28.68266,
+   "lon": 77.15783,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265899489",
+   "name": "Kendriya Vidyala (Boys)",
+   "lat": 28.66139,
+   "lon": 77.13875,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5358882593",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.57212,
+   "lon": 77.16383,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6171203022",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.52049,
+   "lon": 77.22396,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "node/7730086971",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.56106,
+   "lon": 77.17798,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/70705833",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.58952,
+   "lon": 77.34921,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/221183522",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.61843,
+   "lon": 77.08639,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/265166886",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.64611,
+   "lon": 77.10916,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/291270754",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.56098,
+   "lon": 77.23306,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/351859760",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.54255,
+   "lon": 77.1981,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/388242027",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.7041,
+   "lon": 77.10283,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/469618276",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.70487,
+   "lon": 77.17046,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/615454699",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.70391,
+   "lon": 77.12369,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/691049140",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.67491,
+   "lon": 77.28595,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/698863790",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.50903,
+   "lon": 77.30135,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782588780",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.59632,
+   "lon": 77.0537,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1165055525",
+   "name": "Kendriya Vidyalaya",
+   "lat": 28.51131,
+   "lon": 77.25022,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/265899490",
+   "name": "Kendriya Vidyalaya (Girls)",
+   "lat": 28.66092,
+   "lon": 77.13794,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1273976158",
+   "name": "Kendriya Vidyalaya 1",
+   "lat": 28.59189,
+   "lon": 77.1182,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/175800209",
+   "name": "Kendriya Vidyalaya AGCR",
+   "lat": 28.65169,
+   "lon": 77.29593,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/707631341",
+   "name": "Kendriya Vidyalaya Keshav Puram",
+   "lat": 28.6822,
+   "lon": 77.15877,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260076417",
+   "name": "Kendriya Vidyalaya No. 2",
+   "lat": 28.57572,
+   "lon": 77.13966,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/172584921",
+   "name": "Kendriya Vidyalaya No.1, Faridabad",
+   "lat": 28.40762,
+   "lon": 77.29773,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "node/7624464956",
+   "name": "Kendriya Vidyalaya No.2 Sohna Road",
+   "lat": 28.43885,
+   "lon": 77.02916,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1376919080",
+   "name": "Kendriya Vidyalaya Number 3 Delhi Cantt",
+   "lat": 28.61661,
+   "lon": 77.13758,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/295816372",
+   "name": "Kendriya Vidyalaya, RK Puram, Sector-2",
+   "lat": 28.56249,
+   "lon": 77.18607,
+   "operator_type": "government_non_profit",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1321574340",
+   "name": "Kendriya Vidyalaya, Sector 25, Rohini",
+   "lat": 28.7355,
+   "lon": 77.09246,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/4639190772",
+   "name": "Kendrya Vidyalya",
+   "lat": 28.70514,
+   "lon": 77.16997,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/154327264",
+   "name": "Kerala School",
+   "lat": 28.63269,
+   "lon": 77.07736,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1473982444",
+   "name": "Kerala School",
+   "lat": 28.62023,
+   "lon": 77.22973,
+   "operator_type": "ngo",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/283762593",
+   "name": "Kerela Education Society Senior Secondary School",
+   "lat": 28.61535,
+   "lon": 77.34064,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/284190150",
+   "name": "Khrist Raja School",
+   "lat": 28.62935,
+   "lon": 77.2091,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5342219924",
+   "name": "Kids Temple Public School",
+   "lat": 28.73854,
+   "lon": 77.12149,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1409481664",
+   "name": "Konark Public School",
+   "lat": 28.68743,
+   "lon": 77.33656,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1283259032",
+   "name": "Kripa Centre For Differently Abled Children",
+   "lat": 28.59734,
+   "lon": 77.1232,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1777019272",
+   "name": "Krishna Model School",
+   "lat": 28.60608,
+   "lon": 76.98512,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/970832647",
+   "name": "Kulachi Hansraj Model School (Primary Wing)",
+   "lat": 28.69024,
+   "lon": 77.1682,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78164543",
+   "name": "Kulachi Hansraj School Senior Wing",
+   "lat": 28.6938,
+   "lon": 77.18063,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/153161690",
+   "name": "Kumar Mangalam School",
+   "lat": 28.53261,
+   "lon": 77.24836,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12753521548",
+   "name": "L.N. Girdharri Lal",
+   "lat": 28.65877,
+   "lon": 77.22371,
+   "operator_type": null,
+   "isced": "1"
+  },
+  {
+   "osm_id": "way/1395889660",
+   "name": "Lady Irwin School - Primary Division",
+   "lat": 28.5727,
+   "lon": 77.23595,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1446844467",
+   "name": "Lady Irwin Senior Secondary School",
+   "lat": 28.62016,
+   "lon": 77.22366,
+   "operator_type": null,
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/12222312994",
+   "name": "Lakhi Public School",
+   "lat": 28.62693,
+   "lon": 77.29394,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78595621",
+   "name": "Lancer's Convent",
+   "lat": 28.70919,
+   "lon": 77.13392,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/267276499",
+   "name": "Lancer's International",
+   "lat": 28.44535,
+   "lon": 77.09493,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11883497374",
+   "name": "Learning Angels Play School",
+   "lat": 28.59444,
+   "lon": 77.12178,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6071159494",
+   "name": "Lieutenant Atul Kataria School",
+   "lat": 28.47835,
+   "lon": 77.03372,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77967781",
+   "name": "Lions Public School",
+   "lat": 28.6865,
+   "lon": 77.16543,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1544800206",
+   "name": "Lions Public School Main Building",
+   "lat": 28.68677,
+   "lon": 77.16563,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12828353062",
+   "name": "Little Kingdom",
+   "lat": 28.70599,
+   "lon": 77.12288,
+   "operator_type": "private",
+   "isced": "0"
+  },
+  {
+   "osm_id": "node/4154838092",
+   "name": "Little Ones Public School",
+   "lat": 28.51955,
+   "lon": 77.20352,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/487653616",
+   "name": "Local School",
+   "lat": 28.7263,
+   "lon": 77.33584,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260083330",
+   "name": "Loreto Convent School",
+   "lat": 28.58324,
+   "lon": 77.1384,
+   "operator_type": "religious",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "way/668072487",
+   "name": "Lotus Valley International School",
+   "lat": 28.53795,
+   "lon": 77.34534,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1172653722",
+   "name": "Lotus Valley International School",
+   "lat": 28.41603,
+   "lon": 77.06914,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1492508425",
+   "name": "Lovely Public Sr. Sec. School",
+   "lat": 28.64101,
+   "lon": 77.27826,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1302884211",
+   "name": "Lovely Vista School",
+   "lat": 28.63407,
+   "lon": 77.28629,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/324466682",
+   "name": "Lycée Français de Delhi",
+   "lat": 28.60296,
+   "lon": 77.22152,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2833952245",
+   "name": "M B Boys School",
+   "lat": 28.63501,
+   "lon": 77.20028,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11219349887",
+   "name": "M C D primary co-ed model school",
+   "lat": 28.5853,
+   "lon": 77.24408,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14201430638",
+   "name": "M. C. Primary School South Extension I",
+   "lat": 28.57053,
+   "lon": 77.22276,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1524881659",
+   "name": "M.C.D. Pratibha Coeducational Primary School",
+   "lat": 28.52805,
+   "lon": 77.22916,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/89955789",
+   "name": "M.C.D. Primary School C.R. Park",
+   "lat": 28.54306,
+   "lon": 77.2451,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1486445666",
+   "name": "M.C.P.S. Acharya Niketan",
+   "lat": 28.60827,
+   "lon": 77.29433,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/134496049",
+   "name": "M.L. Khanna D.A.V. Public School",
+   "lat": 28.58942,
+   "lon": 77.06513,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12997284965",
+   "name": "M.S. Tutorial",
+   "lat": 28.64493,
+   "lon": 77.33867,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4220719494",
+   "name": "MAAC",
+   "lat": 28.56854,
+   "lon": 77.22488,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1349987784",
+   "name": "MBD Arya Model School",
+   "lat": 28.61195,
+   "lon": 77.03075,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1557662295",
+   "name": "MC Primary Co-Ed School",
+   "lat": 28.71199,
+   "lon": 77.18619,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5369753821",
+   "name": "MC Primary School J-Block Sec-16 Rohini",
+   "lat": 28.73923,
+   "lon": 77.13062,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1316624679",
+   "name": "MCD Model School",
+   "lat": 28.62759,
+   "lon": 77.29524,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1288662714",
+   "name": "MCD Pratibha Vikas Vidyalaya Palam New",
+   "lat": 28.58568,
+   "lon": 77.07385,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/167992745",
+   "name": "MCD Primary , Roshanpura",
+   "lat": 28.60743,
+   "lon": 76.98821,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14107341427",
+   "name": "MCD Primary Co-Ed School",
+   "lat": 28.69402,
+   "lon": 77.20411,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1446846568",
+   "name": "MCD Primary Co-Ed School",
+   "lat": 28.66263,
+   "lon": 77.20666,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1426586696",
+   "name": "MCD Primary Co-Educational School",
+   "lat": 28.54688,
+   "lon": 77.21404,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1198008802",
+   "name": "MCD Primary Coeducational School",
+   "lat": 28.71221,
+   "lon": 77.17714,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/78786214",
+   "name": "MCD Primary School",
+   "lat": 28.73397,
+   "lon": 77.16859,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/554625250",
+   "name": "MCD Primary School",
+   "lat": 28.61938,
+   "lon": 77.28287,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1158946096",
+   "name": "MCD Primary School",
+   "lat": 28.74249,
+   "lon": 77.16713,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1172006523",
+   "name": "MCD Primary School",
+   "lat": 28.63048,
+   "lon": 77.27667,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1270655648",
+   "name": "MCD Primary School",
+   "lat": 28.57141,
+   "lon": 77.23964,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1430223040",
+   "name": "MCD Primary School",
+   "lat": 28.60253,
+   "lon": 77.29404,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12046734569",
+   "name": "MCD Primary school No. 2",
+   "lat": 28.52498,
+   "lon": 77.23511,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/1855425197",
+   "name": "MCD Public School",
+   "lat": 28.54823,
+   "lon": 77.29406,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/8929282814",
+   "name": "MCD School",
+   "lat": 28.63277,
+   "lon": 77.27573,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1317873577",
+   "name": "MCD School",
+   "lat": 28.6127,
+   "lon": 77.0472,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1499990480",
+   "name": "MCD School",
+   "lat": 28.61897,
+   "lon": 77.2814,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800987",
+   "name": "MCD primary Khaira",
+   "lat": 28.59914,
+   "lon": 76.96786,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9004788596",
+   "name": "MCD school",
+   "lat": 28.73304,
+   "lon": 77.12862,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/782397140",
+   "name": "MDH International School",
+   "lat": 28.59231,
+   "lon": 77.06088,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/952454487",
+   "name": "MRV School",
+   "lat": 28.60251,
+   "lon": 77.03758,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13823611705",
+   "name": "MS public school",
+   "lat": 28.67265,
+   "lon": 77.06901,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13366317301",
+   "name": "Mac Marvels Montessori",
+   "lat": 28.63476,
+   "lon": 77.29765,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1168448453",
+   "name": "Madarasa Faiz-ul-Quran",
+   "lat": 28.73912,
+   "lon": 77.16011,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6341209902",
+   "name": "Madarasa Millat-ul-Islam",
+   "lat": 28.54335,
+   "lon": 77.26439,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "node/10799185610",
+   "name": "Madarsa Daruluoom Hamidia",
+   "lat": 28.72896,
+   "lon": 77.17338,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "node/12713991910",
+   "name": "Madrassa Jamia Islamia Latifia",
+   "lat": 28.62393,
+   "lon": 77.29117,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/172380085",
+   "name": "Mahadav Desai Senior Secondary School",
+   "lat": 28.40823,
+   "lon": 77.31395,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/970834702",
+   "name": "Maharaja Agarsen Public School",
+   "lat": 28.68222,
+   "lon": 77.17121,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77727870",
+   "name": "Maharaja Agrasen Model School",
+   "lat": 28.70463,
+   "lon": 77.13779,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/379021083",
+   "name": "Mahavir Senior Model School",
+   "lat": 28.68978,
+   "lon": 77.19192,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12687840624",
+   "name": "Mamta Public School",
+   "lat": 28.60045,
+   "lon": 77.31665,
+   "operator_type": "private",
+   "isced": "2"
+  },
+  {
+   "osm_id": "node/7099861698",
+   "name": "Manav Mangal Public School",
+   "lat": 28.4987,
+   "lon": 77.29544,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1359301112",
+   "name": "Manav Rachna International School",
+   "lat": 28.49496,
+   "lon": 77.28796,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1387719421",
+   "name": "Manav Rachna International School",
+   "lat": 28.42207,
+   "lon": 77.06059,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1218692058",
+   "name": "Manav Rachna International School, Sector 46",
+   "lat": 28.43821,
+   "lon": 77.05985,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14166478175",
+   "name": "Manav Sanskar Public School",
+   "lat": 28.44946,
+   "lon": 77.32644,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446006348",
+   "name": "Manav Sthali School",
+   "lat": 28.63528,
+   "lon": 77.17825,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/414777305",
+   "name": "Manav Sthali School",
+   "lat": 28.63296,
+   "lon": 77.18373,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/275872534",
+   "name": "Manava Bharti India International School",
+   "lat": 28.54056,
+   "lon": 77.21725,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/11218317499",
+   "name": "Manisha public school",
+   "lat": 28.63023,
+   "lon": 77.27372,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13941652601",
+   "name": "Marudyan School",
+   "lat": 28.46194,
+   "lon": 77.00475,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6961442936",
+   "name": "Masjid-e-Quba Madrasa Islamia",
+   "lat": 28.58064,
+   "lon": 77.18998,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13594703526",
+   "name": "Masoom Special School",
+   "lat": 28.70693,
+   "lon": 77.22125,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/351067625",
+   "name": "Master Mind Public School",
+   "lat": 28.50889,
+   "lon": 77.20237,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/586013159",
+   "name": "Mata Gujri Public School",
+   "lat": 28.55151,
+   "lon": 77.23792,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78164685",
+   "name": "Mata Jai Kaur public School",
+   "lat": 28.69163,
+   "lon": 77.18031,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/40837967",
+   "name": "Mata Sukhdevi Public School",
+   "lat": 28.77505,
+   "lon": 77.14234,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/562195659",
+   "name": "Mater Dei School",
+   "lat": 28.61644,
+   "lon": 77.2369,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/156150419",
+   "name": "Maxfort School",
+   "lat": 28.58864,
+   "lon": 77.06823,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881746",
+   "name": "Maxfort School Rohini",
+   "lat": 28.72229,
+   "lon": 77.08053,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/773753781",
+   "name": "Mayur Public School",
+   "lat": 28.6228,
+   "lon": 77.29157,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/928774739",
+   "name": "Mayur School",
+   "lat": 28.54336,
+   "lon": 77.33671,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11697708204",
+   "name": "Mission public school",
+   "lat": 28.59963,
+   "lon": 77.05753,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1810006797",
+   "name": "Mitraon Govt School",
+   "lat": 28.60676,
+   "lon": 76.93969,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172659427",
+   "name": "Moden Vidya Niketan",
+   "lat": 28.44777,
+   "lon": 77.28231,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/150880987",
+   "name": "Modern Convent School",
+   "lat": 28.60295,
+   "lon": 77.0513,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5401477508",
+   "name": "Modern Delhi International School",
+   "lat": 28.41263,
+   "lon": 77.33612,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1425899457",
+   "name": "Modern Delhi International School ground",
+   "lat": 28.41284,
+   "lon": 77.3376,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10706635437",
+   "name": "Modern Education Public School",
+   "lat": 28.73056,
+   "lon": 77.1634,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12942220245",
+   "name": "Modern Green Valley public school",
+   "lat": 28.4971,
+   "lon": 77.22391,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78445739",
+   "name": "Modern Public School",
+   "lat": 28.70986,
+   "lon": 77.15701,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/352557395",
+   "name": "Modern Public School",
+   "lat": 28.48268,
+   "lon": 77.31154,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/43316275",
+   "name": "Modern School",
+   "lat": 28.56239,
+   "lon": 77.15714,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/71221208",
+   "name": "Modern School",
+   "lat": 28.5997,
+   "lon": 77.33665,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/414109910",
+   "name": "Modern School",
+   "lat": 28.49136,
+   "lon": 77.09951,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/291265303",
+   "name": "Modern School Barakhamba Road",
+   "lat": 28.62903,
+   "lon": 77.22906,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/356629900",
+   "name": "Modern Vidya Niketan",
+   "lat": 28.40719,
+   "lon": 77.32724,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4453247191",
+   "name": "Modern school",
+   "lat": 28.57886,
+   "lon": 77.0543,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11205436531",
+   "name": "Molarband school",
+   "lat": 28.49452,
+   "lon": 77.32601,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77967787",
+   "name": "Montfort Senior secondary School",
+   "lat": 28.68686,
+   "lon": 77.16998,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/342554680",
+   "name": "Mota Singh School",
+   "lat": 28.62501,
+   "lon": 77.07888,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/286690725",
+   "name": "Mother Mary's School",
+   "lat": 28.59832,
+   "lon": 77.29929,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302534579",
+   "name": "Mother's Global School",
+   "lat": 28.63666,
+   "lon": 77.29199,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/44091868",
+   "name": "Mother's International School",
+   "lat": 28.54034,
+   "lon": 77.20202,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/171648768",
+   "name": "Mount Abu Public School",
+   "lat": 28.71478,
+   "lon": 77.10934,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2408447819",
+   "name": "Mount Carmel",
+   "lat": 28.56065,
+   "lon": 77.0586,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/279962764",
+   "name": "Mount Carmel Junior Wing",
+   "lat": 28.5617,
+   "lon": 77.05992,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5306200027",
+   "name": "Mount Carmel School (Senior Wing)",
+   "lat": 28.57602,
+   "lon": 77.16529,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/260083527",
+   "name": "Mount Saint Mary's School",
+   "lat": 28.58247,
+   "lon": 77.13601,
+   "operator_type": "religious",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/4511556292",
+   "name": "Mount abu junior branch school",
+   "lat": 28.7118,
+   "lon": 77.10239,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13110023484",
+   "name": "Municipal Corporation Primary School",
+   "lat": 28.67993,
+   "lon": 77.20275,
+   "operator_type": "public",
+   "isced": "1"
+  },
+  {
+   "osm_id": "node/14100954422",
+   "name": "Municipal Corporation of Delhi Primary Co-Ed School",
+   "lat": 28.55567,
+   "lon": 77.18379,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/348138963",
+   "name": "Municipal Corporation of Delhi Primary Coeducational School",
+   "lat": 28.58305,
+   "lon": 77.17277,
+   "operator_type": "public",
+   "isced": "1"
+  },
+  {
+   "osm_id": "way/1513992932",
+   "name": "Municipal Corporation of Delhi Primary School",
+   "lat": 28.67994,
+   "lon": 77.20438,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394902980",
+   "name": "Municipal Primary Co-Edu School (Harewali, Delhi)",
+   "lat": 28.832,
+   "lon": 77.00694,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1167290897",
+   "name": "Municipal Primary Coeducational School",
+   "lat": 28.71521,
+   "lon": 77.17209,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1175896957",
+   "name": "Municipal Primary Coeducational School",
+   "lat": 28.7531,
+   "lon": 77.16244,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10732236605",
+   "name": "My Play School",
+   "lat": 28.7072,
+   "lon": 77.15966,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1075740885",
+   "name": "N. K. Bagrodia Public School",
+   "lat": 28.71261,
+   "lon": 77.1247,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4936063387",
+   "name": "NC Jindal Public School",
+   "lat": 28.66287,
+   "lon": 77.12451,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/402859112",
+   "name": "NCS Ground",
+   "lat": 28.58319,
+   "lon": 77.19363,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1363453179",
+   "name": "NIIT - New Friends Colony, South Delhi",
+   "lat": 28.56032,
+   "lon": 77.26672,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/151571822",
+   "name": "NK Bagrodia School",
+   "lat": 28.60215,
+   "lon": 77.04635,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1396155484",
+   "name": "NP Co-ed Senior Secondary School",
+   "lat": 28.58147,
+   "lon": 77.22428,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1533470917",
+   "name": "Narayana eTechno School",
+   "lat": 28.41797,
+   "lon": 77.05549,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262568466",
+   "name": "National Girls Blind School",
+   "lat": 28.64219,
+   "lon": 77.08144,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/8929322159",
+   "name": "National Victor Public School",
+   "lat": 28.63154,
+   "lon": 77.31182,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10570198566",
+   "name": "Native Public School",
+   "lat": 28.7246,
+   "lon": 77.17023,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1179943438",
+   "name": "Nav Jyoti Public School",
+   "lat": 28.74384,
+   "lon": 77.15964,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800994",
+   "name": "Nav Uday",
+   "lat": 28.60089,
+   "lon": 76.97613,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1133780556",
+   "name": "Navjeevan Model School",
+   "lat": 28.72313,
+   "lon": 77.169,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10576445742",
+   "name": "Navyug School",
+   "lat": 28.58724,
+   "lon": 77.21657,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1386140844",
+   "name": "Navyug School",
+   "lat": 28.63617,
+   "lon": 77.2039,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/1414940443",
+   "name": "Navyug School",
+   "lat": 28.6335,
+   "lon": 77.20095,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/1396155483",
+   "name": "Navyug Senior Secondary School",
+   "lat": 28.58138,
+   "lon": 77.22342,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262662784",
+   "name": "Neo Convent Sr. Sec. School",
+   "lat": 28.66196,
+   "lon": 77.09715,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/261067523",
+   "name": "New Age Public School",
+   "lat": 28.64673,
+   "lon": 77.03985,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1298770077",
+   "name": "New Delhi Municipal Corporation School",
+   "lat": 28.57723,
+   "lon": 77.19484,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262562928",
+   "name": "New Delhi Public School",
+   "lat": 28.62907,
+   "lon": 77.06641,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189450636",
+   "name": "New Era Public School",
+   "lat": 28.55629,
+   "lon": 77.03932,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265007642",
+   "name": "New Era Public School",
+   "lat": 28.62501,
+   "lon": 77.1181,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/351085362",
+   "name": "New Green Field School",
+   "lat": 28.51579,
+   "lon": 77.20601,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/331593130",
+   "name": "New Green Fields School",
+   "lat": 28.52485,
+   "lon": 77.25501,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10263086505",
+   "name": "New Horizon School",
+   "lat": 28.59472,
+   "lon": 77.2477,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1849498487",
+   "name": "New Ideal Public School",
+   "lat": 28.54679,
+   "lon": 77.29215,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/352249872",
+   "name": "New Light Public School",
+   "lat": 28.48688,
+   "lon": 77.01903,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11846242020",
+   "name": "New Sanik Public School",
+   "lat": 28.60715,
+   "lon": 77.06843,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9565144393",
+   "name": "New Suriya Public school",
+   "lat": 28.50438,
+   "lon": 77.2422,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11205476274",
+   "name": "New bal vaishali public school",
+   "lat": 28.49302,
+   "lon": 77.32608,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/971113905",
+   "name": "Nigam Pratibha Coed School",
+   "lat": 28.68208,
+   "lon": 77.19884,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1482443295",
+   "name": "Nigam Pratibha Vidyalaya",
+   "lat": 28.69423,
+   "lon": 77.21955,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1482443302",
+   "name": "Nigam Utkrisht Co-ed School",
+   "lat": 28.7056,
+   "lon": 77.22062,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/10661039318",
+   "name": "Nios Study center",
+   "lat": 28.58715,
+   "lon": 77.2515,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/200304514",
+   "name": "Notre Dame School",
+   "lat": 28.61362,
+   "lon": 76.92746,
+   "operator_type": "religious",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "way/151571787",
+   "name": "Nursery Play School",
+   "lat": 28.60231,
+   "lon": 77.04517,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293523873",
+   "name": "Nutan Marathi HS School",
+   "lat": 28.64543,
+   "lon": 77.20805,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/278151801",
+   "name": "Old Middle School Building",
+   "lat": 28.67744,
+   "lon": 77.15375,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1382699650",
+   "name": "Oxford Kids",
+   "lat": 28.55636,
+   "lon": 77.24323,
+   "operator_type": "private",
+   "isced": "0"
+  },
+  {
+   "osm_id": "way/262567575",
+   "name": "Oxford Senior Secondary School",
+   "lat": 28.63797,
+   "lon": 77.07132,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291813328",
+   "name": "PM Shri Central School",
+   "lat": 28.66558,
+   "lon": 77.30799,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/350842393",
+   "name": "PP International School",
+   "lat": 28.69789,
+   "lon": 77.14455,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2408447122",
+   "name": "Paramount International School",
+   "lat": 28.56372,
+   "lon": 77.05742,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1550729757",
+   "name": "Parth International School",
+   "lat": 28.4257,
+   "lon": 77.072,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10823517734",
+   "name": "Pathways",
+   "lat": 28.42957,
+   "lon": 77.10596,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262077443",
+   "name": "Paul George Global School",
+   "lat": 28.52828,
+   "lon": 77.25146,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13266921259",
+   "name": "Pole Star",
+   "lat": 28.69869,
+   "lon": 77.09698,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263377749",
+   "name": "Pradhan Mantri Shri Jawahar Navodaya Vidyalaya, Jaffarpur Kalan",
+   "lat": 28.59423,
+   "lon": 76.90749,
+   "operator_type": "public",
+   "isced": "2;3"
+  },
+  {
+   "osm_id": "way/264726375",
+   "name": "Pragati Public School",
+   "lat": 28.5992,
+   "lon": 77.03375,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4749996424",
+   "name": "Prakash Punj Vidya Sadan",
+   "lat": 28.67014,
+   "lon": 77.28404,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1486486122",
+   "name": "Prathmik Sah Shiksha Pratibha Vidyalaya",
+   "lat": 28.60991,
+   "lon": 77.294,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/12944492921",
+   "name": "Pratibha Vidyalaya",
+   "lat": 28.57249,
+   "lon": 77.23072,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1166297008",
+   "name": "Presidium",
+   "lat": 28.42217,
+   "lon": 77.06834,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302531609",
+   "name": "Primary School",
+   "lat": 28.62633,
+   "lon": 77.27957,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076533928",
+   "name": "Primary School",
+   "lat": 28.61774,
+   "lon": 76.87739,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881684",
+   "name": "Prince Public School",
+   "lat": 28.72848,
+   "lon": 77.08421,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/729487050",
+   "name": "Prince Public School",
+   "lat": 28.52342,
+   "lon": 77.1746,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/171438689",
+   "name": "Queen Marry's",
+   "lat": 28.73258,
+   "lon": 77.0945,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/154160586",
+   "name": "Queens Valley School",
+   "lat": 28.57819,
+   "lon": 77.07177,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/263229545",
+   "name": "R.P Memorial Senior Secondary Public School",
+   "lat": 28.63365,
+   "lon": 77.04126,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11982197671",
+   "name": "RAJKIYA PRATIBHA VIKAS VIDYALAYA",
+   "lat": 28.66601,
+   "lon": 77.30874,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/482828008",
+   "name": "RK Convent",
+   "lat": 28.49124,
+   "lon": 77.09444,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1238227755",
+   "name": "RPS International School",
+   "lat": 28.41991,
+   "lon": 77.05306,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1533470901",
+   "name": "RPS International School",
+   "lat": 28.41124,
+   "lon": 77.05731,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302532267",
+   "name": "RSBV No. 2",
+   "lat": 28.63404,
+   "lon": 77.28519,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/677593770",
+   "name": "Radha Krishna Vidya Niketan",
+   "lat": 28.52081,
+   "lon": 77.22667,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/508942097",
+   "name": "Radient Public School",
+   "lat": 28.73683,
+   "lon": 76.88935,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265816724",
+   "name": "Raghubir Saran Public School",
+   "lat": 28.65884,
+   "lon": 77.20643,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1242250069",
+   "name": "Raghubir Singh Junior Modern School",
+   "lat": 28.60393,
+   "lon": 77.22802,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/263196207",
+   "name": "Raghubir Singh Modern School",
+   "lat": 28.63279,
+   "lon": 77.04646,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291724982",
+   "name": "Rahman Public School",
+   "lat": 28.54763,
+   "lon": 77.30317,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1387035990",
+   "name": "Raisina Bengali School",
+   "lat": 28.63718,
+   "lon": 77.2014,
+   "operator_type": "private",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/1257188609",
+   "name": "Rajkiya Pratibha Baal Vidyalaya",
+   "lat": 28.51737,
+   "lon": 77.10927,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445867811",
+   "name": "Rajkiya Pratibha Vikas Vidyalaya",
+   "lat": 28.67574,
+   "lon": 77.10667,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13072249775",
+   "name": "Rajkiya Pratibha Vikas Vidyalaya ,I.P. Extension",
+   "lat": 28.63156,
+   "lon": 77.3145,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6395753670",
+   "name": "Rajkiya Sarvodaya Bal Vidyalaya",
+   "lat": 28.61383,
+   "lon": 77.3186,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/9107468200",
+   "name": "Rajkiya Sarvodaya Kanya Vidyalaya (Jeeja Bai)",
+   "lat": 28.6147,
+   "lon": 77.31946,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1287923418",
+   "name": "Rajkiya Sarvodaya Kanya/Bal Vidyalaya",
+   "lat": 28.62097,
+   "lon": 77.306,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1311579525",
+   "name": "Rajkiya Sarvodaya Kanya/Bal Vidyalaya",
+   "lat": 28.61401,
+   "lon": 77.291,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6834036204",
+   "name": "Ramanujan Sarvodaya Kanya Vidyalaya",
+   "lat": 28.52312,
+   "lon": 77.17997,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1301241681",
+   "name": "Ramjas Primary School",
+   "lat": 28.63782,
+   "lon": 77.21149,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/293526550",
+   "name": "Ramjas School",
+   "lat": 28.64452,
+   "lon": 77.20854,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/677799830",
+   "name": "Ramjas School",
+   "lat": 28.64398,
+   "lon": 77.19264,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78786253",
+   "name": "Rani Chenamma Sarvodaya Kanya Vidyalaya",
+   "lat": 28.72817,
+   "lon": 77.17335,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800991",
+   "name": "Rao Maan",
+   "lat": 28.59792,
+   "lon": 76.98163,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800990",
+   "name": "Rao Mohar",
+   "lat": 28.59846,
+   "lon": 76.98172,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1414804440",
+   "name": "Ratan Devi Girls Senior Sec. School",
+   "lat": 28.66144,
+   "lon": 77.28,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1191217053",
+   "name": "Rav Mehar Chand Saraswati Vidya Mandir",
+   "lat": 28.75409,
+   "lon": 77.17202,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262651674",
+   "name": "Richmond Global School",
+   "lat": 28.67897,
+   "lon": 77.08529,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/350587861",
+   "name": "Ring Midways Public School",
+   "lat": 28.61083,
+   "lon": 77.05161,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/852278359",
+   "name": "Rishabh Public School",
+   "lat": 28.60426,
+   "lon": 77.29126,
+   "operator_type": "private",
+   "isced": "0;1;2;3;4"
+  },
+  {
+   "osm_id": "way/154529893",
+   "name": "Rising Star Academy",
+   "lat": 28.68808,
+   "lon": 77.1406,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5407719423",
+   "name": "Rockfield Public School",
+   "lat": 28.73474,
+   "lon": 77.12482,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/290515054",
+   "name": "Rosary Public School",
+   "lat": 28.71449,
+   "lon": 77.20214,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1286500696",
+   "name": "Rose Merry Convent School",
+   "lat": 28.66325,
+   "lon": 77.27642,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/58765809",
+   "name": "Rotary Public School",
+   "lat": 28.50186,
+   "lon": 77.0623,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9964185461",
+   "name": "Royal Convent School",
+   "lat": 28.47275,
+   "lon": 77.0896,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/851802581",
+   "name": "Rukmani Devi Public School",
+   "lat": 28.70412,
+   "lon": 77.13821,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/190291171",
+   "name": "Ryan",
+   "lat": 28.5396,
+   "lon": 77.13914,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/34940753",
+   "name": "Ryan International School",
+   "lat": 28.53851,
+   "lon": 77.13823,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78542417",
+   "name": "Ryan International School",
+   "lat": 28.73438,
+   "lon": 77.1091,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/171438693",
+   "name": "Ryan International School",
+   "lat": 28.73439,
+   "lon": 77.09421,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172330770",
+   "name": "Ryan International School",
+   "lat": 28.41628,
+   "lon": 77.30061,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283761746",
+   "name": "Ryan International School",
+   "lat": 28.614,
+   "lon": 77.33632,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/419513432",
+   "name": "Ryan International School",
+   "lat": 28.45237,
+   "lon": 77.05542,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5407772022",
+   "name": "Ryan Shalom Montessori",
+   "lat": 28.73462,
+   "lon": 77.12414,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9964055895",
+   "name": "S B Public School",
+   "lat": 28.47331,
+   "lon": 77.08755,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2440648765",
+   "name": "S M Arya Public School",
+   "lat": 28.6721,
+   "lon": 77.13372,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4415894189",
+   "name": "S.D. Public",
+   "lat": 28.64739,
+   "lon": 77.16939,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1490066650",
+   "name": "S.D. Public School",
+   "lat": 28.64834,
+   "lon": 77.14183,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/150881520",
+   "name": "S.D.M.C. Primary School",
+   "lat": 28.60451,
+   "lon": 77.04907,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1421151480",
+   "name": "S.T. Giri School",
+   "lat": 28.53374,
+   "lon": 77.29097,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/786587593",
+   "name": "SAM International School",
+   "lat": 28.59041,
+   "lon": 77.0393,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/42807043",
+   "name": "SD Adarsh Vidyalaya",
+   "lat": 28.4223,
+   "lon": 77.03996,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2443178755",
+   "name": "SD Public School",
+   "lat": 28.66774,
+   "lon": 77.13933,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/89955743",
+   "name": "SDMC Pratibha School",
+   "lat": 28.54315,
+   "lon": 77.25087,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/818074718",
+   "name": "SDMC Pratibha Vidyalaya (Kanya)",
+   "lat": 28.53683,
+   "lon": 77.21384,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/6282682557",
+   "name": "SDMC Primary Coeducational School",
+   "lat": 28.56959,
+   "lon": 77.2482,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6203987732",
+   "name": "SDMC Primary Model School",
+   "lat": 28.5768,
+   "lon": 77.23979,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/221428710",
+   "name": "SDMC Primary School",
+   "lat": 28.63101,
+   "lon": 77.07585,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/818723424",
+   "name": "SDMC Primary School",
+   "lat": 28.5243,
+   "lon": 77.23072,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5960754388",
+   "name": "SH Computer Education",
+   "lat": 28.53091,
+   "lon": 77.21703,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/149510412",
+   "name": "SKV Raja Ram Mohan Roy School",
+   "lat": 28.53046,
+   "lon": 77.21318,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265165728",
+   "name": "SKV sarvoday Kanya VIyalay",
+   "lat": 28.64994,
+   "lon": 77.1287,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/983528880",
+   "name": "SNEH International School",
+   "lat": 28.64348,
+   "lon": 77.29509,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/401959556",
+   "name": "SOS Children's Village - Greenfields",
+   "lat": 28.46314,
+   "lon": 77.28957,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172343217",
+   "name": "SOS Hermann Gmeiner School",
+   "lat": 28.43815,
+   "lon": 77.32303,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1396191122",
+   "name": "SS Khalsa Senior Secondary School",
+   "lat": 28.56209,
+   "lon": 77.24143,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262646817",
+   "name": "SS Mota Singh Model School",
+   "lat": 28.67309,
+   "lon": 77.08208,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1346666215",
+   "name": "Sachdeva Public School",
+   "lat": 28.72443,
+   "lon": 77.12798,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/3626040478",
+   "name": "Sahoday Senior Secondary School",
+   "lat": 28.55264,
+   "lon": 77.20022,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/949757088",
+   "name": "Sai Bhavan School",
+   "lat": 28.65222,
+   "lon": 77.26767,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262567571",
+   "name": "Saint Cecilia School",
+   "lat": 28.63917,
+   "lon": 77.07206,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/278577267",
+   "name": "Saint Columba's School",
+   "lat": 28.62931,
+   "lon": 77.206,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1474745559",
+   "name": "Saint Francis School",
+   "lat": 28.64064,
+   "lon": 77.34699,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/678662133",
+   "name": "Saint John's Model School",
+   "lat": 28.60385,
+   "lon": 77.29893,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9536890793",
+   "name": "Saint John's School",
+   "lat": 28.52151,
+   "lon": 77.18168,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/825393427",
+   "name": "Saint Joseph's Academy",
+   "lat": 28.66135,
+   "lon": 77.31721,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1317321243",
+   "name": "Saint Martin’s Diocesan School",
+   "lat": 28.59598,
+   "lon": 77.14606,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5331324929",
+   "name": "Saint Mary's Junior School",
+   "lat": 28.5124,
+   "lon": 77.20391,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6207395594",
+   "name": "Saint Mary's School",
+   "lat": 28.50517,
+   "lon": 77.20616,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/819046416",
+   "name": "Saint Mary's School",
+   "lat": 28.56401,
+   "lon": 77.19086,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/283761748",
+   "name": "Saint Mary's Senior Secondary School",
+   "lat": 28.61066,
+   "lon": 77.33795,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10750605659",
+   "name": "Saint Model Public School",
+   "lat": 28.72432,
+   "lon": 77.16822,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1386957469",
+   "name": "Saint Thomas Girls Senior Secondary School",
+   "lat": 28.63979,
+   "lon": 77.20321,
+   "operator_type": "religious",
+   "isced": "3"
+  },
+  {
+   "osm_id": "way/259169052",
+   "name": "Saint Thomas' Girls Senior Secondary School",
+   "lat": 28.64501,
+   "lon": 77.18902,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1381140006",
+   "name": "Saint Xavier's Senior Secondary School",
+   "lat": 28.67165,
+   "lon": 77.22255,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/335970186",
+   "name": "Salvan Public School",
+   "lat": 28.46361,
+   "lon": 77.04651,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283761049",
+   "name": "Salwan Public School",
+   "lat": 28.61029,
+   "lon": 77.33985,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/296733635",
+   "name": "Salwan Public School",
+   "lat": 28.77724,
+   "lon": 77.25642,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6457033186",
+   "name": "Samvad Shala",
+   "lat": 28.71053,
+   "lon": 77.31335,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394158702",
+   "name": "Sanjeevan Public School",
+   "lat": 28.60433,
+   "lon": 77.08542,
+   "operator_type": "private",
+   "isced": "1"
+  },
+  {
+   "osm_id": "way/263199199",
+   "name": "Sanjeevani School",
+   "lat": 28.63809,
+   "lon": 77.03369,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/81352243",
+   "name": "Sanskriti School",
+   "lat": 28.58884,
+   "lon": 77.1772,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5960793702",
+   "name": "Sant Nirankari",
+   "lat": 28.53583,
+   "lon": 77.21771,
+   "operator_type": null,
+   "isced": "8"
+  },
+  {
+   "osm_id": "node/13926801709",
+   "name": "Sant Nirankari Public School",
+   "lat": 28.71542,
+   "lon": 77.20966,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13926801710",
+   "name": "Sant Nirankari Sr Sec School Girls and Boys",
+   "lat": 28.71571,
+   "lon": 77.20892,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/341481077",
+   "name": "Sardar Patel Vidyalaya",
+   "lat": 28.59706,
+   "lon": 77.22651,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1283259033",
+   "name": "Sardar Vallabhbhai Patel Senior Secondary School",
+   "lat": 28.59758,
+   "lon": 77.12254,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293523187",
+   "name": "Sarvodaya Bal School",
+   "lat": 28.64571,
+   "lon": 77.19975,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1531893998",
+   "name": "Sarvodaya Bal Vidyala Radhaya Shyam Park",
+   "lat": 28.6456,
+   "lon": 77.28361,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1268148609",
+   "name": "Sarvodaya Bal Vidyalaya",
+   "lat": 28.59235,
+   "lon": 77.12545,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/662185763",
+   "name": "Sarvodaya Bal Vidyalaya No. 2",
+   "lat": 28.587,
+   "lon": 77.08817,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265203374",
+   "name": "Sarvodaya Bal Vidyalaya Number 2",
+   "lat": 28.64154,
+   "lon": 77.09077,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13204264433",
+   "name": "Sarvodaya Bal Vidyalaya, Tikri Khurd",
+   "lat": 28.83353,
+   "lon": 77.12832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445937588",
+   "name": "Sarvodaya Co-Educational School",
+   "lat": 28.66923,
+   "lon": 77.14977,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265014349",
+   "name": "Sarvodaya Co-ed. Senior Secondary School",
+   "lat": 28.55236,
+   "lon": 77.17024,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1384672567",
+   "name": "Sarvodaya Coeducational Vidyalaya Nizampur",
+   "lat": 28.7216,
+   "lon": 76.96221,
+   "operator_type": "public",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "node/2922268001",
+   "name": "Sarvodaya Kanya Senior Secondary School",
+   "lat": 28.68964,
+   "lon": 77.15605,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291730896",
+   "name": "Sarvodaya Kanya Vidayalya Noor Nagar",
+   "lat": 28.55679,
+   "lon": 77.28795,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445989851",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.65235,
+   "lon": 77.1656,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9085975699",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.68072,
+   "lon": 77.31265,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/76734524",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.63122,
+   "lon": 77.29739,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/259073012",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.64531,
+   "lon": 77.09842,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265031890",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.56376,
+   "lon": 77.27241,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/722727047",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.53396,
+   "lon": 77.21313,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1268148610",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.59258,
+   "lon": 77.12487,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1271204409",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.6775,
+   "lon": 77.20727,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1376144459",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.65764,
+   "lon": 77.23504,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1526304692",
+   "name": "Sarvodaya Kanya Vidyalaya",
+   "lat": 28.56488,
+   "lon": 77.22798,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/292824629",
+   "name": "Sarvodaya Kanya Vidyalaya - Hauz Khas 1",
+   "lat": 28.54313,
+   "lon": 77.22247,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1416718974",
+   "name": "Sarvodaya Kanya Vidyalaya No 2",
+   "lat": 28.55614,
+   "lon": 77.24577,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/259036540",
+   "name": "Sarvodaya Kanya Vidyalaya Number 1",
+   "lat": 28.68083,
+   "lon": 77.19591,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/78154758",
+   "name": "Sarvodaya Kanya Vidyalaya and Government School",
+   "lat": 28.68285,
+   "lon": 77.16997,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445868970",
+   "name": "Sarvodaya Vidyalaya",
+   "lat": 28.675,
+   "lon": 77.10587,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/533150332",
+   "name": "Sarvodaya Vidyalaya",
+   "lat": 28.58503,
+   "lon": 77.08351,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1202955813",
+   "name": "Sarvodaya Vidyalaya",
+   "lat": 28.57997,
+   "lon": 77.21996,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "node/4237012389",
+   "name": "Sarvodaya Vidyalaya (GBSSS), Govt. School",
+   "lat": 28.71446,
+   "lon": 77.21706,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/348257032",
+   "name": "Sarvodaya Vidyalaya Jor Bagh",
+   "lat": 28.588,
+   "lon": 77.21886,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11225078048",
+   "name": "Sarvodaya bal vidyalaya no. 1",
+   "lat": 28.49456,
+   "lon": 77.32565,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1257188607",
+   "name": "Sarvodya Kanya Vidyalaya Rajokari",
+   "lat": 28.51825,
+   "lon": 77.10883,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/876138067",
+   "name": "Sat Saheb Public School",
+   "lat": 28.61145,
+   "lon": 77.04965,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78164552",
+   "name": "Satyawati College",
+   "lat": 28.69577,
+   "lon": 77.18163,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10661038354",
+   "name": "Satyawati Sood Arya Girls senior secondary school",
+   "lat": 28.58702,
+   "lon": 77.25162,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12912000024",
+   "name": "School Entrance",
+   "lat": 28.83571,
+   "lon": 77.01641,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1096874054",
+   "name": "School Of Specialized Excellence, Delhi Government School",
+   "lat": 28.72276,
+   "lon": 77.08094,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5242150470",
+   "name": "School for Mentally Retarded Children",
+   "lat": 28.61182,
+   "lon": 77.28761,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/7891819",
+   "name": "School of Computional and Integrative Sciences",
+   "lat": 28.54191,
+   "lon": 77.1678,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/447185310",
+   "name": "School of planning and architecure",
+   "lat": 28.63261,
+   "lon": 77.24598,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293523183",
+   "name": "Science Centre Cum Central Workshop",
+   "lat": 28.64644,
+   "lon": 77.19916,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5122054863",
+   "name": "Scottish Early Years",
+   "lat": 28.64897,
+   "lon": 77.30079,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/272761788",
+   "name": "Scottish High International School",
+   "lat": 28.42636,
+   "lon": 77.08898,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/58472992",
+   "name": "Shaadi mandap",
+   "lat": 28.64834,
+   "lon": 77.04209,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265815213",
+   "name": "Shafiq Memorial Sr Sec School",
+   "lat": 28.65865,
+   "lon": 77.20557,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/7636329586",
+   "name": "Shaheed Captain Anuj Nayyar Government Boys Senior Secondary School",
+   "lat": 28.62559,
+   "lon": 77.0927,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1085815544",
+   "name": "Shaheed Captain Hanifuddin Sarvodaya Kanya/Bal Vidyalaya",
+   "lat": 28.60292,
+   "lon": 77.2944,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1266549543",
+   "name": "Shaheed Hemu Kalani Rajkiya Sarvoday Bal Vidyalay",
+   "lat": 28.56626,
+   "lon": 77.24529,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1443208778",
+   "name": "Shaheed Rajpal DAV Public School",
+   "lat": 28.64707,
+   "lon": 77.30477,
+   "operator_type": "private",
+   "isced": "2;3;4"
+  },
+  {
+   "osm_id": "way/1270574330",
+   "name": "Shalom Hills International School",
+   "lat": 28.4487,
+   "lon": 77.08452,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/272761797",
+   "name": "Shalom Presidency School",
+   "lat": 28.41956,
+   "lon": 77.09832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1316624674",
+   "name": "Shankar Public School",
+   "lat": 28.6271,
+   "lon": 77.29476,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1409678627",
+   "name": "Sharda International School",
+   "lat": 28.45054,
+   "lon": 77.01003,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10741340139",
+   "name": "Sharda Public School",
+   "lat": 28.72028,
+   "lon": 77.16814,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/77001246",
+   "name": "Sharda Sen Rajkiya Kanya Sarvodaya Vidyalaya",
+   "lat": 28.6052,
+   "lon": 77.30769,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266602155",
+   "name": "Sherwood Convent",
+   "lat": 28.48292,
+   "lon": 77.07621,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/738185935",
+   "name": "Shiv Nadar School",
+   "lat": 28.46475,
+   "lon": 77.10474,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1178553640",
+   "name": "Shiv Shakti Public School",
+   "lat": 28.74258,
+   "lon": 77.16309,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1288672260",
+   "name": "Shri Guru Nanak Khalsa Girls Senior Secondary School",
+   "lat": 28.59232,
+   "lon": 77.12035,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076800989",
+   "name": "Shri Krishna",
+   "lat": 28.59864,
+   "lon": 76.98075,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262875962",
+   "name": "Shri Mahavir Vishwa Vidyapeeth",
+   "lat": 28.67542,
+   "lon": 77.1047,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291713625",
+   "name": "Shri Santan Dharam Coeducational Secondary School",
+   "lat": 28.59274,
+   "lon": 77.12057,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/262073296",
+   "name": "Shri Satya Sai Vidya Vihar School",
+   "lat": 28.52896,
+   "lon": 77.26314,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/266636533",
+   "name": "Shriram School",
+   "lat": 28.46633,
+   "lon": 77.08538,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/89955837",
+   "name": "Shyama Prasad Mukherjee Sarvodaya (Coeducational) Vidyalaya",
+   "lat": 28.5414,
+   "lon": 77.2456,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394088636",
+   "name": "Shyama Prasad Vidyalaya",
+   "lat": 28.59677,
+   "lon": 77.22564,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/821862034",
+   "name": "Siddharth International Public School",
+   "lat": 28.70003,
+   "lon": 77.29387,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/738481371",
+   "name": "Sidheshwar Public School",
+   "lat": 28.46747,
+   "lon": 76.99678,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1286481105",
+   "name": "Silver Oak",
+   "lat": 28.59698,
+   "lon": 77.12412,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1211751325",
+   "name": "Silver Oak Public School",
+   "lat": 28.75237,
+   "lon": 77.15164,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446002922",
+   "name": "Sindhi Higher Secondary School",
+   "lat": 28.63576,
+   "lon": 77.17786,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10956856127",
+   "name": "Sky Public School",
+   "lat": 28.7439,
+   "lon": 77.16063,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1291731980",
+   "name": "Smart Kids Public School",
+   "lat": 28.55594,
+   "lon": 77.29561,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5338818321",
+   "name": "Snehil Frontline Special School",
+   "lat": 28.73978,
+   "lon": 77.11953,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5122593540",
+   "name": "Soami Nagar Model School",
+   "lat": 28.54405,
+   "lon": 77.22547,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5128503989",
+   "name": "Soami Nagar Pre-Primary School",
+   "lat": 28.5434,
+   "lon": 77.22576,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/71209191",
+   "name": "Somerville School",
+   "lat": 28.59462,
+   "lon": 77.34957,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/283919154",
+   "name": "Sommerville School",
+   "lat": 28.60332,
+   "lon": 77.3185,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/632843081",
+   "name": "South Delhi Muncipal Corporation Nigam Pratibha Vidyalaya",
+   "lat": 28.51537,
+   "lon": 77.19868,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/706693029",
+   "name": "South Delhi Municipal Corporation Primary Coeducational Model School",
+   "lat": 28.5684,
+   "lon": 77.23814,
+   "operator_type": "public",
+   "isced": "1"
+  },
+  {
+   "osm_id": "way/1395889661",
+   "name": "South Delhi Public School",
+   "lat": 28.57834,
+   "lon": 77.23681,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293325159",
+   "name": "Sports Field",
+   "lat": 28.59737,
+   "lon": 77.29865,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1076871973",
+   "name": "Springdales School",
+   "lat": 28.58566,
+   "lon": 77.16522,
+   "operator_type": "private",
+   "isced": "1;2;3"
+  },
+  {
+   "osm_id": "way/158037035",
+   "name": "Springdales School, Pusa Road",
+   "lat": 28.6444,
+   "lon": 77.19633,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78601512",
+   "name": "St Angel's School",
+   "lat": 28.72983,
+   "lon": 77.12909,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1435010717",
+   "name": "St John's School",
+   "lat": 28.53711,
+   "lon": 77.23543,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78595519",
+   "name": "St Margaret Senior Secondary School",
+   "lat": 28.71404,
+   "lon": 77.13527,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1420745420",
+   "name": "St. Angels (Jr)",
+   "lat": 28.44692,
+   "lon": 77.06517,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1420745423",
+   "name": "St. Angels (Sr)",
+   "lat": 28.44192,
+   "lon": 77.06951,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/154529687",
+   "name": "St. Colombo School",
+   "lat": 28.68873,
+   "lon": 77.13933,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1359564000",
+   "name": "St. Columbus School",
+   "lat": 28.49215,
+   "lon": 77.29655,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/221328215",
+   "name": "St. Francis De Sales School",
+   "lat": 28.6248,
+   "lon": 77.08022,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262891105",
+   "name": "St. Froebel School",
+   "lat": 28.67216,
+   "lon": 77.10643,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/294303084",
+   "name": "St. John Institute",
+   "lat": 28.77274,
+   "lon": 77.09763,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/172579298",
+   "name": "St. Joseph's Convent School",
+   "lat": 28.39982,
+   "lon": 77.30294,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1151947494",
+   "name": "St. Mary's Senior Secondary School",
+   "lat": 28.66601,
+   "lon": 77.07945,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/47026629",
+   "name": "St. Mathews Public School",
+   "lat": 28.67407,
+   "lon": 77.10679,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/281310755",
+   "name": "St. Michael's Senior Secondary School",
+   "lat": 28.4702,
+   "lon": 77.01616,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/158037036",
+   "name": "St. Michaels School, Pusa Road",
+   "lat": 28.64423,
+   "lon": 77.19489,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/14065767673",
+   "name": "St. Mother Teresa CB\nSenior Secondary School",
+   "lat": 28.6071,
+   "lon": 77.14358,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445867146",
+   "name": "St. Nirankari Public School",
+   "lat": 28.67603,
+   "lon": 77.10727,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/913754164",
+   "name": "St. Paul's School",
+   "lat": 28.5486,
+   "lon": 77.19957,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/3841328720",
+   "name": "St. Peters School",
+   "lat": 28.41398,
+   "lon": 77.31395,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4483893393",
+   "name": "St. Prayag school",
+   "lat": 28.69186,
+   "lon": 77.11684,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262879333",
+   "name": "St. Sophia School",
+   "lat": 28.67234,
+   "lon": 77.09763,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1172656368",
+   "name": "St. Xavier's High School",
+   "lat": 28.40742,
+   "lon": 77.05773,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/482664044",
+   "name": "Stones2milestones",
+   "lat": 28.45399,
+   "lon": 77.07832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1472370970",
+   "name": "Sukho Khalsa Senior Secondary School",
+   "lat": 28.63408,
+   "lon": 77.09667,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4859916426",
+   "name": "Sulabh Public School",
+   "lat": 28.59781,
+   "lon": 77.07992,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/1374470984",
+   "name": "Sumermal Jain Public School",
+   "lat": 28.6301,
+   "lon": 77.09401,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1434663372",
+   "name": "Summer Fields School",
+   "lat": 28.47317,
+   "lon": 77.09787,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/272869648",
+   "name": "Suncity School",
+   "lat": 28.43435,
+   "lon": 77.1125,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1137301504",
+   "name": "Supaksha early learning habitat",
+   "lat": 28.52953,
+   "lon": 77.14907,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/272761794",
+   "name": "Suraj School",
+   "lat": 28.42393,
+   "lon": 77.10149,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1359649703",
+   "name": "Surajkund International",
+   "lat": 28.49371,
+   "lon": 77.2959,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12942263261",
+   "name": "Surjit Wasu Memorial Charitable school",
+   "lat": 28.4957,
+   "lon": 77.2201,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446010483",
+   "name": "Swami Dayanand Govt. Sarvodaya Vidyalaya",
+   "lat": 28.6398,
+   "lon": 77.18562,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/6362607170",
+   "name": "Swami Hariharanand Public School",
+   "lat": 28.66275,
+   "lon": 77.24037,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5960818475",
+   "name": "Swarn public school",
+   "lat": 28.53301,
+   "lon": 77.21858,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4213529489",
+   "name": "Swiss Cottage school",
+   "lat": 28.5158,
+   "lon": 77.05028,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10127860587",
+   "name": "TCV Day School, Samyeling",
+   "lat": 28.70183,
+   "lon": 77.22776,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/558065101",
+   "name": "Tagore International School",
+   "lat": 28.56923,
+   "lon": 77.16171,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/719547319",
+   "name": "Tagore International School",
+   "lat": 28.55871,
+   "lon": 77.24202,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "way/1172654041",
+   "name": "Tagore Public School",
+   "lat": 28.41509,
+   "lon": 77.07212,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/265007641",
+   "name": "Tagore Senior Secondary School",
+   "lat": 28.62556,
+   "lon": 77.11862,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1268148608",
+   "name": "Taurus Army Pre-Primary School",
+   "lat": 28.59211,
+   "lon": 77.12608,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/293532874",
+   "name": "Texla Public School",
+   "lat": 28.69158,
+   "lon": 77.28464,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1490066651",
+   "name": "The Adarsh School",
+   "lat": 28.64684,
+   "lon": 77.14033,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/531893759",
+   "name": "The Air Force School",
+   "lat": 28.58505,
+   "lon": 77.15437,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/9969678884",
+   "name": "The Ardee School",
+   "lat": 28.5606,
+   "lon": 77.27575,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1083840655",
+   "name": "The Baptist Convent Senior Secondary School",
+   "lat": 28.63025,
+   "lon": 77.30416,
+   "operator_type": "religious",
+   "isced": null
+  },
+  {
+   "osm_id": "way/43361906",
+   "name": "The British School",
+   "lat": 28.59749,
+   "lon": 77.18029,
+   "operator_type": "private",
+   "isced": "0;1;2;3"
+  },
+  {
+   "osm_id": "node/14089016094",
+   "name": "The Elisabeth Gauba School",
+   "lat": 28.62806,
+   "lon": 77.20306,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881686",
+   "name": "The Heritage School",
+   "lat": 28.72124,
+   "lon": 77.08261,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2408447150",
+   "name": "The Indian Heights School",
+   "lat": 28.56185,
+   "lon": 77.05276,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/675366990",
+   "name": "The Indian School",
+   "lat": 28.55657,
+   "lon": 77.2284,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/44091823",
+   "name": "The Mother's International School",
+   "lat": 28.54033,
+   "lon": 77.20185,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12640918037",
+   "name": "The Neev School",
+   "lat": 28.62293,
+   "lon": 77.29114,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/5122593542",
+   "name": "The Pinnacle School",
+   "lat": 28.54488,
+   "lon": 77.22796,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1303267775",
+   "name": "The Sovereign School",
+   "lat": 28.72448,
+   "lon": 77.09305,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/819419206",
+   "name": "The Study School",
+   "lat": 28.55727,
+   "lon": 77.24366,
+   "operator_type": "private",
+   "isced": "0"
+  },
+  {
+   "osm_id": "node/1810981109",
+   "name": "Ujwa Govt School",
+   "lat": 28.57049,
+   "lon": 76.90366,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/302534553",
+   "name": "Universal Public School",
+   "lat": 28.633,
+   "lon": 77.28952,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/12759227365",
+   "name": "Usha Ganguli Shishu Vihar",
+   "lat": 28.69212,
+   "lon": 77.21161,
+   "operator_type": "public",
+   "isced": "0"
+  },
+  {
+   "osm_id": "way/349824203",
+   "name": "VSPK International School",
+   "lat": 28.71843,
+   "lon": 77.12967,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1231060699",
+   "name": "VSPK International School (Juniors)",
+   "lat": 28.7347,
+   "lon": 77.10938,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/877433333",
+   "name": "Vagishwari School",
+   "lat": 28.61491,
+   "lon": 77.04957,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1415872511",
+   "name": "Vaid Pandit Khusi Ram Sarvodaya Boys Sr. Sec. School (Nangal Thakran, Delhi)",
+   "lat": 28.81008,
+   "lon": 77.00312,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "node/9221656000",
+   "name": "Vaidic Public School",
+   "lat": 28.62245,
+   "lon": 77.31127,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/255352551",
+   "name": "Vanasthali Public School",
+   "lat": 28.60455,
+   "lon": 77.33506,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/351409706",
+   "name": "Vanasthali Public School",
+   "lat": 28.6403,
+   "lon": 77.29928,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189447985",
+   "name": "Vandana International School",
+   "lat": 28.58223,
+   "lon": 77.05901,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/190291267",
+   "name": "Vasant Valley School",
+   "lat": 28.53374,
+   "lon": 77.14449,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/262560723",
+   "name": "Ved Vyas DAV Public School",
+   "lat": 28.6385,
+   "lon": 77.06161,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/741157320",
+   "name": "Vedic Public School",
+   "lat": 28.76793,
+   "lon": 77.12396,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1294939122",
+   "name": "Veer Savarkar Sarvodaya Kanya Vidyalaya Number 1",
+   "lat": 28.54514,
+   "lon": 77.2498,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1486846861",
+   "name": "Veer Savarkar School",
+   "lat": 28.72647,
+   "lon": 77.27288,
+   "operator_type": "government",
+   "isced": null
+  },
+  {
+   "osm_id": "way/664639541",
+   "name": "Vega School",
+   "lat": 28.41065,
+   "lon": 77.03817,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/349824471",
+   "name": "Venkateshwara Global School",
+   "lat": 28.71793,
+   "lon": 77.13044,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4453248791",
+   "name": "Venkateshwara international school",
+   "lat": 28.58932,
+   "lon": 77.03894,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/189447986",
+   "name": "Venkteshwara International School",
+   "lat": 28.58459,
+   "lon": 77.05834,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/290643625",
+   "name": "Venus Public School",
+   "lat": 28.70493,
+   "lon": 77.20955,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/479651146",
+   "name": "Viaan International School",
+   "lat": 28.63665,
+   "lon": 77.29347,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "way/1490915285",
+   "name": "Viaan International School",
+   "lat": 28.63602,
+   "lon": 77.294,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1173994498",
+   "name": "Victor Public School",
+   "lat": 28.69023,
+   "lon": 77.27812,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277905479",
+   "name": "Vidya Bal Bhavan Sr Secondary School",
+   "lat": 28.60855,
+   "lon": 77.33016,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/277887005",
+   "name": "Vidya Bharti Public School",
+   "lat": 28.66701,
+   "lon": 77.32616,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78601484",
+   "name": "Vidya Bharti School",
+   "lat": 28.7331,
+   "lon": 77.12937,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1394088639",
+   "name": "Vidya Bhawan Mahavidyalaya Senior Secondary School",
+   "lat": 28.59516,
+   "lon": 77.22659,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2446000268",
+   "name": "Vidya Bhawan Senior Secondary School",
+   "lat": 28.63873,
+   "lon": 77.17637,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/583556645",
+   "name": "Vidya Niketan Senior Secondary School",
+   "lat": 28.52089,
+   "lon": 77.20327,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/78881660",
+   "name": "Vikas Bharti",
+   "lat": 28.72772,
+   "lon": 77.08832,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1540023468",
+   "name": "Vinay Nagar Bengali Sr. Sec School",
+   "lat": 28.57268,
+   "lon": 77.19691,
+   "operator_type": "private_aided",
+   "isced": null
+  },
+  {
+   "osm_id": "node/13594703551",
+   "name": "Virendra Public School",
+   "lat": 28.69565,
+   "lon": 77.2203,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2445809013",
+   "name": "Vishal Bharti Public School",
+   "lat": 28.67761,
+   "lon": 77.10022,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/279569846",
+   "name": "Vishwa Bharati Public School",
+   "lat": 28.59262,
+   "lon": 77.06952,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1251507782",
+   "name": "Vivek Summit School",
+   "lat": 28.64251,
+   "lon": 77.17418,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/8929322161",
+   "name": "Vivekanand International School",
+   "lat": 28.6319,
+   "lon": 77.31408,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1228658291",
+   "name": "Windsor International School",
+   "lat": 28.43202,
+   "lon": 77.06911,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/10661041562",
+   "name": "YMCA Public School",
+   "lat": 28.58724,
+   "lon": 77.25112,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1376972764",
+   "name": "carmel community church",
+   "lat": 28.50625,
+   "lon": 77.24687,
+   "operator_type": "private",
+   "isced": null
+  },
+  {
+   "osm_id": "node/4180327825",
+   "name": "deepak vaiyas home",
+   "lat": 28.62549,
+   "lon": 77.11337,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/2906769891",
+   "name": "govt sec school",
+   "lat": 28.46186,
+   "lon": 77.03274,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/461569370",
+   "name": "govt secondary school",
+   "lat": 28.51275,
+   "lon": 77.26606,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/42310648",
+   "name": "iDiscovery School",
+   "lat": 28.4305,
+   "lon": 77.05681,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1258318727",
+   "name": "k block school",
+   "lat": 28.73039,
+   "lon": 77.16687,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/956235451",
+   "name": "laal kila school ground",
+   "lat": 28.63482,
+   "lon": 77.11412,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5960740186",
+   "name": "s6 BHIM Singh ni was",
+   "lat": 28.531,
+   "lon": 77.21805,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/461566508",
+   "name": "skv Tughlakabad village",
+   "lat": 28.51018,
+   "lon": 77.26569,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/1258323655",
+   "name": "skv school ground",
+   "lat": 28.72688,
+   "lon": 77.16776,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/5960921887",
+   "name": "swarn public school",
+   "lat": 28.53322,
+   "lon": 77.21955,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "way/479651145",
+   "name": "viaan international school ground",
+   "lat": 28.6358,
+   "lon": 77.29424,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/11698041139",
+   "name": "xtreme tennis academy",
+   "lat": 28.60378,
+   "lon": 77.0513,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/4729010299",
+   "name": "المدرسة العراقية",
+   "lat": 28.55626,
+   "lon": 77.20495,
+   "operator_type": null,
+   "isced": null
+  },
+  {
+   "osm_id": "node/13110159240",
+   "name": "निगम प्राथमिक विद्यालय",
+   "lat": 28.68005,
+   "lon": 77.20201,
+   "operator_type": "public",
+   "isced": null
+  },
+  {
+   "osm_id": "way/266768724",
+   "name": "बच्चों का घर",
+   "lat": 28.64623,
+   "lon": 77.24116,
+   "operator_type": null,
+   "isced": null
+  }
+ ]
+}
