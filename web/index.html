@@ -229,7 +229,7 @@
 </section>
 
 <section>
-  <div class="shead"><span class="snum">05</span><h2>The protocol, as code</h2></div>
+  <div class="shead"><span class="snum">04</span><h2>The protocol, as code</h2></div>
   <p class="sdesc">This is the school's circular written in <b>Cedar</b>, AWS's
     open-source policy language. It is not a prompt. No language model reads it, writes
     it, or can talk its way around it: Saans may only hold an activity outdoors if
@@ -240,7 +240,7 @@
 </section>
 
 <section>
-  <div class="shead"><span class="snum">06</span><h2>Run the 05:45 job</h2></div>
+  <div class="shead"><span class="snum">03c</span><h2>Run the 05:45 job</h2></div>
   <p class="sdesc">The whole morning, on demand: decide, draft the notice, write the
     ledger, store the notice, send it. The agent drafts the opening line a parent reads
     first — and a guard checks it against the record, because a small model writing a
@@ -252,6 +252,32 @@
     <span class="muted" id="runhint"></span>
   </div>
   <div id="receipts"></div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Delhi, school by school</h2></div>
+  <p class="sdesc">One school proves the protocol works; it does not show the size of
+    the thing. Here is the same protocol run against every school in Delhi that
+    OpenStreetMap has a name and a location for — real places, real coordinates. The
+    air genuinely varies across the city, so these are different decisions, not one
+    decision printed hundreds of times.</p>
+  <div class="stats" id="citystats"></div>
+  <div class="chartwrap" id="citymap" style="margin-top:13px"><span class="skel">plotting schools…</span></div>
+  <div id="citylists" style="margin-top:14px"></div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">06</span><h2>How wrong can the forecast be?</h2></div>
+  <p class="sdesc">The obvious challenge to all of this: you are acting on a global
+    model's forecast, so how do you know it is right. There is no keyless ground-truth
+    feed for Delhi to check against, and quoting a skill score without one would be
+    dishonest. So Saans answers the question that actually matters for a safety tool —
+    does the <i>decision</i> survive the forecast being wrong? Every call is re-decided
+    across ±40% forecast error, which is wider than anyone claims for this model. Calls
+    that flip inside that band are reported as marginal rather than given a confidence
+    they have not earned.</p>
+  <div class="stats" id="stabstats"></div>
+  <div id="stability" style="margin-top:14px"></div>
 </section>
 
 <section>
@@ -511,6 +537,99 @@ async function loadReplay(window_){
   render_protocol(r.clause_counts);
 }
 
+
+/* ---------- Delhi, school by school ---------- */
+async function loadCity(){
+  try{
+    const c = await get("/api/city"); const s = c.summary;
+    $("citystats").innerHTML = `
+      <div class="stat hero"><b>${fmt(s.over_weekly_budget_pct)}%</b><span>of
+        ${s.schools} mapped Delhi schools where <i>one games period today</i> costs more
+        than a child's entire WHO week</span></div>
+      <div class="stat"><b>${s.schools}</b><span>real schools, located from
+        OpenStreetMap</span></div>
+      <div class="stat"><b>${fmt(s.pm25_min)}–${fmt(s.pm25_max)}</b><span>µg/m³ across
+        the city today — a spread of ${fmt(s.pm25_spread)}</span></div>
+      <div class="stat"><b>${fmt(s.grounded_pct)}%</b><span>where even a class with
+        nobody on the respiratory register cannot hold games</span></div>
+      <div class="stat"><b>${Object.entries(s.bands).map(([k,v])=>`${v} ${k}`).join(" · ")}</b>
+        <span>CPCB bands across the city</span></div>`;
+
+    const W=940,H=520,M=34;
+    const la=c.schools.map(x=>x.la), lo=c.schools.map(x=>x.lo);
+    const laMin=Math.min(...la), laMax=Math.max(...la);
+    const loMin=Math.min(...lo), loMax=Math.max(...lo);
+    const dMin=Math.min(...c.schools.map(x=>x.d)), dMax=Math.max(...c.schools.map(x=>x.d));
+    // longitude -> x, latitude -> y inverted (north is up)
+    const X = v => M + (v-loMin)/(loMax-loMin||1)*(W-2*M);
+    const Y = v => H-M - (v-laMin)/(laMax-laMin||1)*(H-2*M);
+    const ramp = t => {
+      const stops=[[0,"#2c6b4c"],[.45,"#b99326"],[.75,"#c2662f"],[1,"#9a362a"]];
+      for(let i=1;i<stops.length;i++){
+        if(t<=stops[i][0]){
+          const [a,ca]=stops[i-1],[b,cb]=stops[i];
+          const k=(t-a)/((b-a)||1);
+          const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+          const A=hex(ca),B=hex(cb);
+          return `rgb(${A.map((v,j)=>Math.round(v+(B[j]-v)*k)).join(",")})`;
+        }
+      } return stops[stops.length-1][1];
+    };
+    const pts = c.schools.map(x=>{
+      const t=(x.d-dMin)/((dMax-dMin)||1);
+      return `<circle cx="${X(x.lo).toFixed(1)}" cy="${Y(x.la).toFixed(1)}" r="3.4"
+        fill="${ramp(t)}" fill-opacity=".82" stroke="#fff" stroke-width=".5">
+        <title>${x.n.replace(/[<>&"]/g,"")}
+PM2.5 ${x.pm} µg/m³ · CPCB ${x.b}
+day dose ${x.d} µg·h${x.x?"\ngames blocked by the protocol":""}</title></circle>`;
+    }).join("");
+    const legend = [0,.25,.5,.75,1].map((t,i)=>
+      `<rect x="${M+i*26}" y="${H-18}" width="26" height="9" fill="${ramp(t)}"/>`).join("");
+    $("citymap").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Every mapped school in Delhi, coloured by a child's inhaled dose today">
+      <rect x="0" y="0" width="${W}" height="${H}" fill="#fbfcfb"/>
+      ${pts}${legend}
+      <text x="${M}" y="${H-22}" font-size="10" fill="#73847a">${fmt(dMin)} µg·h</text>
+      <text x="${M+130}" y="${H-22}" font-size="10" fill="#73847a">${fmt(dMax)} µg·h per child, today</text>
+    </svg>
+    <div class="legend"><span>Each point is one real school. Hover for its name and
+      dose. Values are interpolated from a ~40 km global model grid, so schools close
+      together can share a reading. ${s.attribution}</span></div>`;
+
+    const list = (rows,title) => `<div class="card"><h3>${title}</h3>` +
+      rows.map(r=>`<div class="kv"><span>${r.name.slice(0,34)}</span>
+        <b>${fmt(r.dose)} µg·h<span class="sub">${fmt(r.pm)} µg/m³ · ${r.band}</span></b></div>`).join("") +
+      `</div>`;
+    $("citylists").innerHTML = `<div class="cards">
+      ${list(c.worst.slice(0,5),"Worst air today")}
+      ${list(c.best,"Cleanest air today")}</div>`;
+  }catch(e){ $("citymap").innerHTML = `<p class="muted warn">city view unavailable: ${e.message}</p>`; }
+}
+
+/* ---------- forecast-error stability ---------- */
+async function loadStability(){
+  try{
+    const st = await get("/api/stability");
+    $("stabstats").innerHTML = `
+      <div class="stat"><b>${st.stable}/${st.total}</b><span>decisions unchanged across
+        the whole ±40% error band</span></div>
+      <div class="stat"><b>${st.marginal.length}</b><span>flagged <i>marginal</i> —
+        close enough to a threshold that the call could go either way</span></div>
+      <div class="stat hero"><b>all</b><span>games-period calls hold across the band —
+        the decision carrying triple the dose is the most robust one</span></div>`;
+    const rows = st.calls.map(c=>`<tr>
+      <td><b>${c.cohort}</b></td><td>${c.activity}</td>
+      <td class="verdict ${VCLASS[c.verdict]||"inside"}">${c.verdict}</td>
+      <td>${c.stable
+        ? '<span style="color:var(--ok);font-weight:600">holds</span>'
+        : `<span style="color:var(--moved);font-weight:600">marginal</span>`}</td>
+      <td class="sub" style="display:table-cell">${c.margin}</td></tr>`).join("");
+    $("stability").innerHTML = `<table><thead><tr><th>Class</th><th>Period</th>
+      <th>Decision</th><th>Under ±40% error</th><th>Margin</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+  }catch(e){ $("stability").innerHTML = `<p class="muted warn">stability unavailable</p>`; }
+}
+
 /* ---------- cloud ---------- */
 async function loadCloud(){
   const c = await get("/api/cloud");
@@ -596,6 +715,8 @@ $("btn-ask").onclick = async () => {
     await loadChart();
     await loadReplay("recent");
     await loadCloud();
+    loadCity();
+    loadStability();
   }catch(e){
     console.error(e);
     document.querySelector(".wrap").insertAdjacentHTML("afterbegin",

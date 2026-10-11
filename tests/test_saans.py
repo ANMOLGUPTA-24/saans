@@ -440,3 +440,76 @@ def test_live_sources_return_hours_for_the_school():
     s = fetch(LATITUDE, LONGITUDE, forecast_days=1, past_days=1)
     assert s.hours
     assert any(h.pm2_5 is not None for h in s.hours)
+
+
+# --- decision stability under forecast error ------------------------------
+
+
+def test_a_clean_day_is_stable_whatever_the_forecast_error():
+    """20 ug/m3 +40% is still 28: nothing should flip."""
+    from saans.stability import analyse
+
+    st = analyse(flat(20.0), DAY)
+    assert st.total
+    assert st.stable == st.total
+    assert st.marginal == []
+
+
+def test_a_decision_on_a_threshold_is_reported_as_marginal():
+    """61 ug/m3 sits one unit over P3's NAAQS threshold of 60."""
+    from saans.stability import analyse
+
+    st = analyse(flat(61.0), DAY)
+    assert st.marginal, "a call this close to a threshold must not read as certain"
+    assert all(m.flips_at is not None for m in st.marginal)
+
+
+def test_the_games_period_is_the_most_robust_decision():
+    """The call that matters most carries 3x the dose, so it should be the
+    last one to flip, not the first."""
+    from saans.stability import analyse
+
+    st = analyse(flat(85.0), DAY)
+    games = [c for c in st.calls if c.activity == "games"]
+    assert games
+    assert all(c.stable for c in games)
+
+
+def test_scaling_changes_concentration_and_nothing_else():
+    from saans.stability import scale
+
+    s = flat(100.0, mixing=700.0)
+    up = scale(s, 0.25)
+    assert up.hours[0].pm2_5 == pytest.approx(125.0)
+    assert up.hours[0].mixing_height_m == 700.0
+    assert len(up.hours) == len(s.hours)
+
+
+def test_scaling_never_produces_negative_concentration():
+    from saans.stability import scale
+
+    assert scale(flat(10.0), -2.0).hours[0].pm2_5 == 0.0
+
+
+# --- the city -------------------------------------------------------------
+
+
+def test_the_school_dataset_is_real_and_attributed():
+    from saans.city import load_schools
+
+    schools, attribution = load_schools()
+    assert len(schools) > 800
+    assert "OpenStreetMap" in attribution and "ODbL" in attribution
+    for s in schools[:50]:
+        assert s["name"].strip()
+        assert 28.3 < s["lat"] < 29.0, "inside the Delhi bounding box"
+        assert 76.8 < s["lon"] < 77.4
+        assert s["osm_id"]
+
+
+def test_school_coordinates_are_unique_enough_to_be_real_places():
+    from saans.city import load_schools
+
+    schools, _ = load_schools()
+    coords = {(s["lat"], s["lon"]) for s in schools}
+    assert len(coords) > 0.9 * len(schools), "near-duplicate rows suggest bad dedup"

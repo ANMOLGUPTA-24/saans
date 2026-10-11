@@ -20,7 +20,9 @@ from . import exposure as ex
 from . import policy as P
 from .decide import decide
 from .notice import render
+from .city import picture
 from .replay import replay
+from .stability import analyse
 from .school import (
     COHORTS,
     LATITUDE,
@@ -187,6 +189,45 @@ def api_replay(window: str = "recent"):
             for o in r.days
         ],
     }
+
+
+@app.get("/api/city")
+def city(limit: int | None = None):
+    """The same protocol, run across every mapped school in Delhi."""
+    try:
+        p = picture(limit=limit)
+    except Exception as e:
+        raise HTTPException(503, f"city picture unavailable: {type(e).__name__}: {e}")
+    return {
+        "summary": p.summary(),
+        "schools": [
+            {
+                "n": s.name,
+                "la": s.lat,
+                "lo": s.lon,
+                "pm": s.peak_pm25,
+                "d": s.day_dose,
+                "b": s.cpcb_band,
+                "x": not s.games_allowed,
+            }
+            for s in p.schools
+        ],
+        "worst": [
+            {"name": s.name, "pm": s.peak_pm25, "dose": s.day_dose, "band": s.cpcb_band}
+            for s in p.worst
+        ],
+        "best": [
+            {"name": s.name, "pm": s.peak_pm25, "dose": s.day_dose, "band": s.cpcb_band}
+            for s in p.best[:5]
+        ],
+    }
+
+
+@app.get("/api/stability")
+def stability(day: str | None = None):
+    """How wrong the forecast can be before today's decisions change."""
+    s = _series(14)
+    return analyse(s, _target_day(s, day)).to_json()
 
 
 @app.get("/api/cloud")

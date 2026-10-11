@@ -31,6 +31,7 @@ from .school import (
     TOTAL_ON_REGISTER,
 )
 from .sources import fetch, fetch_range
+from .stability import analyse
 
 OUT = Path(__file__).resolve().parent.parent / "data" / "snapshot.json"
 NOVEMBER = ("2025-11-03", "2025-11-14")
@@ -91,6 +92,7 @@ def build(include_city: bool = True) -> dict:
             for h in series.day_hours(today)
         ],
         "safest": ex.safest_window(series, today, length_h=1),
+        "stability": analyse(series, today).to_json(),
         "data_source": series.source,
         "replay": {
             "recent": _replay_json(recent, "the last fortnight at this school"),
